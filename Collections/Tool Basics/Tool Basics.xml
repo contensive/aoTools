@@ -6,7 +6,7 @@
 		<Copy></Copy>
 		<CopyText></CopyText>
 		<!-- deprecated --><ActiveXProgramID></ActiveXProgramID>
-		<DotNetClass><![CDATA[Contensive.Processor.Addons.Tools.CacheToolClass]]></DotNetClass>
+		<DotNetClass><![CDATA[Contensive.Addons.Tools.CacheToolClass]]></DotNetClass>
 		<ArgumentList></ArgumentList>
 		<instanceSettingPrimaryContentId></instanceSettingPrimaryContentId>
 		<AsAjax>No</AsAjax>
