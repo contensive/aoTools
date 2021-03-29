@@ -1,6 +1,9 @@
 ﻿
 namespace Contensive.Addons.Tools {
     public static class Constants {
+        //
+        // -- guid of sample record
+        public const string guidAddonMockLayout = "{826BE30A-72A4-49DA-86F1-B744DC896A15}";
         // 
         // -- sample
         public const int version = 1;

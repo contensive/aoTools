@@ -73,6 +73,9 @@
     <Reference Include="CPBase, Version=4.1.2.0, Culture=neutral, PublicKeyToken=10b3c53389b845fb, processorArchitecture=MSIL">
       <HintPath>packages\Contensive.CPBaseClass.20.12.6.18\lib\net45\CPBase.dll</HintPath>
     </Reference>
+    <Reference Include="DesignBlockBase, Version=20.10.5.2, Culture=neutral, PublicKeyToken=81704b61c3d18a5b, processorArchitecture=MSIL">
+      <HintPath>packages\Contensive.DesignBlockBase.20.10.5.2\lib\net472\DesignBlockBase.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -84,9 +87,13 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Addons\AddonMockClass.cs" />
     <Compile Include="Addons\CacheToolClass.cs" />
     <Compile Include="constants.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
@@ -94,10 +101,11 @@
     <Compile Include="Controllers\DesignBlockController.cs" />
     <Compile Include="Models\Db\DesignBlockBaseModel.cs" />
     <Compile Include="Models\Db\DesignBlockThemeModel.cs" />
-    <Compile Include="Models\Db\DesignBlockFontModel.cs" />
+    <Compile Include="Models\Db\AddonMockDataModel.cs" />
     <Compile Include="Models\Domain\BaseDomainModel.cs" />
     <Compile Include="Models\Domain\_BlankDomainModel.cs" />
     <Compile Include="Models\Db\SampleModel.cs" />
+    <Compile Include="Models\View\AddonMockViewModel.cs" />
     <Compile Include="Models\View\SampleViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -23,9 +23,10 @@ namespace Contensive.Addons.Tools {
         /// <returns></returns>
         public override object Execute(CPBaseClass cp) {
             try {
-                var form = new PortalFramework.ToolSimpleClass();
-                form.title = "Cache Tool";
-                form.description = "Use this tool to get/store/invalidate the application's cache.";
+                var form = new PortalFramework.ToolSimpleClass {
+                    title = "Cache Tool",
+                    description = "Use this tool to get/store/invalidate the application's cache."
+                };
                 //
                 string cacheKey = cp.Doc.GetText("cacheKey");
                 string cacheValue = cp.Doc.GetText("cacheValue");

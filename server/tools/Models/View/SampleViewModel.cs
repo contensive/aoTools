@@ -1,8 +1,8 @@
 ﻿
 using Contensive.Addons.Tools.Controllers;
 using Contensive.Addons.Tools.Models.Db;
-using Contensive.Addons.Tools.Models.View;
 using Contensive.BaseClasses;
+using Contensive.DesignBlockBase.Models.View;
 using System;
 
 namespace Models.View {
@@ -36,7 +36,7 @@ namespace Models.View {
                 var result = create<SampleViewModel>(cp, settings);
                 // 
                 // -- custom
-                result.imageUrl = string.IsNullOrEmpty(settings.imageFilename) ? "" : (cp.Site.FilePath + settings.imageFilename).Replace(" ", "%20");
+                result.imageUrl = string.IsNullOrEmpty(settings.imageFilename) ? "" : (cp.Http.CdnFilePathPrefixAbsolute + settings.imageFilename).Replace(" ", "%20");
                 result.styleAspectRatio = DesignBlockController.getAspectRationStyle(settings.imageAspectRatioId);
                 result.manageAspectRatio = !string.IsNullOrEmpty(result.styleAspectRatio);
                 // 

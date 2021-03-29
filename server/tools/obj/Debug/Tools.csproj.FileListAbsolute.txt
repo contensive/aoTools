@@ -21,11 +21,13 @@ C:\Git\aoTools\server\tools\bin\Debug\Tools.dll
 C:\Git\aoTools\server\tools\bin\Debug\Tools.pdb
 C:\Git\aoTools\server\tools\bin\Debug\ContensiveDbModels.dll
 C:\Git\aoTools\server\tools\bin\Debug\CPBase.dll
+C:\Git\aoTools\server\tools\bin\Debug\DesignBlockBase.dll
 C:\Git\aoTools\server\tools\bin\Debug\Newtonsoft.Json.dll
 C:\Git\aoTools\server\tools\bin\Debug\Nustache.Core.dll
 C:\Git\aoTools\server\tools\bin\Debug\PortalFramework.dll
 C:\Git\aoTools\server\tools\bin\Debug\ContensiveDbModels.xml
 C:\Git\aoTools\server\tools\bin\Debug\CPBase.xml
+C:\Git\aoTools\server\tools\bin\Debug\DesignBlockBase.xml
 C:\Git\aoTools\server\tools\bin\Debug\Newtonsoft.Json.xml
 C:\Git\aoTools\server\tools\obj\Debug\Contensive.Addons.Tools.Properties.Resources.resources
 C:\Git\aoTools\server\tools\obj\Debug\Tools.csproj.GenerateResource.cache

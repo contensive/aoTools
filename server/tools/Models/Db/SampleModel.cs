@@ -5,7 +5,7 @@ using System;
 
 namespace Contensive.Addons.Tools {
     namespace Models.Db {
-        public class SampleModel : DesignBlockBaseModel {
+        public class SampleModel : Contensive.DesignBlockBase.Models.Db.SettingsBaseModel {
             /// <summary>
             /// table definition
             /// </summary>
@@ -47,10 +47,9 @@ namespace Contensive.Addons.Tools {
                 if ((result == null)) {
                     // 
                     // -- create default content
-                    result = DesignBlockBaseModel.addDefault<SampleModel>(cp);
+                    result = addDefault<SampleModel>(cp);
                     result.name = tableMetadata.contentName + " " + result.id;
                     result.ccguid = settingsGuid;
-                    result.fontStyleId = 0;
                     result.themeStyleId = 0;
                     result.padTop = false;
                     result.padBottom = false;
