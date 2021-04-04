@@ -77,7 +77,7 @@
 		<OnBodyEnd>No</OnBodyEnd>
 		<RemoteMethod>No</RemoteMethod>
 		<Diagnostic>No</Diagnostic>
-		<category></category>
+		<category>Extras.Tools</category>
 		<ProcessRunOnce>No</ProcessRunOnce>
 		<ProcessInterval>0</ProcessInterval>
 		<MetaDescription></MetaDescription>
