@@ -45,7 +45,7 @@
 		<styleslinkhref></styleslinkhref>
 		<Scripting Language="VBScript" EntryPoint="" Timeout="5000"/>
 	</Addon>
-	<Addon name="Add-on Mock" guid="{0b1eea83-8cb3-40d4-8b27-e24e5afb5041}" type="Tool">
+	<Addon name="Add-on Mock" guid="{0b1eea83-8cb3-40d4-8b27-e24e5afb5041}" type="add-on">
 		<Copy></Copy>
 		<CopyText></CopyText>
 		<DotNetClass><![CDATA[Contensive.Addons.Tools.AddonMockClass]]></DotNetClass>
