@@ -35,4 +35,4 @@ C:\Git\aoTools\server\tools\obj\Debug\Tools.csproj.CoreCompileInputs.cache
 C:\Git\aoTools\server\tools\obj\Debug\Tools.csproj.CopyComplete
 C:\Git\aoTools\server\tools\obj\Debug\Tools.dll
 C:\Git\aoTools\server\tools\obj\Debug\Tools.pdb
-C:\Git\aoTools\server\tools\obj\Debug\tools.csprojAssemblyReference.cache
+C:\Git\aoTools\server\tools\obj\Debug\Tools.csproj.AssemblyReference.cache

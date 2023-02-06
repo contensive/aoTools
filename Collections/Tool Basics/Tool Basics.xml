@@ -2,6 +2,24 @@
 <Collection name="Tool Basics" guid="{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}" system="No" updatable="Yes" blockNavigatorNode="No" onInstallAddonGuid="">
 	<HelpLink></HelpLink>
 	<Help></Help>
+	<Addon name="Page Review" guid="{6A54A051-6CF6-4D8C-823D-C37741DD072A}" type="Tool">
+		<DotNetClass><![CDATA[Contensive.Addons.Tools.PageReviewToolClass]]></DotNetClass>
+		<Category></Category>
+		<Admin>Yes</Admin>
+		<Content>No</Content>
+		<Template>No</Template>
+		<Email>No</Email>
+		<RemoteMethod>No</RemoteMethod>
+		<IsInline>No</IsInline>
+		<BlockEditTools>Yes</BlockEditTools>
+		<Diagnostic>No</Diagnostic>
+		<ArgumentList> </ArgumentList>
+		<Styles> </Styles>
+		<Scripting Language="VBScript" EntryPoint="" Timeout="5000">
+		<Code> </Code>
+		</Scripting>
+		<ActiveXProgramID></ActiveXProgramID>
+	</Addon>
 	<Addon name="Cache Tool" guid="{7B5B8150-62BE-40F4-A66A-7CC74D99BA76}" type="Tool">
 		<Copy></Copy>
 		<CopyText></CopyText>

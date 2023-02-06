@@ -9,7 +9,6 @@ rem
 c:
 cd \Git\aoTools\scripts
 
-set appName=app200509
 set collectionName=Tool Basics
 set collectionPath=..\collections\Tool Basics\
 set solutionName=tools.sln

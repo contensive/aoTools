@@ -24,22 +24,21 @@ namespace Contensive.Addons.Tools {
                 try {
                     // 
                     // -- optional application object helper for aside cache, etc.
-                    using (Controllers.ApplicationController ae = new Controllers.ApplicationController(cp)) {
-                        // 
-                        // -- get an object from the UI (javascript object stringified)
-                        // -- first inject the fake data to simpulate UI input, then read it
-                        SampleRequestObject objectValueFromUI = DeserializeObject<SampleRequestObject>(cp.Doc.GetText("objectValueFromUI"));
-                        // 
-                        // -- create sample data
-                        List<PersonModel> personList = DbBaseModel.createList<PersonModel>(cp);
-                        // 
-                        // -- add sample data to a node
-                        ae.responseNodeList.Add(new Controllers.ResponseNodeClass() {
-                            dataFor = "nameOfThisDataForUIToRecognize",
-                            data = personList
-                        });
-                        return ae.getResponse();
-                    }
+                    using Controllers.ApplicationController ae = new(cp);
+                    // 
+                    // -- get an object from the UI (javascript object stringified)
+                    // -- first inject the fake data to simpulate UI input, then read it
+                    SampleRequestObject objectValueFromUI = DeserializeObject<SampleRequestObject>(cp.Doc.GetText("objectValueFromUI"));
+                    // 
+                    // -- create sample data
+                    List<PersonModel> personList = DbBaseModel.createList<PersonModel>(cp);
+                    // 
+                    // -- add sample data to a node
+                    ae.responseNodeList.Add(new Controllers.ResponseNodeClass() {
+                        dataFor = "nameOfThisDataForUIToRecognize",
+                        data = personList
+                    });
+                    return ae.getResponse();
                 } catch (UnauthorizedAccessException) {
                     return Controllers.ApplicationController.getResponseUnauthorized(cp);
                 } catch (Exception ex) {

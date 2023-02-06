@@ -1,6 +1,8 @@
 
 rem build and deliver to deployment folder
 
+set appName=menucrm0210
+
 call build.cmd
 
 rem upload to contensive application
