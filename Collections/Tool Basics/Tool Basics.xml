@@ -63,6 +63,7 @@
 		<styleslinkhref></styleslinkhref>
 		<Scripting Language="VBScript" EntryPoint="" Timeout="5000"/>
 	</Addon>
+	<!-- moved to design blocks
 	<Addon name="Add-on Mock" guid="{0b1eea83-8cb3-40d4-8b27-e24e5afb5041}" type="add-on">
 		<Copy></Copy>
 		<CopyText></CopyText>
@@ -82,9 +83,6 @@
 		<JavascriptInHead></JavascriptInHead>
 		<javascriptForceHead>No</javascriptForceHead>
 		<JSHeadScriptSrc></JSHeadScriptSrc>
-		<!-- deprecated --><JSBodyScriptSrc></JSBodyScriptSrc>
-		<!-- deprecated --><JavascriptBodyEnd></JavascriptBodyEnd>
-		<!-- deprecated --><JavascriptOnLoad></JavascriptOnLoad>
 		<Content>Yes</Content>
 		<Template>Yes</Template>
 		<Email>No</Email>
@@ -106,6 +104,7 @@
 		<styleslinkhref></styleslinkhref>
 		<Scripting Language="" EntryPoint="" Timeout="5000"/>
 	</Addon>
+	-->
 	<data>
 		<record content="Add-on Collection CDef Rules" guid="{ff0190b7-bde0-4d93-b406-f4fb49724f90}" name="">
 			<field name="name"></field>
@@ -121,6 +120,7 @@
 			<field name="collectionid">{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}</field>
 		</record>
 	</data>
+	<!-- moved to design blocks
 	<CDef Name="Add-on Mock Data" Active="1" AdminOnly="0" AllowAdd="1" AllowCalendarEvents="0" AllowContentChildTool="0" AllowContentTracking="0" AllowDelete="1" AllowMetaContent="" AllowTopicRules="0" AllowWorkflowAuthoring="0" AuthoringDataSourceName="Default" AuthoringTableName="ccAddonMockData" ContentDataSourceName="Default" ContentTableName="ccAddonMockData" DefaultSortMethod="By Name" DeveloperOnly="0" DropDownFieldList="Name" EditorGroupName="" Parent="" IconLink="" IconHeight="0" IconWidth="0" IconSprites="0" isbasecontent="0" guid="{5ed28143-2c5c-42cd-8c21-f3caa14a37f7}" >
 		<Field Name="name" Caption="Name" EditTab="" FieldType="Text" Authorable="True" EditSortPriority="1000" DefaultValue="" active="True" AdminOnly="False" DeveloperOnly="False" HTMLContent="False" Required="False" TextBuffered="False" UniqueName="False" RSSTitle="False" RSSDescription="False" MemberSelectGroup="" Scramble="False" LookupList="" NotEditable="False" Password="False" ReadOnly="False" ManyToManyRulePrimaryField="" ManyToManyRuleSecondaryField="" IsModified="False" IndexColumn="0" IndexSortDirection="" IndexSortOrder="0" IndexWidth="" RedirectID="" RedirectPath="" IsBaseField="False" LookupContent="" RedirectContent="" ManyToManyContent="" ManyToManyRuleContent="" >
 			<HelpDefault><![CDATA[An 'Add-on Mock' simulates an Add-on's output data and merges it with a layout. This record holds the data and selected layout. To mock an add-on, use Page Builder to drop the 'Add-on Mock' on a page, edit this record to simulate an add-ons data and layout.]]></HelpDefault>
@@ -159,4 +159,5 @@
 			<HelpDefault><![CDATA[deprecated]]></HelpDefault>
 		</Field>
 	</CDef>
+	-->
 </Collection>
