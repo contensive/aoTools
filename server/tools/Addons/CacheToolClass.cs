@@ -23,11 +23,15 @@ namespace Contensive.Addons.Tools {
         /// <returns></returns>
         public override object Execute(CPBaseClass cp) {
             try {
-                var form = new PortalFramework.LayoutBuilderSimple {
-                    title = "Cache Tool",
-                    description = "Use this tool to get/store/invalidate the application's cache.",
-                    isOuterContainer = true
-                };
+                var form = cp.AdminUI.CreateLayoutBuilder();
+                form.title = "Cache Tool";
+                form.description = "Use this tool to get/store/invalidate the application's cache.";
+                form.isOuterContainer = true;
+                //var form = new PortalFramework.LayoutBuilderSimple {
+                //    title = "Cache Tool",
+                //    description = "Use this tool to get/store/invalidate the application's cache.",
+                //    isOuterContainer = true
+                //};
                 //
                 string cacheKey = cp.Doc.GetText("cacheKey");
                 string cacheValue = cp.Doc.GetText("cacheValue");
@@ -43,7 +47,7 @@ namespace Contensive.Addons.Tools {
                         formBody.Append("<div>" + DateTime.Now.ToString() + " NULL returned</div>");
                     } else {
                         try {
-                            cacheValue = Newtonsoft.Json.JsonConvert.SerializeObject(resultObj);
+                            cacheValue = cp.JSON.Serialize(resultObj);
                             formBody.Append("<div>" + DateTime.Now.ToString() + "CacheValue object returned, json serialized, length [" + cacheValue.Length + "]</div>");
                         } catch (Exception ex) {
                             formBody.Append("<div>" + DateTime.Now.ToString() + " exception during serialization, ex [" + ex + "]</div>");

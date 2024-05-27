@@ -18,7 +18,6 @@
 		<Scripting Language="VBScript" EntryPoint="" Timeout="5000">
 		<Code> </Code>
 		</Scripting>
-		<ActiveXProgramID></ActiveXProgramID>
 	</Addon>
 	<Addon name="Cache Tool" guid="{7B5B8150-62BE-40F4-A66A-7CC74D99BA76}" type="Tool">
 		<Copy></Copy>

@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using static Contensive.Addons.Tools.Constants;
-using static Newtonsoft.Json.JsonConvert;
 
 namespace Contensive.Addons.Tools {
     namespace Views {
@@ -28,7 +27,7 @@ namespace Contensive.Addons.Tools {
                     // 
                     // -- get an object from the UI (javascript object stringified)
                     // -- first inject the fake data to simpulate UI input, then read it
-                    SampleRequestObject objectValueFromUI = DeserializeObject<SampleRequestObject>(cp.Doc.GetText("objectValueFromUI"));
+                    SampleRequestObject objectValueFromUI = cp.JSON.Deserialize<SampleRequestObject>(cp.Doc.GetText("objectValueFromUI"));
                     // 
                     // -- create sample data
                     List<PersonModel> personList = DbBaseModel.createList<PersonModel>(cp);

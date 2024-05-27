@@ -3,7 +3,6 @@ using Contensive.BaseClasses;
 using System;
 using System.Collections.Generic;
 using static Contensive.Addons.Tools.Constants;
-using static Newtonsoft.Json.JsonConvert;
 
 namespace Contensive.Addons.Tools {
     namespace Controllers {
@@ -64,7 +63,7 @@ namespace Contensive.Addons.Tools {
             /// <returns></returns>
             public string getResponse() {
                 try {
-                    return SerializeObject(new ResponseClass() {
+                    return cp.JSON.Serialize(new ResponseClass() {
                         success = responseErrorList.Count.Equals(0),
                         nodeList = responseNodeList,
                         errorList = responseErrorList,

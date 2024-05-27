@@ -4,6 +4,8 @@ using Contensive.BaseClasses;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
+using System.Xml.XPath;
 //
 namespace Contensive.Addons.Tools {
     /// <summary>
@@ -21,11 +23,10 @@ namespace Contensive.Addons.Tools {
         /// <returns></returns>
         public override object Execute(CPBaseClass cp) {
             try {
-                var form = new PortalFramework.ReportListClass {
-                    title = "Page Review Tool",
-                    description = "Review pages not reviewed in 90 days.",
-                    isOuterContainer = true
-                };
+                var form = cp.AdminUI.CreateLayoutBuilderList();
+                form.title = "Page Review Tool";
+                form.description = "Review pages not reviewed in 90 days.";
+                form.isOuterContainer = true;
                 //
                 int cnt = cp.Doc.GetInteger("rows per page");
                 int age = cp.Doc.GetInteger("Review after this many days");
@@ -38,7 +39,7 @@ namespace Contensive.Addons.Tools {
                 }
                 //
                 // Display form
-                form.addColumn(new PortalFramework.ReportListColumnClass {
+                form.addColumn(new BaseClasses.LayoutBuilder.ReportListColumnBaseClass {
                     caption = "Review Age",
                     captionClass = "",
                     cellClass = "",
@@ -48,7 +49,7 @@ namespace Contensive.Addons.Tools {
                     sortable = false,
                     visible = true
                 });
-                form.addColumn(new PortalFramework.ReportListColumnClass {
+                form.addColumn(new BaseClasses.LayoutBuilder.ReportListColumnBaseClass {
                     caption = "Date Reviewed",
                     captionClass = "",
                     cellClass = "",
@@ -58,7 +59,7 @@ namespace Contensive.Addons.Tools {
                     sortable = false,
                     visible = true
                 });
-                form.addColumn(new PortalFramework.ReportListColumnClass {
+                form.addColumn(new BaseClasses.LayoutBuilder.ReportListColumnBaseClass {
                     caption = "Edit",
                     captionClass = "",
                     cellClass = "",
@@ -68,7 +69,7 @@ namespace Contensive.Addons.Tools {
                     sortable = false,
                     visible = true
                 });
-                form.addColumn(new PortalFramework.ReportListColumnClass {
+                form.addColumn(new BaseClasses.LayoutBuilder.ReportListColumnBaseClass {
                     caption = "Public Url",
                     captionClass = "",
                     cellClass = "",

@@ -35,7 +35,7 @@ namespace Contensive.Addons.Tools {
                     var viewModel = SampleViewModel.create(CP, settings);
                     if ((viewModel == null))
                         throw new ApplicationException("Could not create design block view model.");
-                    result = Nustache.Core.Render.StringToString(Properties.Resources.SampleLayout, viewModel);
+                    result = CP.Mustache.Render(Properties.Resources.SampleLayout, viewModel);
                     // 
                     // -- if editing enabled, add the link and wrapperwrapper
                     return CP.Content.GetEditWrapper(result, SampleModel.tableMetadata.contentName, settings.id);
