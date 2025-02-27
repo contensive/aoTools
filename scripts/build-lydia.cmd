@@ -1,7 +1,7 @@
 
 rem build and deliver to deployment folder
 
-set appName=ecommercetest
+set appName=lydiakidwell
 
 call build.cmd
 

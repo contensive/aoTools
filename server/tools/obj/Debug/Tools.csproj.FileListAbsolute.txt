@@ -28,7 +28,7 @@ C:\Git\aoTools\server\tools\bin\Debug\DesignBlockBase.xml
 C:\Git\aoTools\server\tools\obj\Debug\Contensive.Addons.Tools.Properties.Resources.resources
 C:\Git\aoTools\server\tools\obj\Debug\Tools.csproj.GenerateResource.cache
 C:\Git\aoTools\server\tools\obj\Debug\Tools.csproj.CoreCompileInputs.cache
-C:\Git\aoTools\server\tools\obj\Debug\Tools.csproj.CopyComplete
 C:\Git\aoTools\server\tools\obj\Debug\Tools.dll
 C:\Git\aoTools\server\tools\obj\Debug\Tools.pdb
 C:\Git\aoTools\server\tools\obj\Debug\tools.csproj.AssemblyReference.cache
+C:\Git\aoTools\server\tools\obj\Debug\Tools.csproj.Up2Date

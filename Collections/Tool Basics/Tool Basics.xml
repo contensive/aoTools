@@ -2,6 +2,11 @@
 <Collection name="Tool Basics" guid="{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}" system="No" updatable="Yes" blockNavigatorNode="No" onInstallAddonGuid="">
 	<HelpLink></HelpLink>
 	<Help></Help>
+	<Addon name="Create Sql Server Foreign Keys" guid="{F1CA5E78-CC6B-4E9D-BE5D-0B37C5B2E075}" type="Tool">
+		<DotNetClass><![CDATA[Contensive.Addons.Tools.CreateSqlForeignKeys]]></DotNetClass>
+		<Admin>Yes</Admin>
+		<BlockEditTools>Yes</BlockEditTools>
+	</Addon>
 	<Addon name="Page Review" guid="{6A54A051-6CF6-4D8C-823D-C37741DD072A}" type="Tool">
 		<DotNetClass><![CDATA[Contensive.Addons.Tools.PageReviewToolClass]]></DotNetClass>
 		<Category></Category>
