@@ -87,7 +87,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addons\AddonMockClass.cs" />
-    <Compile Include="Addons\CreateSqlForeignKeys.cs" />
+    <Compile Include="Addons\SqlSchemaTool.cs" />
+    <Compile Include="Addons\CreateSqlForeignKeysTool.cs" />
     <Compile Include="Addons\PageReviewToolClass.cs" />
     <Compile Include="Addons\CacheToolClass.cs" />
     <Compile Include="constants.cs" />

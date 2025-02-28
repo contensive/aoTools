@@ -8,7 +8,7 @@ namespace Contensive.Addons.Tools {
     /// <summary>
     /// Basic Cache Tool
     /// </summary>
-    public class CreateSqlForeignKeys : Contensive.BaseClasses.AddonBaseClass {
+    public class CreateSqlForeignKeysTool : Contensive.BaseClasses.AddonBaseClass {
         //
         //====================================================================================================
         /// <summary>
@@ -25,7 +25,6 @@ namespace Contensive.Addons.Tools {
                 if (cp.Request.GetText("button") == "Create Foreign Keys") {
                     //
                     form.body = "Adding Foreign Keys to all lookup fields";
-                    bool exitFlag = false;
                     foreach (var content in DbBaseModel.createList<ContentModel>(cp, "(active<>0)")) {
                         var table = DbBaseModel.create<TableModel>(cp, content.contentTableId);
                         if (table is null) { continue; }
@@ -33,7 +32,6 @@ namespace Contensive.Addons.Tools {
                             if (field.type == 7) {
                                 //
                                 // -- lookup field
-
                                 var foreignContent = DbBaseModel.create<ContentModel>(cp, field.lookupContentId);
                                 if (foreignContent is null) { continue; }
                                 //
@@ -44,15 +42,13 @@ namespace Contensive.Addons.Tools {
                                 form.body += $"<br>Add foreignkey constraint between foreignKey {content.name}.{field.name} and {foreignTable}.id";
                                 //
                                 try {
-                                    cp.Db.ExecuteNonQuery($"ALTER TABLE {table.name} ADD CONSTRAINT FK_{table.name}_{field.name}_{foreignTable.name} FOREIGN KEY ({field.name}) REFERENCES {foreignTable.name}(ID)");
-                                    exitFlag = true;
+                                    cp.Db.ExecuteNonQuery($"ALTER TABLE {table.name} WITH NOCHECK ADD CONSTRAINT FK_{table.name}_{field.name}_{foreignTable.name} FOREIGN KEY ({field.name}) REFERENCES {foreignTable.name}(ID)");
                                     break;
                                 } catch (Exception ex) {
                                     form.body += $", exception {ex.Message}";
                                 }
                             }
                         }
-                        if (exitFlag) { break; }
                     }
                     form.body += "<br>Foreign Keys Created";
                 }
