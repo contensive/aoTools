@@ -7,10 +7,56 @@
 		<Admin>Yes</Admin>
 		<BlockEditTools>Yes</BlockEditTools>
 	</Addon>
+	<Addon name="Invite Users" guid="{AAF9CA71-B9F4-4064-A032-0F8D12701149}" type="Tool">
+		<DotNetClass><![CDATA[Contensive.Addons.Tools.InviteUsersTool]]></DotNetClass>
+		<Admin>Yes</Admin>
+		<BlockEditTools>Yes</BlockEditTools>
+	</Addon>
 	<Addon name="Create Sql Server Foreign Keys" guid="{F1CA5E78-CC6B-4E9D-BE5D-0B37C5B2E075}" type="Tool">
 		<DotNetClass><![CDATA[Contensive.Addons.Tools.CreateSqlForeignKeysTool]]></DotNetClass>
 		<Admin>Yes</Admin>
 		<BlockEditTools>Yes</BlockEditTools>
+	</Addon>
+	<Addon name="InviteProfilePage" guid="{2459C93D-8238-4513-9D4A-C092C1DCCC15}" type="Add-on">
+		<DotNetClass><![CDATA[Contensive.Addons.Tools.Views.InviteProfilePage]]></DotNetClass>
+		<Category></Category>
+		<Admin>No</Admin>
+		<Content>No</Content>
+		<Template>No</Template>
+		<Email>No</Email>
+		<RemoteMethod>Yes</RemoteMethod>
+		<IsInline>No</IsInline>
+		<BlockEditTools>Yes</BlockEditTools>
+		<Diagnostic>No</Diagnostic>
+		<ArgumentList> </ArgumentList>
+		<Styles> </Styles>
+		<Scripting Language="VBScript" EntryPoint="" Timeout="5000">
+		<Code> </Code>
+		</Scripting>
+		<OtherHeadTags><![CDATA[      
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer" ></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		]]></OtherHeadTags>
+		<JSHeadScriptSrc><![CDATA[https://code.jquery.com/jquery-3.2.1.slim.min.js]]></JSHeadScriptSrc>
+		<IncludeAddon name="JQuery" guid="{9C882078-0DAC-48E3-AD4B-CF2AA230DF80}"/>
+		<IncludeAddon name="Bootstrap" guid="{EF1FD66C-D62F-4BD2-BF07-38F47996EBB3}"/>	
+	</Addon>
+	<Addon name="SubmitInviteProfile" guid="" type="Add-on">
+		<DotNetClass><![CDATA[Contensive.Addons.Tools.Addons.SubmitInviteProfile]]></DotNetClass>
+		<Category></Category>
+		<Admin>No</Admin>
+		<Content>No</Content>
+		<Template>No</Template>
+		<Email>No</Email>
+		<RemoteMethod>Yes</RemoteMethod>
+		<IsInline>No</IsInline>
+		<BlockEditTools>Yes</BlockEditTools>
+		<Diagnostic>No</Diagnostic>
+		<ArgumentList> </ArgumentList>
+		<Styles> </Styles>
+		<Scripting Language="VBScript" EntryPoint="" Timeout="5000">
+		<Code> </Code>
+		</Scripting>		
 	</Addon>
 	<Addon name="Page Review" guid="{6A54A051-6CF6-4D8C-823D-C37741DD072A}" type="Tool">
 		<DotNetClass><![CDATA[Contensive.Addons.Tools.PageReviewToolClass]]></DotNetClass>

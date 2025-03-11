@@ -87,10 +87,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addons\AddonMockClass.cs" />
+    <Compile Include="Addons\InviteUsersTool.cs" />
     <Compile Include="Addons\SqlSchemaTool.cs" />
     <Compile Include="Addons\CreateSqlForeignKeysTool.cs" />
     <Compile Include="Addons\PageReviewToolClass.cs" />
     <Compile Include="Addons\CacheToolClass.cs" />
+    <Compile Include="Addons\SubmitInviteProfile.cs" />
     <Compile Include="constants.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\GenericController.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="Models\View\DesignBlockViewBaseModel.cs" />
     <Compile Include="Views\DesignBlockSampleClass.cs" />
     <Compile Include="Views\HelloWorldClass.cs" />
+    <Compile Include="Views\InviteProfilePage.cs" />
     <Compile Include="Views\SampleRemoteClass.cs" />
     <Compile Include="Views\SampleAddonClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

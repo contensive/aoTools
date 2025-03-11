@@ -4,7 +4,13 @@ namespace Contensive.Addons.Tools {
         //
         // -- guid of sample record
         public const string guidAddonMockLayout = "{826BE30A-72A4-49DA-86F1-B744DC896A15}";
-        // 
+        //       
+
+        public const string layoutInviteProfileGuid = "{76731E3C-8FD8-45D5-8F9C-F1265E807777}";
+        public const string layoutInviteProfileName = "Invite Users Form Layout";
+        public const string layoutInviteProfileCdnPathFilename = @"baseAssets\InviteUsersForm.html";
+
+        public const string inviteToolProfilePageEndpoint = "InviteProfilePage";
         // -- sample
         public const int version = 1;
         // 
