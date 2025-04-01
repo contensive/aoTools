@@ -72,7 +72,7 @@
       <HintPath>packages\Contensive.DbModels.23.10.30.5\lib\net472\ContensiveDbModels.dll</HintPath>
     </Reference>
     <Reference Include="CPBase, Version=4.1.2.0, Culture=neutral, PublicKeyToken=10b3c53389b845fb, processorArchitecture=MSIL">
-      <HintPath>packages\Contensive.CPBaseClass.23.12.13.1\lib\net472\CPBase.dll</HintPath>
+      <HintPath>packages\Contensive.CPBaseClass.25.3.30.1\lib\net472\CPBase.dll</HintPath>
     </Reference>
     <Reference Include="DesignBlockBase, Version=23.10.6.10, Culture=neutral, PublicKeyToken=81704b61c3d18a5b, processorArchitecture=MSIL">
       <HintPath>packages\Contensive.DesignBlockBase.23.10.6.10\lib\net472\DesignBlockBase.dll</HintPath>

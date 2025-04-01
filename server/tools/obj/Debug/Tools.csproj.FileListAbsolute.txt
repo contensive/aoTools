@@ -32,6 +32,10 @@ C:\Git\aoTools\server\tools\obj\Debug\Tools.dll
 C:\Git\aoTools\server\tools\obj\Debug\Tools.pdb
 C:\Git\aoTools\server\tools\obj\Debug\tools.csproj.AssemblyReference.cache
 C:\Git\aoTools\server\tools\obj\Debug\Tools.csproj.Up2Date
+C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Tools.csproj.AssemblyReference.cache
+C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Contensive.Addons.Tools.Properties.Resources.resources
+C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Tools.csproj.GenerateResource.cache
+C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Tools.csproj.CoreCompileInputs.cache
 C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\bin\Debug\Tools.dll.config
 C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\bin\Debug\Tools.dll
 C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\bin\Debug\Tools.pdb
@@ -41,10 +45,6 @@ C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\bin\Debug\DesignBlockBas
 C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\bin\Debug\ContensiveDbModels.xml
 C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\bin\Debug\CPBase.xml
 C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\bin\Debug\DesignBlockBase.xml
-C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Tools.csproj.AssemblyReference.cache
-C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Contensive.Addons.Tools.Properties.Resources.resources
-C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Tools.csproj.GenerateResource.cache
-C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Tools.csproj.CoreCompileInputs.cache
 C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Tools.csproj.Up2Date
 C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Tools.dll
 C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Tools.pdb

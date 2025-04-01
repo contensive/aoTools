@@ -13,9 +13,11 @@ namespace Contensive.Addons.Tools {
         public override object Execute(CPBaseClass cp) {
             try {
                 var form = cp.AdminUI.CreateLayoutBuilder();
+                
                 form.title = "Invite Users Tool";
                 form.description = "This tool invites users to create a login";
-
+                form.isOuterContainer = true;
+                form.includeForm = true;
                 string inviteUsersList = cp.Doc.GetText("inviteUsersEmailList");
                 bool makeUsersAdmin = cp.Doc.GetBoolean("inviteUsersMakeAdmin");
                 int addUsersToGroup = cp.Doc.GetInteger("inviteUsersAddToGroup");

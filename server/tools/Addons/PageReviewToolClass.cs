@@ -104,7 +104,6 @@ namespace Contensive.Addons.Tools {
                 }
                 //
                 // -- assemble form
-                form.body = formBody.ToString();
                 form.addFormButton(buttonRefresh);
                 return form.getHtml(cp);
             } catch (Exception ex) {

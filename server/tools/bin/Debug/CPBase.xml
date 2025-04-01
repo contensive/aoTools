@@ -1976,14 +1976,14 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPCacheBaseClass.SetKey(System.String,System.Object)">
             <summary>
-            use Store() instead
+            
             </summary>
             <param name="key"></param>
             <param name="Value"></param>
         </member>
         <member name="M:Contensive.BaseClasses.CPCacheBaseClass.SetKey(System.String,System.Object,System.DateTime)">
             <summary>
-            use Store() instead
+            Deprecated. Use Store().
             </summary>
             <param name="key"></param>
             <param name="Value"></param>
@@ -1991,7 +1991,7 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPCacheBaseClass.SetKey(System.String,System.Object,System.Collections.Generic.List{System.String})">
             <summary>
-            use Store() instead
+            Deprecated. Use Store().
             </summary>
             <param name="key"></param>
             <param name="Value"></param>
@@ -1999,7 +1999,7 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPCacheBaseClass.SetKey(System.String,System.Object,System.DateTime,System.Collections.Generic.List{System.String})">
             <summary>
-            use Store() instead
+            Deprecated. Use Store().
             </summary>
             <param name="key"></param>
             <param name="Value"></param>
@@ -2008,7 +2008,7 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPCacheBaseClass.SetKey(System.String,System.Object,System.String)">
             <summary>
-            use Store() instead
+            Deprecated. Use Store().
             </summary>
             <param name="key"></param>
             <param name="Value"></param>
@@ -2016,7 +2016,7 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPCacheBaseClass.SetKey(System.String,System.Object,System.DateTime,System.String)">
             <summary>
-            use Store() instead
+            Deprecated. Use Store().
             </summary>
             <param name="key"></param>
             <param name="Value"></param>
@@ -2161,7 +2161,7 @@
             (string, varchar(255)), holds a path and filename to an xml content file
             </summary>
         </member>
-        <member name="F:Contensive.BaseClasses.CPContentBaseClass.FieldTypeIdEnum.FileJavascript">
+        <member name="F:Contensive.BaseClasses.CPContentBaseClass.FieldTypeIdEnum.FileJavaScript">
             <summary>
             (string, varchar(255)), holds a path and filename to a javascript content file
             </summary>
@@ -2198,7 +2198,7 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetCopy(System.String,System.String)">
             <summary>
-            Get the string from the 'Copy Content' record based on it's name. If the record does not exist it is created with the default value provided.
+            Get the string from the 'Copy Content' record based on its name. If the record does not exist it is created with the default value provided.
             </summary>
             <param name="CopyName"></param>
             <param name="DefaultContent"></param>
@@ -2207,14 +2207,14 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetCopy(System.String)">
             <summary>
-            Get the string from the 'Copy Content' record based on it's name. If the record does not exist it is created with the default value provided.
+            Get the string from the 'Copy Content' record based on its name. If the record does not exist it is created with the default value provided.
             </summary>
             <param name="CopyName"></param>
             <returns></returns>
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetCopy(System.String,System.String,System.Int32)">
             <summary>
-            Get the string from the 'Copy Content' record based on it's name. If the record does not exist it is created with the default value provided.
+            Get the string from the 'Copy Content' record based on its name. If the record does not exist it is created with the default value provided.
             </summary>
             <param name="CopyName"></param>
             <param name="DefaultContent"></param>
@@ -2325,8 +2325,8 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetEditLink(System.String,System.String,System.Boolean,System.String,System.Boolean)">
             <summary>
+            Returns the edit-tab (icon plus caption) that should appear over the region to be edited.
             Use GetEditUrl for simple anchor tag href to the edit page for this record.
-            Get the system edit link, including the design graphic
             </summary>
             <param name="contentName"></param>
             <param name="recordId"></param>
@@ -2338,7 +2338,7 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetEditLink(System.String,System.String,System.Boolean,System.String,System.Boolean,System.String)">
             <summary>
-            Get the system edit link
+            Returns the edit-tab that should appear over the region to be edited.
             </summary>
             <param name="contentName"></param>
             <param name="recordId"></param>
@@ -2450,14 +2450,14 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetEditWrapper(System.String)">
             <summary>
-            wrap content in system editing region style.
+            wrap content in system editing region style without an edit link. This is just the dotted border
             </summary>
             <param name="innerHtml"></param>
             <returns></returns>
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetEditWrapper(System.String,System.String,System.Int32)">
             <summary>
-            wrap content in system editing region style with an edit link.
+            Wrap content in system editing region style and the edit link (edit icon and caption)
             </summary>
             <param name="innerHtml"></param>
             <param name="contentName"></param>
@@ -2466,7 +2466,7 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetEditWrapper(System.String,System.String,System.Int32,System.String)">
             <summary>
-            wrap content in system editing region style with an edit link.
+            Wrap content in system editing region style and the edit link (edit icon and caption)
             </summary>
             <param name="innerHtml"></param>
             <param name="contentName"></param>
@@ -2476,7 +2476,7 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetEditWrapper(System.String,System.String,System.String)">
             <summary>
-            wrap content in system editing region style with an edit link.
+            Wrap content in system editing region style and the edit link (edit icon and caption)
             </summary>
             <param name="innerHtml"></param>
             <param name="contentName"></param>
@@ -2485,7 +2485,7 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetEditWrapper(System.String,System.String,System.String,System.String)">
             <summary>
-            wrap content in system editing region style with an edit link.
+            Wrap content in system editing region style and the edit link (edit icon and caption)
             </summary>
             <param name="innerHtml"></param>
             <param name="contentName"></param>
@@ -2495,7 +2495,7 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetEditWrapper(System.String,System.Int32,System.Int32)">
             <summary>
-            wrap content in system editing region style with an edit link.
+            Wrap content in system editing region style and the edit link (edit icon and caption)
             </summary>
             <param name="innerHtml"></param>
             <param name="contentId"></param>
@@ -2504,7 +2504,7 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetEditWrapper(System.String,System.Int32,System.Int32,System.String)">
             <summary>
-            wrap content in system editing region style with an edit link.
+            Wrap content in system editing region style and the edit link (edit icon and caption)
             </summary>
             <param name="innerHtml"></param>
             <param name="contentId"></param>
@@ -2514,7 +2514,7 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetEditWrapper(System.String,System.Int32,System.String)">
             <summary>
-            wrap content in system editing region style with an edit link.
+            Wrap content in system editing region style and the edit link (edit icon and caption)
             </summary>
             <param name="innerHtml"></param>
             <param name="contentId"></param>
@@ -2523,7 +2523,7 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetEditWrapper(System.String,System.Int32,System.String,System.String)">
             <summary>
-            wrap content in system editing region style with an edit link.
+            Wrap content in system editing region style and the edit link (edit icon and caption)
             </summary>
             <param name="innerHtml"></param>
             <param name="contentId"></param>
@@ -2558,16 +2558,34 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetRecordID(System.String,System.String)">
             <summary>
-            Return a record's ID given it's name. If duplicates exist, the first one ordered by ID is returned.
+            Return a record's ID given its name. If duplicates exist, the first one ordered by ID is returned.
             </summary>
             <param name="ContentName"></param>
             <param name="RecordName"></param>
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetRecordName(System.String,System.String)">
+            <summary>
+            Return a records name given its guid.
+            </summary>
+            <param name="ContentName"></param>
+            <param name="RecordGuid"></param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetRecordName(System.String,System.Int32)">
             <summary>
-            Return a records name given it's ID.
+            Return a records name given its ID.
+            </summary>
+            <param name="ContentName"></param>
+            <param name="RecordID"></param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPContentBaseClass.GetRecordGuid(System.String,System.Int32)">
+            <summary>
+            Return a records guid given its ID.
             </summary>
             <param name="ContentName"></param>
             <param name="RecordID"></param>
@@ -2891,7 +2909,7 @@
             <param name="activeOnly"></param>
             <param name="selectFieldList"></param>
             <param name="pageSize"></param>
-            <param name="pageNumber"></param>
+            <param name="pageNumber">1-based page number</param>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -2961,7 +2979,7 @@
             <param name="sortFieldList"></param>
             <param name="activeOnly"></param>
             <param name="pageSize"></param>
-            <param name="pageNumber"></param>
+            <param name="pageNumber">1-based page number</param>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -3019,7 +3037,7 @@
             <param name="sortFieldList"></param>
             <param name="activeOnly"></param>
             <param name="pageSize"></param>
-            <param name="pageNumber"></param>
+            <param name="pageNumber">1-based page number</param>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -3070,12 +3088,12 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPCSBaseClass.OpenSQL(System.String,System.String,System.Int32,System.Int32)">
             <summary>
-            Opens a record set based on an sql statement
+            Opens a record set based on an sql statement. The result is paged based on the pageSize and pageNumber parameters. The pageNumber is 1-based.
             </summary>
             <param name="sql"></param>
             <param name="dataSourcename"></param>
             <param name="pageSize"></param>
-            <param name="pageNumber"></param>
+            <param name="pageNumber">1-based page number</param>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -4179,6 +4197,11 @@
             <param name="key"></param>
             <param name="value"></param>
         </member>
+        <member name="P:Contensive.BaseClasses.CPDocBaseClass.Properties">
+            <summary>
+            A list of all doc properties available. Return the values with getInteger(), etc.
+            </summary>
+        </member>
         <member name="T:Contensive.BaseClasses.CPEmailBaseClass">
             <summary>
             Methods to send and manage email.
@@ -4611,14 +4634,16 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPEmailBaseClass.validateEmail(System.String)">
             <summary>
-            Send an email a user.
+            validate an email address (just check if it is a valid format)
+            Returns true if email is valid, false if invalid.
             </summary>
             <param name="toAddress"></param>
             <returns></returns>
         </member>
         <member name="M:Contensive.BaseClasses.CPEmailBaseClass.validateUserEmail(System.Int32)">
             <summary>
-            Validate a user email
+            validate a user's email address. 
+            Returns true if the user has a valid email address, else returns false.
             </summary>
             <param name="toUserId"></param>
             <returns></returns>
@@ -5345,6 +5370,18 @@
             </summary>
             <param name="htmlName"></param>
             <param name="primaryContentName"></param>
+            <param name="primaryRecordId"></param>
+            <param name="secondaryContentName"></param>
+            <param name="rulesContentName"></param>
+            <param name="rulesPrimaryFieldname"></param>
+            <param name="rulesSecondaryFieldName"></param>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPHtml5BaseClass.ProcessCheckList(System.String,System.String,System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+            Process and input checklist
+            </summary>
+            <param name="htmlName"></param>
+            <param name="primaryContentName"></param>
             <param name="primaryRecordID"></param>
             <param name="secondaryContentName"></param>
             <param name="rulesContentName"></param>
@@ -5438,24 +5475,97 @@
             <param name="userId"></param>
             <returns></returns>
         </member>
-        <member name="M:Contensive.BaseClasses.CPImageBaseClass.GetBestFit(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.String})">
+        <member name="M:Contensive.BaseClasses.CPImageBaseClass.ResizeAndCropNoTypeChange(System.String,System.Int32,System.Int32,System.String@,System.Boolean@)">
             <summary>
-            Return an image resized and cropped to best fit the hole. 
+            Return an image resized so its smallest dimension fits the hole, and the other diminsion cropped.
             To use the returned pathFilename as a link, prefix it with CP.Http.CdnFilePathPrefixAbsolute.
             To access the file directly, use CP.CdnFiles.
+            The image is never scaled up. If the hole is larger than the image, the original is cropped returned.
+            The source imagePathFilename is expected to be in the CdnFiles filesystem. 
+            The new image is saved back to the same path.
+            
+            </summary>
+            <param name="imagePathFilename">The source image. The is expected to be in CdnFiles (accessible with CP.CdnFiles methods).</param>
+            <param name="holeWidth">The width of the final image to be returned.</param>
+            <param name="holeHeight">The height of the final image to be returned.</param>
+            <param name="imageAltSizes">A list of image sizes already created. Save this string with the original image URL.</param>
+            <param name="isNewSize">If true, a new size was added and you must save the imageAltSize string back</param>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPImageBaseClass.ResizeAndCropNoTypeChange(System.String,System.Int32,System.Int32)">
+            <summary>
+            Return an image resized so its smallest dimension fits the hole, and the other diminsion cropped.
+            To use the returned pathFilename as a link, prefix it with CP.Http.CdnFilePathPrefixAbsolute.
+            To access the file directly, use Cp.CdnFiles.
+            The image is never scaled up. If the hole is larger than the image, the original is cropped returned.
+            The source imagePathFilename is expected to be in the CdnFiles filesystem. 
+            The new image is saved back to the same path.  
+            </summary>
+            <param name="imagePathFilename">The source image. The is expected to be in CdnFiles (accessible with CP.CdnFiles methods).</param>
+            <param name="holeWidth">The width of the final image to be returned.</param>
+            <param name="holeHeight">The height of the final image to be returned.</param>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPImageBaseClass.ResizeAndCrop(System.String,System.Int32,System.Int32,System.String@,System.Boolean@)">
+            <summary>
+            Return an image in .webP format resized so its smallest dimension fits the hole, and the other diminsion cropped.
+            To use the returned pathFilename as a link, prefix it with CP.Http.CdnFilePathPrefixAbsolute.
+            To access the file directly, use Cp.CdnFiles.
             The image is never scaled up. If the hole is larger than the image, the original is returned.
             The source imagePathFilename is expected to be in the CdnFiles filesystem. 
-            New image is saved back to the same path.
+            New image is saved back to the same path.  
+            Use imageAltSizes to determine what sizes have been created. 
+            </summary>
+            <param name="imagePathFilename">The source image. The is expected to be in CdnFiles (accessible with CP.CdnFiles methods).</param>
+            <param name="holeWidth">The width of the final image to be returned.</param>
+            <param name="holeHeight">The height of the final image to be returned.</param>
+            <param name="imageAltSizes">imageAltSizes is a list of comma separated strings. the first string is the original filename. The rest are the sizes already created and expected to be in the cdn folder, in the format width + "x" + height. </param>
+            <param name="isNewSize">If true, a new size was added and you must save the imageAltSize string back</param>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPImageBaseClass.ResizeAndCrop(System.String,System.Int32,System.Int32)">
+            <summary>
+            Return an image in .webP format resized so its smallest dimension fits the hole, and the other diminsion cropped.
+            To use the returned pathFilename as a link, prefix it with CP.Http.CdnFilePathPrefixAbsolute.
+            To access the file directly, use Cp.CdnFiles.
+            The image is never scaled up. If the hole is larger than the image, the original is returned.
+            The source imagePathFilename is expected to be in the CdnFiles filesystem. 
+            New image is saved back to the same path.  
+            </summary>
+            <param name="imagePathFilename">The source image. The is expected to be in CdnFiles (accessible with CP.CdnFiles methods).</param>
+            <param name="holeWidth">The width of the final image to be returned.</param>
+            <param name="holeHeight">The height of the final image to be returned.</param>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPImageBaseClass.ResizeAndPad(System.String,System.Int32,System.Int32)">
+            <summary>
+            Return an image in .webP format resized so its largest dimension fits the hole, and the other diminsion padded transparent.
+            To use the returned pathFilename as a link, prefix it with CP.Http.CdnFilePathPrefixAbsolute.
+            To access the file directly, use Cp.CdnFiles.
+            The image is never scaled up. If the hole is larger than the image, the original is returned.
+            The source imagePathFilename is expected to be in the CdnFiles filesystem. 
+            New image is saved back to the same path.  
             imageAltSizeList is a list of comma separated strings. the first string is the original filename. The rest are the sizes already created and expected to be in the cdn folder, in the format width + "x" + height. 
             </summary>
             <param name="imagePathFilename">The source image. The is expected to be in CdnFiles (accessible with CP.CdnFiles methods).</param>
             <param name="holeWidth">The width of the final image to be returned.</param>
             <param name="holeHeight">The height of the final image to be returned.</param>
-            <param name="imageAltSizeList"></param>
         </member>
-        <member name="M:Contensive.BaseClasses.CPImageBaseClass.GetBestFit(System.String,System.Int32,System.Int32)">
+        <member name="M:Contensive.BaseClasses.CPImageBaseClass.ResizeAndPad(System.String,System.Int32,System.Int32,System.String@,System.Boolean@)">
             <summary>
-            Return an image resized and cropped to best fit the hole. 
+            Return an image in .webP format resized so its largest dimension fits the hole, and the other diminsion padded transparent.
+            To use the returned pathFilename as a link, prefix it with CP.Http.CdnFilePathPrefixAbsolute.
+            To access the file directly, use Cp.CdnFiles.
+            The image is never scaled up. If the hole is larger than the image, the original is returned.
+            The source imagePathFilename is expected to be in the CdnFiles filesystem. 
+            New image is saved back to the same path.  
+            imageAltSizes is a list of comma separated strings. the first string is the original filename. The rest are the sizes already created and expected to be in the cdn folder, in the format width + "x" + height. 
+            </summary>
+            <param name="imagePathFilename">The source image. The is expected to be in CdnFiles (accessible with CP.CdnFiles methods).</param>
+            <param name="holeWidth">The width of the final image to be returned.</param>
+            <param name="holeHeight">The height of the final image to be returned.</param>
+            <param name="imageAltSizes">imageAltSizes is a list of comma separated strings. the first string is the original filename. The rest are the sizes already created and expected to be in the cdn folder, in the format width + "x" + height. </param>
+            <param name="isNewSize">If true, a new size was added and you must save the imageAltSize string back</param>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPImageBaseClass.ResizeAndPadNoTypeChange(System.String,System.Int32,System.Int32)">
+            <summary>
+            Return an image resized so its largest dimension fits the hole, and the other diminsion padded transparent.
             To use the returned pathFilename as a link, prefix it with CP.Http.CdnFilePathPrefixAbsolute.
             To access the file directly, use Cp.CdnFiles.
             The image is never scaled up. If the hole is larger than the image, the original is returned.
@@ -5466,33 +5576,21 @@
             <param name="holeWidth">The width of the final image to be returned.</param>
             <param name="holeHeight">The height of the final image to be returned.</param>
         </member>
-        <member name="M:Contensive.BaseClasses.CPImageBaseClass.GetBestFitWebP(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.String})">
+        <member name="M:Contensive.BaseClasses.CPImageBaseClass.ResizeAndPadNoTypeChange(System.String,System.Int32,System.Int32,System.String@,System.Boolean@)">
             <summary>
-            Return an image resized and cropped to best fit the hole, in .webP format.
+            Return an image resized so its largest dimension fits the hole, and the other diminsion padded transparent.
             To use the returned pathFilename as a link, prefix it with CP.Http.CdnFilePathPrefixAbsolute.
             To access the file directly, use Cp.CdnFiles.
             The image is never scaled up. If the hole is larger than the image, the original is returned.
             The source imagePathFilename is expected to be in the CdnFiles filesystem. 
             New image is saved back to the same path.  
-            imageAltSizeList is a list of comma separated strings. the first string is the original filename. The rest are the sizes already created and expected to be in the cdn folder, in the format width + "x" + height. 
+            imageAltSizes is a list of comma separated strings. the first string is the original filename. The rest are the sizes already created and expected to be in the cdn folder, in the format width + "x" + height. 
             </summary>
             <param name="imagePathFilename">The source image. The is expected to be in CdnFiles (accessible with CP.CdnFiles methods).</param>
             <param name="holeWidth">The width of the final image to be returned.</param>
             <param name="holeHeight">The height of the final image to be returned.</param>
-            <param name="imageAltSizeList"></param>
-        </member>
-        <member name="M:Contensive.BaseClasses.CPImageBaseClass.GetBestFitWebP(System.String,System.Int32,System.Int32)">
-            <summary>
-            Return an image resized and cropped to best fit the hole, in .webP format. 
-            To use the returned pathFilename as a link, prefix it with CP.Http.CdnFilePathPrefixAbsolute.
-            To access the file directly, use Cp.CdnFiles.
-            The image is never scaled up. If the hole is larger than the image, the original is returned.
-            The source imagePathFilename is expected to be in the CdnFiles filesystem. 
-            New image is saved back to the same path.  
-            </summary>
-            <param name="imagePathFilename">The source image. The is expected to be in CdnFiles (accessible with CP.CdnFiles methods).</param>
-            <param name="holeWidth">The width of the final image to be returned.</param>
-            <param name="holeHeight">The height of the final image to be returned.</param>
+            <param name="imageAltSizes">imageAltSizes is a list of comma separated strings. the first string is the original filename. The rest are the sizes already created and expected to be in the cdn folder, in the format width + "x" + height. </param>
+            <param name="isNewSize">If true, a new size was added and you must save the imageAltSize string back</param>
         </member>
         <member name="T:Contensive.BaseClasses.CPJSONBaseClass">
             <summary>
@@ -5580,6 +5678,42 @@
             <param name="defaultLayoutCdnPathFilename"></param>
             <param name="platform5LayoutCdnPathFilename"></param>
             <returns></returns>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPLayoutBaseClass.updateLayout(System.String,System.String,System.String)">
+            <summary>
+            the layout record is created or updated with the default name  and layout record
+            </summary>
+            <param name="layoutGuid">The layout's guid</param>
+            <param name="defaultLayoutName">If the layout record is created, this is the name saved to the record.</param>
+            <param name="defaultLayoutCdnPathFilename">If the layout record is created, this is the file used as the source for the html layout.</param>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPLayoutBaseClass.updateLayout(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            the layout record is created or updated with the default name  and layout record
+            </summary>
+            <param name="layoutGuid">The layout's guid</param>
+            <param name="layoutContentId">set to a contentid if this layout should be created in a different segment of Layouts, like 'layouts for CTA'. Use cp.content.getid("layouts for CTA") to determine the contentId</param>
+            <param name="defaultLayoutName">If the layout record is created, this is the name saved to the record.</param>
+            <param name="defaultLayoutCdnPathFilename">If the layout record is created, this is the file used as the source for the html layout.</param>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPLayoutBaseClass.updateLayout(System.String,System.String,System.String,System.String)">
+            <summary>
+            the layout record is created or updated with the default name  and layout record
+            </summary>
+            <param name="layoutGuid">The layout's guid</param>
+            <param name="defaultLayoutName">If the layout record is created, this is the name saved to the record.</param>
+            <param name="defaultLayoutCdnPathFilename">If the layout record is created, this is the file used as the source for the html layout.</param>
+            <param name="platform5LayoutCdnPathFilename">If the layout record is created, this is the file used as the source for the html layout. The platform5 html layout field is used when the site is set to plaform5 (bootstrap 5) and the platform5 field is not empty.</param>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPLayoutBaseClass.updateLayout(System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            the layout record is created or updated with the default name  and layout record
+            </summary>
+            <param name="layoutGuid">The layout's guid</param>
+            <param name="layoutContentId">set to a contentid if this layout should be created in a different segment of Layouts, like 'layouts for CTA'. Use cp.content.getid("layouts for CTA") to determine the contentId</param>
+            <param name="defaultLayoutName">If the layout record is created, this is the name saved to the record.</param>
+            <param name="defaultLayoutCdnPathFilename">If the layout record is created, this is the file used as the source for the html layout.</param>
+            <param name="platform5LayoutCdnPathFilename">If the layout record is created, this is the file used as the source for the html layout. The platform5 html layout field is used when the site is set to plaform5 (bootstrap 5) and the platform5 field is not empty.</param>
         </member>
         <member name="M:Contensive.BaseClasses.CPLayoutBaseClass.Transform(System.String)">
             <summary>
@@ -6445,17 +6579,23 @@
         </member>
         <member name="M:Contensive.BaseClasses.CPSiteBaseClass.SetSiteWarning(System.String,System.String)">
             <summary>
-            Add a site warning that must be removed manually. Log a message to the site-warning log, which displays a Warning indicator in the admin site. This should only be for issues related to content and settings that an admin user can addres. To log code issues, use cp.log. To set the server alarm, use cp.site.LogAlarm() .
+            Add a site warning that must be removed manually. 
+            Log a message to the site-warning log, which displays a Warning indicator in the admin site. 
+            This should only be for issues related to content and settings that an admin user can address. 
+            To log code issues, use cp.log. To set the server alarm, use cp.site.LogAlarm() .
             </summary>
-            <param name="name"></param>
-            <param name="description"></param>
+            <param name="name">A short general description of the problem</param>
+            <param name="description">A more detailed description that might include instructions how to fix the issue.</param>
         </member>
         <member name="M:Contensive.BaseClasses.CPSiteBaseClass.SetSiteWarning(System.String,System.String,System.Boolean)">
             <summary>
-            Add or remove a site warning based on the boolean argument. Log a message to the site-warning log, which displays a Warning indicator in the admin site. This should only be for issues related to content and settings that an admin user can addres. To log code issues, use cp.log. To set the server alarm, use cp.site.LogAlarm() .
+            Add or remove a site warning based on the boolean argument. 
+            Log a message to the site-warning log, which displays a Warning indicator in the admin site. 
+            This should only be for issues related to content and settings that an admin user can address. 
+            To log code issues, use cp.log. To set the server alarm, use cp.site.LogAlarm() .
             </summary>
-            <param name="name"></param>
-            <param name="description"></param>
+            <param name="name">A short general description of the problem</param>
+            <param name="description">A more detailed description that might include instructions how to fix the issue.</param>
             <param name="addRemove">if true, the warning is added, else the warning is removed</param>
         </member>
         <member name="M:Contensive.BaseClasses.CPSiteBaseClass.LogAlarm(System.String)">
@@ -6479,12 +6619,12 @@
             <param name="linkAlias"></param>
             <param name="pageId"></param>
         </member>
-        <member name="M:Contensive.BaseClasses.CPSiteBaseClass.ThrowEvent(System.String)">
+        <member name="M:Contensive.BaseClasses.CPSiteBaseClass.ThrowEventByName(System.String)">
             <summary>
             An addon can throw an Event that then executes other addons that bind to that event in their record. 
             For example, ecommerce throws an event 'fulfillment'. An item like a giftcard can be emailed on fulfillment which occurs differently on different types of accounts.
             </summary>
-            <param name="eventNameIdOrGuid"></param>
+            <param name="eventName"></param>
             <returns></returns>
         </member>
         <member name="P:Contensive.BaseClasses.CPSiteBaseClass.FilePath">
@@ -6703,6 +6843,12 @@
             is the current user authetnicated
             </summary>
         </member>
+        <member name="M:Contensive.BaseClasses.CPUserBaseClass.IsEditing">
+            <summary>
+            true if the current user is editing anything
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Contensive.BaseClasses.CPUserBaseClass.IsEditing(System.String)">
             <summary>
             true if the current user is editing the content specified
@@ -6808,7 +6954,7 @@
             <summary>
             Autheticate the current user to the credentials provided. If the site property AllowEmailLogin is true, this method treats the first argument as either email or username. Duplicates and email=username matches are not allowed.
             </summary>
-            <param name="usernameOrEmail"></param>
+            <param name="username"></param>
             <param name="password"></param>
             <param name="setAutoLogin">If true, and allowed on the site, the user will be automatically logged in by their visitor cookie on future visits. Not available to admin or devloper roles.</param>
             <returns></returns>
@@ -6817,7 +6963,7 @@
             <summary>
             Autheticate the current user to the credentials provided. If the site property AllowEmailLogin is true, this method treats the first argument as either email or username. Duplicates and email=username matches are not allowed.
             </summary>
-            <param name="usernameOrEmail"></param>
+            <param name="username"></param>
             <param name="password"></param>
             <returns></returns>
         </member>
@@ -6840,7 +6986,7 @@
             <summary>
             returns true if the credentials provided are valid for a user in the system.
             </summary>
-            <param name="usernameOrEmail"></param>
+            <param name="username"></param>
             <param name="password"></param>
             <returns></returns>
         </member>
@@ -7268,7 +7414,7 @@
         </member>
         <member name="P:Contensive.BaseClasses.CPUtilsBaseClass.addonExecuteContext.wrapperID">
             <summary>
-            Optional. If included, this is the id value of a record in the Wrappers content and that wrapper will be added to the addon return result.
+            deprecated
             </summary>
             <returns></returns>
         </member>
@@ -7394,7 +7540,6 @@
             <param name="source"></param>
             <param name="contextContentName"></param>
             <param name="contextRecordID"></param>
-            <param name="wrapperID"></param>
             <returns></returns>
         </member>
         <member name="M:Contensive.BaseClasses.CPUtilsBaseClass.EncodeDate(System.Object)">
@@ -7829,7 +7974,7 @@
             Deprecated. use cp.addon.execute() and manage the wrapper manually.
             </summary>
             <param name="IdGuidOrName"></param>
-            <param name="WrapperId"></param>
+            <param name="ignoreId"></param>
             <returns></returns>
         </member>
         <member name="M:Contensive.BaseClasses.CPUtilsBaseClass.ExecuteAddon(System.String,Contensive.BaseClasses.CPUtilsBaseClass.addonContext)">
@@ -8453,6 +8598,39 @@
                 ''' data to populate HamburburgerMenuLayout
                 ''' </summary>
         </member>
+        <member name="T:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass">
+            <summary>
+            LayoutBuilders create the html for common Admin UI cases.
+            They must be implemented 2 ways, first called by the page during the initial page load, and second called by the ajax refresh methods.
+            Both methods return the exact same html, but the javascript that calls the ajax methods selectively replaces the important content.
+            Set the constructor arguments baseUrl and baseAjaxUrl to manage these calls.
+            baseUrl is the url of the initial page load and is used as the base url for links included on the page.
+            It is set during the constructor, and should be read from the proproperty when used because when for example, the initial page might be /admin?srcViewId=10.
+            baseAjaxUrl is the url to an ajax method that just returns the html for this form.
+            </summary>
+        </member>
+        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.#ctor(Contensive.BaseClasses.CPBaseClass)">
+            <summary>
+            LayoutBuilders create the html for common Admin UI cases.
+            They must be implemented 2 ways, first called by the page during the initial page load, and second called by the ajax refresh methods.
+            Both methods return the exact same html, but the javascript that calls the ajax methods selectively replaces the important content.
+            Set the constructor arguments baseUrl and baseAjaxUrl to manage these calls.
+            baseUrl is the url of the initial page load and is used as the base url for links included on the page.
+            It is set during the constructor, and should be read from the proproperty when used because when for example, the initial page might be /admin?srcViewId=10.
+            baseAjaxUrl is the url to an ajax method that just returns the html for this form.
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.baseUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.baseAjaxUrl">
+            <summary>
+            LayoutBuilder layouts require html page redraw with an ajax method. 
+            Set this to the url of the ajax method that returns the html for the form.
+            </summary>
+        </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.blockFormTag">
             <summary>
             if true, the optional form tag will be blocked. The form tag is added automaatically if buttons, hiddens or a form-action is added
@@ -8471,6 +8649,11 @@
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.isOuterContainer">
             <summary>
             if true, this layoutBuilder will not be contained in other layoutBuilder content. This is used by the default getHtml() to include an outer div with the htmlId "afw", and the styles and javascript
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.includeForm">
+            <summary>
+            If true, the resulting html is wrapped in a form element whose action returns execution back to this addon where is it processed here in the same code.
             </summary>
         </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.title">
@@ -8523,11 +8706,10 @@
             A virtual filename to a download of the report data. Leave blank to prevent download file
             </summary>
         </member>
-        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.getHtml(Contensive.BaseClasses.CPBaseClass)">
+        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.getHtml">
             <summary>
             The default body. Typically you would create a layout by adding content to the individual elements and calling this method. Oveerride this method and consider using HtmlController.getReportDoc()
             </summary>
-            <param name="cp"></param>
             <returns></returns>
         </member>
         <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.addFormHidden(System.String,System.String,System.String)">
@@ -8669,19 +8851,19 @@
             The body of the layout.
             </summary>
         </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.htmlLeftOfTable">
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.htmlLeftOfBody">
             <summary>
-            An html block added to the left of the table. Typically used for filters.
+            An html block added to the left of the Body. Typically used for filters.
             </summary>
         </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.htmlBeforeTable">
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.htmlBeforeBody">
             <summary>
-            An html block added above the table. Typically used for filters.
+            An html block added above the Body. Typically used for filters.
             </summary>
         </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.htmlAfterTable">
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.htmlAfterBody">
             <summary>
-            An html block added below the table. Typically used for filters.
+            An html block added below the Body. Typically used for filters.
             </summary>
         </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.refreshQueryString">
@@ -8696,7 +8878,7 @@
         </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.footer">
             <summary>
-            deprecated. Use htmlAfterTable instead
+            deprecated. Use htmlAfterBody instead
             </summary>
         </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.formid">
@@ -8704,19 +8886,129 @@
             deprecated. Use warningMessage instead
             </summary>
         </member>
+        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.getHtml(Contensive.BaseClasses.CPBaseClass)">
+            <summary>
+            
+            </summary>
+            <param name="cp"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderContentWithTabsBaseClass.portalSubNavTitle">
+            <summary>
+            Optional. If set, this value will populate the title in the subnav of the portalbuilder
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderContentWithTabsBaseClass.includeForm">
+            <summary>
+            If true, the resulting html is wrapped in a form element whose action returns execution back to this addon where is it processed here in the same code.
+            </summary>
+        </member>
+        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderContentWithTabsBaseClass.addTab">
+            <summary>
+            Add a navigation entry. The navCaption and navLink should be set after creating a new entry. The first nav entry does not need to be added.
+            </summary>
+        </member>
+        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderContentWithTabsBaseClass.getHtml">
+            <summary>
+            render the html
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderContentWithTabsBaseClass.getHtml(Contensive.BaseClasses.CPBaseClass)">
+            <summary>
+            render the html
+            </summary>
+            <param name="cp"></param>
+            <returns></returns>
+        </member>
         <member name="T:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass">
             <summary>
             A tabular list of data rows with filters on the left.
             </summary>
+        </member>
+        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.#ctor(Contensive.BaseClasses.CPBaseClass)">
+            <summary>
+            A tabular list of data rows with filters on the left.
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.baseUrl">
+            <summary>
+            This property is setup by the constructor to the base url
+            (Previously this was the refreshQueryString.)
+            Set the url to the url of the current view. This is used to refresh the view when a user clicks on a link, like a column header to sort the data.
+            This url is saved as a hidden in submitted forms and should be read and used to create links that refresh the view.
+            The area where the hiddens are saved is not repainted duting ajax refreshes, so this value is set one time when the page is first drawn.
+            When a user clicks on a feature on the view, like pagination, the view is redrawn with an ajax call. That call has a different baseUrlf so links created during that call need the baseUrl of the view.
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.baseAjaxUrl">
+            <summary>
+            A remote method that returns the current view. If present, layoutbuilder will call this remote
+            to refresh the view, passing search terms and orderby clauses.
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.sqlSearchTerm">
+            <summary>
+            The sql search term used to filter the data set when a user types the term into the search box.
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.sqlOrderBy">
+            <summary>
+            The sql orderby clause used to order the data set. Created from the user clicking on a column header.
+            </summary>
+        </member>
+        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.paginationReset">
+            <summary>
+            reset pagination back to page 1. Use to force the view to page when when the query filter changes.
+            Mus tbe called before accessing pagination fields or query elements.
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.allowPagination">
+            <summary>
+            if true, the data set is paginated. If false, all records are displayed.
+            
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.paginationPageSizeDefault">
+            <summary>
+            The default records per page to be displayed. The user may make changes, reflected in paginationPageSize
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.paginationPageSize">
+            <summary>
+            records per page to be displayed. If the user has not changed it, this is paginationPageSizeDefault
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.paginationPageNumber">
+            <summary>
+            1-based page number
+            </summary>
+        </member>
+        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.addRowEllipseMenuItem(System.String,System.String)">
+            <summary>
+            adds this name/url as an ellipse menu item to the current column
+            </summary>
+            <param name="name"></param>
+            <param name="url"></param>
         </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.isOuterContainer">
             <summary>
             Set true if this tool is requested directly and not embedded in another AdminUI form
             </summary>
         </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.includeForm">
+            <summary>
+            If true, the resulting html is wrapped in a form element whose action returns execution back to this addon where is it processed here in the same code.
+            </summary>
+        </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.reportRowLimit">
             <summary>
             Add padding around the body
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.recordCount">
+            <summary>
+            The total records in the dataset, not just what is displayed on the page
             </summary>
         </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.includeBodyPadding">
@@ -8729,26 +9021,25 @@
             Add background color to the body
             </summary>
         </member>
-        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.getHtml(Contensive.BaseClasses.CPBaseClass)">
+        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.getHtml">
             <summary>
             Method retrieves the rendered html. Call this method after populating all object elements
             </summary>
-            <param name="cp"></param>
             <returns></returns>
         </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.htmlLeftOfTable">
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.htmlLeftOfBody">
             <summary>
             use this area for optional filters
             </summary>
         </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.htmlBeforeTable">
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.htmlBeforeBody">
             <summary>
-            optional html before the table
+            optional html before the Body
             </summary>
         </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.htmlAfterTable">
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.htmlAfterBody">
             <summary>
-            optional html after the table
+            optional html after the Body
             </summary>
         </member>
         <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.addFormHidden(System.String,System.String)">
@@ -8938,15 +9229,17 @@
             <param name="htmlId"></param>
             <param name="htmlClass"></param>
         </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.body">
-            <summary>
-            The body of the layout.
-            </summary>
-        </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.refreshQueryString">
             <summary>
             Include all nameValue pairs required to refresh the page if someone clicks on a header. For example, if there is a filter dateTo that is not empty, add dateTo=1/1/2000 to the RQS
             </summary>
+        </member>
+        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.getHtml(Contensive.BaseClasses.CPBaseClass)">
+            <summary>
+            Method retrieves the rendered html. Call this method after populating all object elements
+            </summary>
+            <param name="cp"></param>
+            <returns></returns>
         </member>
         <member name="T:Contensive.BaseClasses.LayoutBuilder.ReportListColumnBaseClass">
             <summary>
@@ -8956,6 +9249,11 @@
         <member name="P:Contensive.BaseClasses.LayoutBuilder.ReportListColumnBaseClass.columnWidthPercent">
             <summary>
             set as an integer between 1 and 100. This value will be added as the width of the column in a style tag
+            </summary>
+        </member>
+        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderNameValueBaseClass.addRow">
+            <summary>
+            deprecated. Use htmlAfterTable instead
             </summary>
         </member>
         <member name="T:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderToolFormBaseClass">
@@ -9007,13 +9305,6 @@
             <summary>
             Description appears right below title
             </summary>
-        </member>
-        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderToolFormBaseClass.GetHtml(Contensive.BaseClasses.CPBaseClass)">
-            <summary>
-            Method retrieves the rendered html. Call this method after populating all object elements
-            </summary>
-            <param name="cp"></param>
-            <returns></returns>
         </member>
         <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderToolFormBaseClass.AddFormHidden(System.String,System.String)">
             <summary>
@@ -9099,6 +9390,13 @@
             <summary>
             html block below the body
             </summary>
+        </member>
+        <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderToolFormBaseClass.GetHtml(Contensive.BaseClasses.CPBaseClass)">
+            <summary>
+            Method retrieves the rendered html. Call this method after populating all object elements
+            </summary>
+            <param name="cp"></param>
+            <returns></returns>
         </member>
         <member name="T:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderTwoColumnRightBaseClass">
             <summary>
@@ -9338,6 +9636,13 @@
             values stored in secrets override properties in server and app config.
             </summary>
         </member>
+        <member name="P:Contensive.BaseModels.AppConfigBaseModel.cookiePrefix">
+            <summary>
+            Internal cookies are named cookiePrefix+'visit' and 'visitor'
+            cookiePrefix if blank is set to appName
+            Update cookie name at any time to reset cookies, voiding older cookies, logging out
+            </summary>
+        </member>
         <member name="T:Contensive.BaseModels.AppConfigBaseModel.AppModeEnum">
             <summary>
             status of the app in the appConfigModel. Only applies to the app loaded in the serverstatus.appconfig
@@ -9531,6 +9836,11 @@
         <member name="F:Contensive.BaseModels.ServerConfigBaseModel.DataSourceTypeEnum.sqlServer">
             <summary>
             sql server
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseModels.ServerConfigBaseModel.defaultEmailContact">
+            <summary>
+            email address for the server contact. Also used as the default from email address for the server.
             </summary>
         </member>
         <member name="T:Contensive.BaseModels.SimplestDataBaseModel">
@@ -10319,13 +10629,6 @@
             <summary>
             Raise generic exception
             </summary>
-        </member>
-        <member name="M:Contensive.Exceptions.GenericException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Raise generic exception
-            </summary>
-            <param name="serializationInfo"></param>
-            <param name="streamingContext"></param>
         </member>
     </members>
 </doc>
