@@ -193,44 +193,57 @@
             <summary>
             Wrap content in the standard Design Block edit wrapper 
             </summary>
-            <param name="cp"></param>
-            <param name="innerHtml"></param>
-            <param name="settings"></param>
-            <param name="contentName"></param>
+            <param name="cp">Reference to the system processor object.</param>
+            <param name="innerHtml">Content to be wrapped with the edit treatment.</param>
+            <param name="settings">Database record model for the record that controls this instance of the widget. Must inherit SettingsBaseModel</param>
+            <param name="contentName">The name of the content for these settings.</param>
             <returns></returns>
         </member>
         <member name="M:Contensive.DesignBlockBase.Controllers.DesignBlockController.addDesignBlockEditWrapper(Contensive.BaseClasses.CPBaseClass,System.String,Contensive.DesignBlockBase.Models.Db.SettingsBaseModel,System.String,System.String)">
             <summary>
             Wrap content in the standard Design Block edit wrapper with a custom edit button
             </summary>
-            <param name="cp"></param>
-            <param name="innerHtml"></param>
-            <param name="settings"></param>
-            <param name="contentName"></param>
-            <param name="customEditCaption"></param>
+            <param name="cp">Reference to the system processor object.</param>
+            <param name="innerHtml">Content to be wrapped with the edit treatment.</param>
+            <param name="settings">Database record model for the record that controls this instance of the widget. Must inherit SettingsBaseModel</param>
+            <param name="contentName">The name of the content for these settings.</param>
+            <param name="customEditCaption">A custom edit message to appear in the edit tag.</param>
             <returns></returns>
         </member>
         <member name="M:Contensive.DesignBlockBase.Controllers.DesignBlockController.addDesignBlockEditWrapper(Contensive.BaseClasses.CPBaseClass,System.String,Contensive.DesignBlockBase.Models.Db.SettingsBaseModel,System.String,System.Object)">
             <summary>
             Wrap content in the standard Design Block edit wrapper. Include the debug view model button.
             </summary>
-            <param name="cp"></param>
-            <param name="innerHtml"></param>
-            <param name="settings"></param>
-            <param name="contentName"></param>
-            <param name="viewModel"></param>
+            <param name="cp">Reference to the system processor object.</param>
+            <param name="innerHtml">Content to be wrapped with the edit treatment.</param>
+            <param name="settings">Database record model for the record that controls this instance of the widget. Must inherit SettingsBaseModel</param>
+            <param name="contentName">The name of the content for these settings.</param>
+            <param name="viewModel">The view model used to render the mustache template. Used to create a debug-mode mode dialog to aid in debugging.</param>
             <returns></returns>
         </member>
         <member name="M:Contensive.DesignBlockBase.Controllers.DesignBlockController.addDesignBlockEditWrapper(Contensive.BaseClasses.CPBaseClass,System.String,Contensive.Models.Db.DbBaseModel,System.String,System.Object,System.String)">
             <summary>
             Wrap content in the standard Design Block edit wrapper. Include the debug view model button and a custom edit button.
             </summary>
-            <param name="cp"></param>
-            <param name="innerHtml"></param>
-            <param name="settings"></param>
-            <param name="contentName"></param>
-            <param name="viewModel"></param>
-            <param name="customEditCaption"></param>
+            <param name="cp">Reference to the system processor object.</param>
+            <param name="innerHtml">Content to be wrapped with the edit treatment.</param>
+            <param name="settings">Database record model for the record that controls this instance of the widget. Must inherit SettingsBaseModel</param>
+            <param name="contentName">The name of the content for these settings.</param>
+            <param name="viewModel">The view model used to render the mustache template. Used to create a debug-mode mode dialog to aid in debugging.</param>
+            <param name="customEditCaption">A custom edit message to appear in the edit tag.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.DesignBlockBase.Controllers.DesignBlockController.addDesignBlockEditWrapper(Contensive.BaseClasses.CPBaseClass,System.String,Contensive.Models.Db.DbBaseModel,System.String,System.Object,System.String,System.Boolean)">
+            <summary>
+            Wrap content in the standard Design Block edit wrapper. Include the debug view model button and a custom edit button.
+            </summary>
+            <param name="cp">Reference to the system processor object.</param>
+            <param name="innerHtml">Content to be wrapped with the edit treatment.</param>
+            <param name="settings">Database record model for the record that controls this instance of the widget. Must inherit SettingsBaseModel</param>
+            <param name="contentName">The name of the content for these settings.</param>
+            <param name="viewModel">The view model used to render the mustache template. Used to create a debug-mode mode dialog to aid in debugging.</param>
+            <param name="customEditCaption">A custom edit message to appear in the edit tag.</param>
+            <param name="allowEditWrapper">If true, then when content-editing is enabled, the block will be wrapped with an edit. Set false to prevent this html wrapper around the widget</param>
             <returns></returns>
         </member>
         <member name="M:Contensive.DesignBlockBase.Controllers.DesignBlockController.getSettingsGuid(Contensive.BaseClasses.CPBaseClass,System.String,System.String@)">
@@ -241,7 +254,7 @@
             If no instanceId can be created a blank is returned and should NOT be used.
             If returnHtmlMessage is non-blank, add it to the html
             </summary>
-            <param name="cp"></param>
+            <param name="cp">Reference to the system processor object.</param>
             <param name="WidgetName">A name of the design block. This must be unqiue for each type of design block (i.e. text, tile, etc)</param>
             <param name="returnHtmlMessage"></param>
             <returns>If blank is returned, </returns>
@@ -266,11 +279,10 @@
         </member>
         <member name="M:Contensive.DesignBlockBase.Controllers.DesignBlockController.renderWidget``2(Contensive.BaseClasses.CPBaseClass,System.String,System.String,System.String,System.String,System.String)">
             <summary>
-            Creates widget html
-            opens a record in the Settings table from the guid in request (cp.doc.getText) "instanceId". 
-            creates an instance of the renderDataModel from the SettingsDbModel instance. 
-            loads the layout record
-            renders the widget with mustache from the layout and the renderDataModel
+            Renders the widget's html from its settings record (inherits SettingsBaseModel), its view model (inherits RenderDataModel), and its layout.
+            The settings record is a record in a table that holds settings for this one instance of the widget, like its padding. The system provides a doc property (cp.doc.gettext("instanceid")) that is used as the guid of the settings record.
+            The settings class (which inherits SettingsBaseModel) must have a method createOrAddSettings() which reads the settings from the record and returns them in them in the SettingsBaseModel
+            The view model (inherits Contensive.DesignBlockBase.Models.View.DesignBlockViewBaseModel) must have a method create() which takes the settings record, processes requests and returns the data properties used to populate a mustache layout.
             </summary>
             <typeparam name="SettingsDbModel">The widget db model. One record per widget instance placed on a page.This is the record users will edit to customize the widget</typeparam>
             <typeparam name="RenderDataModel">The model used to populate the layout with mustache. It includes a property for each mustache property in the layout, and a create() method that converts the settings record to a render data model</typeparam>
@@ -280,6 +292,64 @@
             <param name="layoutName">If settingsDbModel has no layoutid, and If the layout record is missing, a new record is created with this name.</param>
             <param name="layoutPathFilename">If settingsDbModel has no layoutid,  and If the layout record is missing, a new record is created from this layout file.</param>
             <param name="layoutBS5PathFilename">If settingsDbModel has no layoutid,  and If the layout record is missing, a new record is created with bootstrap-5 from this layout file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.DesignBlockBase.Controllers.DesignBlockController.renderWidget(Contensive.BaseClasses.CPBaseClass,System.String,Contensive.DesignBlockBase.Models.Db.SettingsBaseModel,System.String,Contensive.DesignBlockBase.Models.View.DesignBlockViewBaseModel,System.String,System.String,System.String,System.String)">
+            <summary>
+            Renders the widget's html from its settings record (inherits SettingsBaseModel), its view model (inherits RenderDataModel), and its layout.
+            The settings record is a record in a table that holds settings for this one instance of the widget, like its padding. The system provides a doc property (cp.doc.gettext("instanceid")) that is used as the guid of the settings record.
+            The settings class (which inherits SettingsBaseModel) must have a method createOrAddSettings() which reads the settings from the record and returns them in them in the SettingsBaseModel
+            The view model (inherits Contensive.DesignBlockBase.Models.View.DesignBlockViewBaseModel) must have a method create() which takes the settings record, processes requests and returns the data properties used to populate a mustache layout.
+            </summary>
+            <param name="CP"></param>
+            <param name="widgetName">The name of the widget as it appears publically. Fo example, 'Accordian Widget'</param>
+            <param name="layoutGuid">If settingsDbModel has no layoutid, Guid of the layout record used to render the widget. If it is not found a new layout record is create with this guid, and the name and filename provided,</param>
+            <param name="settings"></param>
+            <param name="settingsContentName"></param>
+             <param name="mustacheRenderData">The name of the widget as it appears publically. Fo example, 'Accordian Widget'</param>
+            <param name="layoutName">If settingsDbModel has no layoutid, and If the layout record is missing, a new record is created with this name.</param>
+            <param name="layoutPathFilename">If settingsDbModel has no layoutid,  and If the layout record is missing, a new record is created from this layout file.</param>
+            <param name="layoutBS5PathFilename">If settingsDbModel has no layoutid,  and If the layout record is missing, a new record is created with bootstrap-5 from this layout file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.DesignBlockBase.Controllers.DesignBlockController.renderAddon(Contensive.BaseClasses.CPBaseClass,System.String,System.Object,System.String,System.String,System.String,System.String)">
+            <summary>
+            Render the output of an addon that is not used as a widget. Addons are not drag-dropped on pages and do not have settings records.
+            The mu
+            </summary>
+            <param name="CP"></param>
+            <param name="addonName">The name of the addon as it appears publically. Fo example, 'Login Page'</param>
+            <param name="mustacheRenderData">An object with public properties that match the mustache properties of the layout</param>
+            <param name="layoutGuid">If settingsDbModel has no layoutid, Guid of the layout record used to render the widget. If it is not found a new layout record is create with this guid, and the name and filename provided,</param>
+            <param name="layoutName">If settingsDbModel has no layoutid, and If the layout record is missing, a new record is created with this name.</param>
+            <param name="layoutPathFilename">If settingsDbModel has no layoutid,  and If the layout record is missing, a new record is created from this layout file.</param>
+            <param name="layoutBS5PathFilename">If settingsDbModel has no layoutid,  and If the layout record is missing, a new record is created with bootstrap-5 from this layout file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.DesignBlockBase.Controllers.DesignBlockController.renderAddon(Contensive.BaseClasses.CPBaseClass,System.String,System.Object,System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+            Render the output of an addon that includes a layoutId setting. Addons are not drag-dropped on pages and do not have settings records.
+            The mu
+            </summary>
+            <param name="CP"></param>
+            <param name="addonName">The name of the addon as it appears publically. Fo example, 'Login Page'</param>
+            <param name="mustacheRenderData">An object with public properties that match the mustache properties of the layout</param>
+            <param name="layoutId">The id of the layout to use to render the addon. If not found, the default layout will be used from the guid provided.</param>
+            <param name="layoutGuid">If the layoutId is not valid, this guid is used to open a layout record. If the layuout is not found by the guid, a new layout record is create with this guid, name and filename provided,</param>
+            <param name="layoutName">If the layoutId is not valid, and If the layout record is missing, a new record is created with this name.</param>
+            <param name="layoutPathFilename">If the layoutId is not valid,  and If the layout record is missing, a new record is created from this layout file.</param>
+            <param name="layoutBS5PathFilename">If the layoutId is not valid,  and If the layout record is missing, a new record is created with bootstrap-5 from this layout file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.DesignBlockBase.Controllers.DesignBlockController.renderAddon(Contensive.BaseClasses.CPBaseClass,System.String,System.Object,System.String)">
+            <summary>
+            Render the output of an addon that includes a layoutId setting. Addons are not drag-dropped on pages and do not have settings records.
+            The mu
+            </summary>
+            <param name="CP"></param>
+            <param name="addonName">The name of the addon as it appears publically. Fo example, 'Login Page'</param>
+            <param name="mustacheRenderData">An object with public properties that match the mustache properties of the layout</param>
+            <param name="layoutHtml">The layout html to be rendered.</param>
             <returns></returns>
         </member>
         <member name="T:Contensive.DesignBlockBase.Controllers.DesignBlockController.RenderWidgetRequest">
@@ -446,6 +516,16 @@
         <member name="P:Contensive.DesignBlockBase.Models.View.DesignBlockViewBaseModel.outerContainerClass">
             <summary>
             style defined by common elements of design block widgets
+            </summary>
+        </member>
+        <member name="P:Contensive.DesignBlockBase.Models.View.DesignBlockViewBaseModel.editIcon">
+            <summary>
+            This is the edit link, including the edit modal
+            </summary>
+        </member>
+        <member name="P:Contensive.DesignBlockBase.Models.View.DesignBlockViewBaseModel.editWrapperClass">
+            <summary>
+            if editing enabled, this is ccEditWrapperClass, else blank
             </summary>
         </member>
         <member name="M:Contensive.DesignBlockBase.Models.View.DesignBlockViewBaseModel.create``1(Contensive.BaseClasses.CPBaseClass,Contensive.DesignBlockBase.Models.Db.SettingsBaseModel)">

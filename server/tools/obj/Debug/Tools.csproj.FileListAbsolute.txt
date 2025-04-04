@@ -48,3 +48,9 @@ C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\bin\Debug\DesignBlockBas
 C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Tools.csproj.Up2Date
 C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Tools.dll
 C:\Users\kmaadmin\Documents\GitHub\aoTools\server\tools\obj\Debug\Tools.pdb
+C:\Git\aoTools\server\tools\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Git\aoTools\server\tools\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Git\aoTools\server\tools\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Git\aoTools\server\tools\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Git\aoTools\server\tools\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Git\aoTools\server\tools\bin\Debug\System.Threading.Tasks.Extensions.xml

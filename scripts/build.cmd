@@ -44,6 +44,15 @@ md "%deploymentFolderRoot%%versionNumber%"
 
 rem ==============================================================
 rem
+echo copy UI 
+rem
+
+cd ..\ui
+"c:\program files\7-zip\7z.exe" a "..\collections\Tool Basics\uiTools.zip" 
+cd ..\scripts
+
+rem ==============================================================
+rem
 echo build solution 
 rem
 cd ..\server

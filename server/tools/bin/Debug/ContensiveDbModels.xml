@@ -46,7 +46,7 @@
         </member>
         <member name="P:Contensive.Models.Db.ActivityLogModel.scheduledStaffId">
             <summary>
-            for meetings, this is the person in the staff group who is to meet. 
+            for meetings, this is the person in the Staff group who is to meet. 
             </summary>
         </member>
         <member name="P:Contensive.Models.Db.ActivityLogModel.dateScheduled">
@@ -192,7 +192,8 @@
         </member>
         <member name="P:Contensive.Models.Db.AddonModel.argumentList">
             <summary>
-            name=value pairs added to doc properties before execution, if the name does not already exist. Can be added to {% {json} %} execution to override properties
+            name=value pairs added to doc properties before execution, if the name does not already exist. 
+            Can be added to {% {json} %} execution to override properties
             </summary>
         </member>
         <member name="P:Contensive.Models.Db.AddonModel.aliasList">
@@ -254,6 +255,16 @@
         <member name="P:Contensive.Models.Db.AddonModel.objectProgramId">
             <summary>
             deprecated
+            </summary>
+        </member>
+        <member name="P:Contensive.Models.Db.AddonModel.remoteMethod">
+            <summary>
+            if true, the remote asset is a method that returns the content
+            </summary>
+        </member>
+        <member name="P:Contensive.Models.Db.AddonModel.dashboardWidget">
+            <summary>
+            if true, this addon is a dashboard widget
             </summary>
         </member>
         <member name="P:Contensive.Models.Db.AddonModel.minifyStylesFilename">
@@ -368,6 +379,16 @@
             field properties
             </summary>
         </member>
+        <member name="P:Contensive.Models.Db.AddonTemplateRuleModel.tableMetadata">
+            <summary>
+            table definition
+            </summary>
+        </member>
+        <member name="P:Contensive.Models.Db.AddonTemplateRuleModel.addonId">
+            <summary>
+            field properties
+            </summary>
+        </member>
         <member name="T:Contensive.Models.Db.AdminRecentModel">
             <summary>
             Addon Categories
@@ -378,15 +399,23 @@
             table definition
             </summary>
         </member>
-        <member name="P:Contensive.Models.Db.AddonTemplateRuleModel.tableMetadata">
+        <member name="T:Contensive.Models.Db.AuthenticationLogModel">
+            <summary>
+            Logs events related to user actvity
+            </summary>
+        </member>
+        <member name="P:Contensive.Models.Db.AuthenticationLogModel.tableMetadata">
             <summary>
             table definition
             </summary>
         </member>
-        <member name="P:Contensive.Models.Db.AddonTemplateRuleModel.addonId">
+        <member name="M:Contensive.Models.Db.AuthenticationLogModel.allowLoginForLockoutPolicy(Contensive.BaseClasses.CPBaseClass,System.Int32)">
             <summary>
-            field properties
+            return true if login allowed. return false if policy fails and block login
             </summary>
+            <param name="cp"></param>
+            <param name="userId"></param>
+            <returns></returns>
         </member>
         <member name="P:Contensive.Models.Db.AuthoringControlModel.tableMetadata">
             <summary>
@@ -406,6 +435,16 @@
         <member name="P:Contensive.Models.Db.AuthoringControlModel.dateExpires">
             <summary>
             date time when this lock expires
+            </summary>
+        </member>
+        <member name="T:Contensive.Models.Db.CommonPasswordModel">
+            <summary>
+            List of common passwords
+            </summary>
+        </member>
+        <member name="P:Contensive.Models.Db.CommonPasswordModel.tableMetadata">
+            <summary>
+            table definition
             </summary>
         </member>
         <member name="T:Contensive.Models.Db.ConditionalEmailModel">
@@ -597,7 +636,12 @@
         </member>
         <member name="P:Contensive.Models.Db.ContentFieldModel.editTab">
             <summary>
-            admin edit, tab
+            admin edit, tabs at the top.
+            </summary>
+        </member>
+        <member name="P:Contensive.Models.Db.ContentFieldModel.editGroup">
+            <summary>
+            In edit-modal, left side is details-tab, right side is edit-groups. Groups do not 
             </summary>
         </member>
         <member name="P:Contensive.Models.Db.ContentFieldModel.htmlContent">
@@ -643,6 +687,12 @@
             for manytomany field types, the other content referenced by the m2m rules
             </summary>
         </member>
+        <member name="P:Contensive.Models.Db.ContentFieldModel.type">
+            <summary>
+                    Integer = 1,Text = 2,LongText = 3,Boolean = 4,Date = 5,File = 6,Lookup = 7,Redirect = 8, Currency = 9, FileText = 10,FileImage = 11, Float = 12,AutoIdIncrement = 13, ManyToMany = 14,
+                    MemberSelect = 15,FileCSS = 16, FileXML = 17,FileJavaScript = 18,Link = 19,ResourceLink = 20,HTML = 21,FileHTML = 22,HTMLCode = 23, FileHTMLCode = 24
+            </summary>
+        </member>
         <member name="P:Contensive.Models.Db.ContentFieldTypeModel.tableMetadata">
             <summary>
             table definition
@@ -663,9 +713,17 @@
             deprecated
             </summary>
         </member>
+        <member name="P:Contensive.Models.Db.ContentModel.parentId">
+            The choice is to add the cdef field back in because is was previously removed and it is causing an error now -- not sure why it was not breaking all along
+        </member>
         <member name="P:Contensive.Models.Db.ContentModel.iconHtml">
             <summary>
             html to be used for the icon. The icon is for the dashboard and addon manager, etc
+            </summary>
+        </member>
+        <member name="P:Contensive.Models.Db.ContentModel.NavTypeId">
+            <summary>
+            lookup list - Other,Report,Setting,Tool,Comm,Design,Content,System
             </summary>
         </member>
         <member name="M:Contensive.Models.Db.ContentModel.createListFromCollection(Contensive.BaseClasses.CPBaseClass,System.Int32)">
@@ -979,7 +1037,7 @@
             <param name="derivedType"></param>
             <returns></returns>
         </member>
-        <member name="M:Contensive.Models.Db.DbBaseModel.allowRecordCaching(System.Type)">
+        <member name="M:Contensive.Models.Db.DbBaseModel.allowRecordCaching(Contensive.BaseClasses.CPBaseClass,System.Type)">
             <summary>
             Determine if the record can be cached.
             If the call comes from within Contensive.DbModels or Contensive.Processor, allow record caching. Otherwise block record caching.
@@ -1548,7 +1606,7 @@
         </member>
         <member name="P:Contensive.Models.Db.DomainModel.typeId">
             <summary>
-            determines the type of response
+            determines the type of response. 0/1=normal, 2=forward to url, 3=forward to replacement domain
             </summary>
         </member>
         <member name="P:Contensive.Models.Db.DomainModel.visited">
@@ -1568,6 +1626,13 @@
             </summary>
             <param name="cp"></param>
             <param name="requestDomain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.Models.Db.DomainModel.getPublicDomains(Contensive.BaseClasses.CPBaseClass)">
+            <summary>
+            get a list of domains that a user can click on
+            </summary>
+            <param name="cp"></param>
             <returns></returns>
         </member>
         <member name="P:Contensive.Models.Db.DownloadModel.tableMetadata">
@@ -1732,6 +1797,39 @@
             table definition
             </summary>
         </member>
+        <member name="P:Contensive.Models.Db.EmailQueueModel.sendingProcessKey">
+            <summary>
+            The sending process clears all expired keys.
+            The process then creates an process expiration date. It can send records until that expiration.
+            The sending process sets its key, and a key expiration date in records with blank keys.
+            Then while the process has not expired, it selects back the selected record based on that key and the expiration date and sends the record. 
+            </summary>
+        </member>
+        <member name="M:Contensive.Models.Db.EmailQueueModel.setProcessKey(Contensive.BaseClasses.CPBaseClass,System.String,System.DateTime,System.Int32)">
+            <summary>
+            mark as set of record that were unmarked with this process key and process expiration
+            </summary>
+            <param name="cp"></param>
+            <param name="sendingProcessKey"></param>
+            <param name="sendingProcessExpiration"></param>
+        </member>
+        <member name="M:Contensive.Models.Db.EmailQueueModel.clearExpiredKeys(Contensive.BaseClasses.CPBaseClass,System.DateTime)">
+            <summary>
+            clear the process key and process expiration for records with expired keys
+            </summary>
+            <param name="cp"></param>
+            <param name="sendingProcessExpiration"></param>
+        </member>
+        <member name="M:Contensive.Models.Db.EmailQueueModel.selectRecordsToSend(Contensive.BaseClasses.CPBaseClass,System.String,System.Int32)">
+            <summary>
+            select a set of records for this sending process that have not expired
+            </summary>
+            <param name="cp"></param>
+            <param name="sendingProcessKey"></param>
+            <param name="sendingProcessExpiration"></param>
+            <param name="recordsToSelect"></param>
+            <returns></returns>
+        </member>
         <member name="P:Contensive.Models.Db.EmailTemplateModel.tableMetadata">
             <summary>
             table definition
@@ -1745,16 +1843,6 @@
         <member name="P:Contensive.Models.Db.EmailTopicModel.emailId">
             <summary>
             field properties
-            </summary>
-        </member>
-        <member name="P:Contensive.Models.Db.FormFieldModel.tableMetadata">
-            <summary>
-            table definition
-            </summary>
-        </member>
-        <member name="P:Contensive.Models.Db.FormSetModel.tableMetadata">
-            <summary>
-            table definition
             </summary>
         </member>
         <member name="T:Contensive.Models.Db.GroupEmailModel">
@@ -2183,6 +2271,12 @@
             table definition
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "P:Contensive.Models.Db.PageContentModel.addonList" -->
+        <member name="P:Contensive.Models.Db.PageContentModel.allowReturnLinkDisplay">
+            <summary>
+            deprecated
+            </summary>
+        </member>
         <member name="P:Contensive.Models.Db.PageContentModel.isSecure">
             <summary>
             deprecated. https vs http should be controlled by the webserver software.
@@ -2200,13 +2294,20 @@
             <param name="cp"></param>
             <param name="pageId"></param>
         </member>
-        <member name="M:Contensive.Models.Db.PageContentModel.savePageContentLinkAlias(Contensive.BaseClasses.CPBaseClass,System.String,System.Int32,System.String,System.Boolean)">
+        <member name="M:Contensive.Models.Db.PageContentModel.verifyPageUrl(Contensive.BaseClasses.CPBaseClass)">
             <summary>
-            Save Link Alias field, managing duplicates and creating the linkalias field.
+            verify all page content has Page URL.
+            Page URL runs out of a cache. If a Page URL is requested by pageId that is no in linkalis cache, it reloads the addoncache which is expensive.
+            </summary>
+            <param name="cp"></param>
+        </member>
+        <member name="M:Contensive.Models.Db.PageContentModel.savePageContentPageUrl(Contensive.BaseClasses.CPBaseClass,System.String,System.Int32,System.String,System.Boolean)">
+            <summary>
+            Save Page URL field, managing duplicates and creating the linkalias field.
             </summary>
             <param name="cp"></param>
             <param name="adminData"></param>
-            <returns>The normalized link alias saved</returns>
+            <returns>The normalized Page URL saved</returns>
         </member>
         <member name="P:Contensive.Models.Db.PageContentTopicRuleModel.tableMetadata">
             <summary>
@@ -2283,11 +2384,6 @@
             if true, text messages can be sent to the person
             </summary>
         </member>
-        <member name="P:Contensive.Models.Db.PersonModel.allowToolsPanel">
-            <summary>
-            enable/disable tool panel
-            </summary>
-        </member>
         <member name="P:Contensive.Models.Db.PersonModel.autoLogin">
             <summary>
             if true, the user allows auto login. It must be enabled on the site as well.
@@ -2333,9 +2429,25 @@
             location of address
             </summary>
         </member>
+        <member name="P:Contensive.Models.Db.PersonModel.password">
+            <summary>
+            use setPassword() method to set password.
+            if sp allow-plain-text true -- this is the password
+            see AuthenticationController for all login/authentication
+            </summary>
+        </member>
         <member name="P:Contensive.Models.Db.PersonModel.passwordHash">
             <summary>
-            if siteproperty "allow plain text password" is false, this is password hashed with encryptOneWay. login tests this field
+            use setPassword() method to set password.
+            if sp allow-plain-text false -- this is password hash, use setPassword() to set. 
+            stored as {hasherVersion}${encryptVersion}${payload}
+            if delimiters are missing, this is version 1 -- sha512, password salted with record-guid
+            see AuthenticationController for all password/login/authentication details
+            </summary>
+        </member>
+        <member name="P:Contensive.Models.Db.PersonModel.passwordModifiedDate">
+            <summary>
+            The last time the passwordwas updated
             </summary>
         </member>
         <member name="M:Contensive.Models.Db.PersonModel.createListFromGroupNameList(Contensive.BaseClasses.CPBaseClass,System.Collections.Generic.List{System.String},System.Boolean)">
@@ -2361,27 +2473,6 @@
             return the best name available for this record
             </summary>
             <returns></returns>
-        </member>
-        <member name="M:Contensive.Models.Db.PersonModel.setPassword(Contensive.BaseClasses.CPBaseClass,System.String,System.Int32)">
-            <summary>
-            set the current user's password. returns false if password does not meet password rule criteria
-            </summary>
-            <param name="cp"></param>
-            <param name="password"></param>
-        </member>
-        <member name="M:Contensive.Models.Db.PersonModel.setPassword(Contensive.BaseClasses.CPBaseClass,System.String)">
-            <summary>
-            set the current user's password. returns false if password does not meet password rule criteria
-            </summary>
-            <param name="cp"></param>
-            <param name="password"></param>
-        </member>
-        <member name="M:Contensive.Models.Db.PersonModel.setPassword(Contensive.BaseClasses.CPBaseClass,System.String,System.String@)">
-            <summary>
-            set the current user's password. returns false if password does not meet password rule criteria
-            </summary>
-            <param name="cp"></param>
-            <param name="password"></param>
         </member>
         <member name="T:Contensive.Models.Db.PropertyModel">
             <summary>
@@ -2433,7 +2524,12 @@
             table definition
             </summary>
         </member>
-        <member name="P:Contensive.Models.Db.SortMethodModel.tableMetadata">
+        <member name="P:Contensive.Models.Db.SiteWarningModel.alarm">
+            <summary>
+            if true, turn on alarm
+            </summary>
+        </member>
+        <member name="P:Contensive.Models.Db.SortMethodModelx.tableMetadata">
             <summary>
             table definition
             </summary>
@@ -2698,6 +2794,25 @@
             Allow guests to join this topic
             </summary>
         </member>
+        <member name="T:Contensive.Models.Db.UsedPasswordModel">
+            <summary>
+            List of common passwords
+            </summary>
+        </member>
+        <member name="P:Contensive.Models.Db.UsedPasswordModel.tableMetadata">
+            <summary>
+            table definition
+            </summary>
+        </member>
+        <member name="M:Contensive.Models.Db.UsedPasswordModel.isUsedPassword(Contensive.BaseClasses.CPBaseClass,System.String,System.String)">
+            <summary>
+            return true if this password was used by this user within the last 30 days
+            </summary>
+            <param name="cp"></param>
+            <param name="password"></param>
+            <param name="passwordHash"></param>
+            <returns></returns>
+        </member>
         <member name="P:Contensive.Models.Db.ViewingModel.tableMetadata">
             <summary>
             table definition
@@ -2745,7 +2860,7 @@
         </member>
         <member name="P:Contensive.Models.Db.VisitModel.loginAttempts">
             <summary>
-            count of login attempts during this visit
+            count of login sequential unsuccessful attempts. Set to zero on successful login
             </summary>
         </member>
         <member name="P:Contensive.Models.Db.VisitModel.memberId">
@@ -2808,6 +2923,11 @@
             if true, the visitor was created for this visit
             </summary>
         </member>
+        <member name="P:Contensive.Models.Db.VisitModel.CanSeeAgeRestrictedContent">
+            <summary>
+            if true, the user on this visit is able to see age restricted content
+            </summary>
+        </member>
         <member name="M:Contensive.Models.Db.VisitModel.getLastVisitByVisitor(Contensive.BaseClasses.CPBaseClass,System.Int32,System.Int32)">
             <summary>
             return a visit object for the visitor's last visit before the provided id
@@ -2850,6 +2970,181 @@
         <member name="P:Contensive.Models.Db.VisitSummaryModel.authenticatedVisits">
             <summary>
             field properties
+            </summary>
+        </member>
+        <member name="T:Contensive.Processor.Models.AddonListItemModel">
+            <summary>
+            The structure of an included addon list, stored in page and template records
+            get and put remote methods in Processor addons
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonListItemModel.designBlockTypeGuid">
+            <summary>
+            The guid of the design block addon that is in this position
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonListItemModel.designBlockTypeName">
+            <summary>
+            The name of the design block to be used for non-rendered mode
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonListItemModel.instanceGuid">
+            <summary>
+            the Guid of the data instance in this position
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonListItemModel.renderedHtml">
+            <summary>
+            todo - create view model separate from domain model because UI mode might need it
+            Not saved in DB, use only for view. 
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonListItemModel.renderedAssets">
+            <summary>
+            Assets added to the html document during html rendering
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonListItemModel.columns">
+            <summary>
+            If this design block is structural, it contains one or more addon lists
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonListItemModel.settingsEditUrl">
+            <summary>
+            If the addon has a settings record, this is the admin edit url to be used on the UI
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonListItemModel.addonEditUrl">
+            <summary>
+            if the addon can be edited, this is the url to the admin sits
+            </summary>
+        </member>
+        <member name="M:Contensive.Processor.Models.AddonListItemModel.render(Contensive.BaseClasses.CPBaseClass,Contensive.Processor.Models.AddonListItemModel,Contensive.BaseClasses.CPUtilsBaseClass.addonExecuteContext)">
+            <summary>
+            Render the html,css,js for an addonListItem
+            </summary>
+            <param name="cp"></param>
+            <param name="addonListItem"></param>
+        </member>
+        <member name="M:Contensive.Processor.Models.AddonListItemModel.render(Contensive.BaseClasses.CPBaseClass,System.Collections.Generic.List{Contensive.Processor.Models.AddonListItemModel},Contensive.BaseClasses.CPUtilsBaseClass.addonExecuteContext)">
+            <summary>
+            render all the renderHtml, css, js nodes in an addon list
+            </summary>
+            <param name="cp"></param>
+            <param name="addonList"></param>
+        </member>
+        <member name="M:Contensive.Processor.Models.AddonListItemModel.renderEdit(Contensive.BaseClasses.CPBaseClass,Contensive.Processor.Models.AddonListItemModel,Contensive.Models.Db.AddonModel,Contensive.BaseClasses.CPUtilsBaseClass.addonExecuteContext)">
+            <summary>
+            Render for editing the html,css,js for an addonListItem
+            </summary>
+            <param name="cp"></param>
+            <param name="addonListItem"></param>
+        </member>
+        <member name="M:Contensive.Processor.Models.AddonListItemModel.renderEdit(Contensive.BaseClasses.CPBaseClass,System.Collections.Generic.List{Contensive.Processor.Models.AddonListItemModel},Contensive.BaseClasses.CPUtilsBaseClass.addonExecuteContext)">
+            <summary>
+            render for editing all the renderHtml, css, js nodes in an addon list
+            </summary>
+            <param name="cp"></param>
+            <param name="addonList"></param>
+        </member>
+        <member name="M:Contensive.Processor.Models.AddonListItemModel.deleteInstance(Contensive.BaseClasses.CPBaseClass,System.Collections.Generic.List{Contensive.Processor.Models.AddonListItemModel},System.String)">
+            <summary>
+            transverse the addonlist and delete the instance specified. return true if found, false if not found
+            </summary>
+            <param name="cp"></param>
+            <param name="addonList"></param>
+            <param name="instanceGuid"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.Processor.Models.AddonListItemModel.normalizeAddonList(Contensive.BaseClasses.CPBaseClass,System.Collections.Generic.List{Contensive.Processor.Models.AddonListItemModel})">
+            <summary>
+            clean up the addonlist delivered from the UI (remove renderedhtml, update addonName, etc)
+            </summary>
+            <param name="cp"></param>
+            <param name="addonList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.Processor.Models.AddonListItemModel.getAdminEditUrl(Contensive.BaseClasses.CPBaseClass,System.Int32,System.String)">
+            <summary>
+            referenced from processor.project
+            </summary>
+            <param name="cp"></param>
+            <param name="contentId"></param>
+            <param name="instanceGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Contensive.Processor.Models.AddonAssetsModel">
+            <summary>
+            Assets added to the html document during html rendering
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonAssetsModel.headStyles">
+            <summary>
+            css styles added to the head
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonListColumnItemModel.col">
+            <summary>
+            the integer width of a column, where the row totals 12
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonListColumnItemModel.className">
+            <summary>
+            optional class that represents the width of the column
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonListColumnItemModel.addonList">
+            <summary>
+            Each column contains an addon list. This extra object layer was created to make it more convenient for the UI javascript
+            </summary>
+        </member>
+        <member name="T:Contensive.Processor.Models.AddonCacheAsideController">
+            <summary>
+            This is a static property cache, so it's persistence is the appDomain and there is no invalidation. It is fast, but addon updates require an iisreset
+            Removed for now.
+            Original name from PageBuilder collection was just CacheAside
+            </summary>
+        </member>
+        <member name="T:Contensive.Processor.Models.AddonPanelListItemModel">
+            <summary>
+            The structure of an included addon list, stored in page and template records
+            get and put remote methods in Processor addons
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonPanelListItemModel.designBlockTypeGuid">
+            <summary>
+            The guid of the design block addon
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonPanelListItemModel.name">
+            <summary>
+            The name of the design block addon
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonPanelListItemModel.image">
+            <summary>
+            imageHref - The full URI of an image that shows the user what it does. Not an icon, but a representation
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonPanelListItemModel.columns">
+            <summary>
+            columnList - if the addon creates columns, the list of features for each column
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonPanelListItemModel.renderedHtml">
+            <summary>
+            placeholder for future feature
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonPanelListItemModel.category">
+            <summary>
+            The addon category from the addon record
+            </summary>
+        </member>
+        <member name="F:Contensive.Processor.Models.AddonPanelListItemColumnModel.className">
+            <summary>
+            
             </summary>
         </member>
     </members>

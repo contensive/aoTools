@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<Collection name="Tool Basics" guid="{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}" system="No" updatable="Yes" blockNavigatorNode="No" onInstallAddonGuid="">
+<Collection name="Tool Basics" guid="{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}" system="No" updatable="Yes" blockNavigatorNode="No" onInstallAddonGuid="{E6D0895D-D738-42B6-ACC3-A189C18EDF68}">
 	<HelpLink></HelpLink>
 	<Help></Help>
+	<Addon name="Tools OnInstall" guid="{E6D0895D-D738-42B6-ACC3-A189C18EDF68}" type="Tool">
+		<DotNetClass><![CDATA[Contensive.Addons.Tools.OnInstallClass]]></DotNetClass>
+	</Addon>
 	<Addon name="Sql Server Schema" guid="{AA53F528-D79C-41B6-96D0-6DDFCB7DA9D1}" type="Tool">
 		<DotNetClass><![CDATA[Contensive.Addons.Tools.SqlSchemaTool]]></DotNetClass>
 		<Admin>Yes</Admin>
@@ -9,11 +12,6 @@
 	</Addon>
 	<Addon name="Invite Users" guid="{AAF9CA71-B9F4-4064-A032-0F8D12701149}" type="Tool">
 		<DotNetClass><![CDATA[Contensive.Addons.Tools.InviteUsersTool]]></DotNetClass>
-		<Admin>Yes</Admin>
-		<BlockEditTools>Yes</BlockEditTools>
-	</Addon>
-	<Addon name="Create Sql Server Foreign Keys" guid="{F1CA5E78-CC6B-4E9D-BE5D-0B37C5B2E075}" type="Tool">
-		<DotNetClass><![CDATA[Contensive.Addons.Tools.CreateSqlForeignKeysTool]]></DotNetClass>
 		<Admin>Yes</Admin>
 		<BlockEditTools>Yes</BlockEditTools>
 	</Addon>
@@ -174,45 +172,7 @@
 			<field name="contentid">{5ed28143-2c5c-42cd-8c21-f3caa14a37f7}</field>
 			<field name="collectionid">{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}</field>
 		</record>
-	</data>
-	<!-- moved to design blocks
-	<CDef Name="Add-on Mock Data" Active="1" AdminOnly="0" AllowAdd="1" AllowCalendarEvents="0" AllowContentChildTool="0" AllowContentTracking="0" AllowDelete="1" AllowMetaContent="" AllowTopicRules="0" AllowWorkflowAuthoring="0" AuthoringDataSourceName="Default" AuthoringTableName="ccAddonMockData" ContentDataSourceName="Default" ContentTableName="ccAddonMockData" DefaultSortMethod="By Name" DeveloperOnly="0" DropDownFieldList="Name" EditorGroupName="" Parent="" IconLink="" IconHeight="0" IconWidth="0" IconSprites="0" isbasecontent="0" guid="{5ed28143-2c5c-42cd-8c21-f3caa14a37f7}" >
-		<Field Name="name" Caption="Name" EditTab="" FieldType="Text" Authorable="True" EditSortPriority="1000" DefaultValue="" active="True" AdminOnly="False" DeveloperOnly="False" HTMLContent="False" Required="False" TextBuffered="False" UniqueName="False" RSSTitle="False" RSSDescription="False" MemberSelectGroup="" Scramble="False" LookupList="" NotEditable="False" Password="False" ReadOnly="False" ManyToManyRulePrimaryField="" ManyToManyRuleSecondaryField="" IsModified="False" IndexColumn="0" IndexSortDirection="" IndexSortOrder="0" IndexWidth="" RedirectID="" RedirectPath="" IsBaseField="False" LookupContent="" RedirectContent="" ManyToManyContent="" ManyToManyRuleContent="" >
-			<HelpDefault><![CDATA[An 'Add-on Mock' simulates an Add-on's output data and merges it with a layout. This record holds the data and selected layout. To mock an add-on, use Page Builder to drop the 'Add-on Mock' on a page, edit this record to simulate an add-ons data and layout.]]></HelpDefault>
-		</Field>
-		<Field Name="layoutid" Caption="Layout (mustache templating)" EditTab="" FieldType="Lookup" Authorable="True" EditSortPriority="1010" DefaultValue="" active="True" AdminOnly="False" DeveloperOnly="False" HTMLContent="False" Required="False" TextBuffered="False" UniqueName="False" RSSTitle="False" RSSDescription="False" MemberSelectGroup="" Scramble="False" LookupList="" NotEditable="False" Password="False" ReadOnly="False" ManyToManyRulePrimaryField="" ManyToManyRuleSecondaryField="" IsModified="False" IndexColumn="0" IndexSortDirection="0" IndexSortOrder="0" IndexWidth="" RedirectID="" RedirectPath="" IsBaseField="False" LookupContent="Layouts" RedirectContent="" ManyToManyContent="" ManyToManyRuleContent="" >
-			<HelpDefault><![CDATA[Select the layout to be used for this mock addon. Once created, the layout can be updated.]]></HelpDefault>
-		</Field>
-		<Field Name="jsondata" Caption="Addon Mock Data (json format)" EditTab="" FieldType="LongText" Authorable="True" EditSortPriority="1020" DefaultValue="" active="True" AdminOnly="False" DeveloperOnly="False" HTMLContent="False" Required="False" TextBuffered="False" UniqueName="False" RSSTitle="False" RSSDescription="False" MemberSelectGroup="" Scramble="False" LookupList="" NotEditable="False" Password="False" ReadOnly="False" ManyToManyRulePrimaryField="" ManyToManyRuleSecondaryField="" IsModified="False" IndexColumn="0" IndexSortDirection="0" IndexSortOrder="0" IndexWidth="" RedirectID="" RedirectPath="" IsBaseField="False" LookupContent="" RedirectContent="" ManyToManyContent="" ManyToManyRuleContent="" >
-			<HelpDefault><![CDATA[The data in json format that simulates an add-on's output. This data will be merged into the layout using mustache templating.]]></HelpDefault>
-		</Field>
-		<Field Name="padtop" Caption="Top Padding" EditTab="Styles" FieldType="Boolean" Authorable="True" EditSortPriority="2000" DefaultValue="0" active="True" AdminOnly="False" DeveloperOnly="False" HTMLContent="False" Required="False" TextBuffered="False" UniqueName="False" RSSTitle="False" RSSDescription="False" MemberSelectGroup="" Scramble="False" LookupList="" NotEditable="False" Password="False" ReadOnly="False" ManyToManyRulePrimaryField="" ManyToManyRuleSecondaryField="" IsModified="False" IndexColumn="0" IndexSortDirection="" IndexSortOrder="0" IndexWidth="0" RedirectID="" RedirectPath="" IsBaseField="False" LookupContent="" RedirectContent="" ManyToManyContent="" ManyToManyRuleContent="" >
-			<HelpDefault><![CDATA[Add space between the edge of the block and the content.]]></HelpDefault>
-		</Field>
-		<Field Name="padright" Caption="Right Padding" EditTab="Styles" FieldType="Boolean" Authorable="True" EditSortPriority="2010" DefaultValue="0" active="True" AdminOnly="False" DeveloperOnly="False" HTMLContent="False" Required="False" TextBuffered="False" UniqueName="False" RSSTitle="False" RSSDescription="False" MemberSelectGroup="" Scramble="False" LookupList="" NotEditable="False" Password="False" ReadOnly="False" ManyToManyRulePrimaryField="" ManyToManyRuleSecondaryField="" IsModified="False" IndexColumn="0" IndexSortDirection="" IndexSortOrder="0" IndexWidth="0" RedirectID="" RedirectPath="" IsBaseField="False" LookupContent="" RedirectContent="" ManyToManyContent="" ManyToManyRuleContent="" >
-			<HelpDefault><![CDATA[Add space between the edge of the block and the content.]]></HelpDefault>
-		</Field>
-		<Field Name="padbottom" Caption="Bottom Padding" EditTab="Styles" FieldType="Boolean" Authorable="True" EditSortPriority="2020" DefaultValue="0" active="True" AdminOnly="False" DeveloperOnly="False" HTMLContent="False" Required="False" TextBuffered="False" UniqueName="False" RSSTitle="False" RSSDescription="False" MemberSelectGroup="" Scramble="False" LookupList="" NotEditable="False" Password="False" ReadOnly="False" ManyToManyRulePrimaryField="" ManyToManyRuleSecondaryField="" IsModified="False" IndexColumn="0" IndexSortDirection="" IndexSortOrder="0" IndexWidth="0" RedirectID="" RedirectPath="" IsBaseField="False" LookupContent="" RedirectContent="" ManyToManyContent="" ManyToManyRuleContent="" >
-			<HelpDefault><![CDATA[Add space between the edge of the block and the content.]]></HelpDefault>
-		</Field>
-		<Field Name="padleft" Caption="Left Padding" EditTab="Styles" FieldType="Boolean" Authorable="True" EditSortPriority="2030" DefaultValue="0" active="True" AdminOnly="False" DeveloperOnly="False" HTMLContent="False" Required="False" TextBuffered="False" UniqueName="False" RSSTitle="False" RSSDescription="False" MemberSelectGroup="" Scramble="False" LookupList="" NotEditable="False" Password="False" ReadOnly="False" ManyToManyRulePrimaryField="" ManyToManyRuleSecondaryField="" IsModified="False" IndexColumn="0" IndexSortDirection="" IndexSortOrder="0" IndexWidth="0" RedirectID="" RedirectPath="" IsBaseField="False" LookupContent="" RedirectContent="" ManyToManyContent="" ManyToManyRuleContent="" >
-			<HelpDefault><![CDATA[Add space between the edge of the block and the content.]]></HelpDefault>
-		</Field>
-		<Field Name="backgroundimagefilename" Caption="Background Image" EditTab="Styles" FieldType="File" Authorable="True" EditSortPriority="2040" DefaultValue="" active="True" AdminOnly="False" DeveloperOnly="False" HTMLContent="False" Required="False" TextBuffered="False" UniqueName="False" RSSTitle="False" RSSDescription="False" MemberSelectGroup="" Scramble="False" LookupList="" NotEditable="False" Password="False" ReadOnly="False" ManyToManyRulePrimaryField="" ManyToManyRuleSecondaryField="" IsModified="False" IndexColumn="0" IndexSortDirection="" IndexSortOrder="0" IndexWidth="0" RedirectID="" RedirectPath="" IsBaseField="False" LookupContent="" RedirectContent="" ManyToManyContent="" ManyToManyRuleContent="" >
-			<HelpDefault><![CDATA[Add a background image to the design block. It will be reduced in size to cover the entire background.]]></HelpDefault>
-		</Field>
-		<Field Name="asfullbleed" Caption="Add Container Margin for Full Bleed template" EditTab="Styles" FieldType="Boolean" Authorable="True" EditSortPriority="2050" DefaultValue="0" active="True" AdminOnly="False" DeveloperOnly="False" HTMLContent="False" Required="False" TextBuffered="False" UniqueName="False" RSSTitle="False" RSSDescription="False" MemberSelectGroup="" Scramble="False" LookupList="" NotEditable="False" Password="False" ReadOnly="False" ManyToManyRulePrimaryField="" ManyToManyRuleSecondaryField="" IsModified="False" IndexColumn="0" IndexSortDirection="" IndexSortOrder="0" IndexWidth="0" RedirectID="" RedirectPath="" IsBaseField="False" LookupContent="" RedirectContent="" ManyToManyContent="" ManyToManyRuleContent="" >
-			<HelpDefault><![CDATA[When not checked, this design block should be used within a container. When checked, the block is expected to span the full width of the screen and may create its own container.]]></HelpDefault>
-		</Field>
-		<Field Name="styleheight" Caption="Height (with units)" EditTab="Styles" FieldType="Text" Authorable="True" EditSortPriority="3000" DefaultValue="" active="True" AdminOnly="False" DeveloperOnly="False" HTMLContent="False" Required="False" TextBuffered="False" UniqueName="False" RSSTitle="False" RSSDescription="False" MemberSelectGroup="" Scramble="False" LookupList="" NotEditable="False" Password="False" ReadOnly="False" ManyToManyRulePrimaryField="" ManyToManyRuleSecondaryField="" IsModified="False" IndexColumn="0" IndexSortDirection="" IndexSortOrder="0" IndexWidth="" RedirectID="" RedirectPath="" IsBaseField="False" LookupContent="" RedirectContent="" ManyToManyContent="" ManyToManyRuleContent="" >
-			<HelpDefault><![CDATA[Optional. Set a style height and the design block will be forced this this height. Include both the number and the units, like 500px or 20em.]]></HelpDefault>
-		</Field>
-		<Field Name="themestyleid" Caption="Block Wrapper Class" EditTab="Styles" FieldType="Lookup" Authorable="True" EditSortPriority="4020" DefaultValue="" active="True" AdminOnly="False" DeveloperOnly="False" HTMLContent="False" Required="False" TextBuffered="False" UniqueName="False" RSSTitle="False" RSSDescription="False" MemberSelectGroup="" Scramble="False" LookupList="" NotEditable="False" Password="False" ReadOnly="False" ManyToManyRulePrimaryField="" ManyToManyRuleSecondaryField="" IsModified="False" IndexColumn="0" IndexSortDirection="" IndexSortOrder="0" IndexWidth="0" RedirectID="" RedirectPath="" IsBaseField="False" LookupContent="Design Block Themes" RedirectContent="" ManyToManyContent="" ManyToManyRuleContent="" >
-			<HelpDefault><![CDATA[Optional. Select a css class selector to be added to the block's wrapper. Use this feature to customize the layout styles. To add a custom style, add the css class selector in the content 'Design Block Themes' and add the css code to the style sheet in the site's theme addon.]]></HelpDefault>
-		</Field>
-		<Field Name="fontstyleid" Caption="Block Wrapper Class for Font (deprecated)" EditTab="Styles" FieldType="Integer" Authorable="False" EditSortPriority="9999" DefaultValue="" active="True" AdminOnly="False" DeveloperOnly="False" HTMLContent="False" Required="False" TextBuffered="False" UniqueName="False" RSSTitle="False" RSSDescription="False" MemberSelectGroup="" Scramble="False" LookupList="" NotEditable="False" Password="False" ReadOnly="False" ManyToManyRulePrimaryField="" ManyToManyRuleSecondaryField="" IsModified="False" IndexColumn="0" IndexSortDirection="" IndexSortOrder="0" IndexWidth="0" RedirectID="" RedirectPath="" IsBaseField="False" LookupContent="" RedirectContent="" ManyToManyContent="" ManyToManyRuleContent="" >
-			<HelpDefault><![CDATA[deprecated]]></HelpDefault>
-		</Field>
-	</CDef>
-	-->
+	</data>	
+	<Resource name="uiTools.zip" type="content" path="tools" />
+	<Resource name="uiTools.zip" type="www" path="tools" />-->
 </Collection>

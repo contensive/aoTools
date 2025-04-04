@@ -7003,6 +7003,16 @@
             <param name="password"></param>
             <returns></returns>
         </member>
+        <member name="M:Contensive.BaseClasses.CPUserBaseClass.IsNewLoginOK(System.Int32,System.String,System.String,System.String@)">
+            <summary>
+            returns true if the credentials are valid, and not currently in user (the current user can use them)
+            </summary>
+            <param name="userId">The id of the user who wants to update their username and password</param>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="errorMessage">if the result is false, this is a user compatible message that explains how they can fix the issue</param>
+            <returns></returns>
+        </member>
         <member name="P:Contensive.BaseClasses.CPUserBaseClass.Language">
             <summary>
             The language relfected in the browser metadata
@@ -8631,11 +8641,6 @@
             Set this to the url of the ajax method that returns the html for the form.
             </summary>
         </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.blockFormTag">
-            <summary>
-            if true, the optional form tag will be blocked. The form tag is added automaatically if buttons, hiddens or a form-action is added
-            </summary>
-        </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.includeBodyPadding">
             <summary>
             if true, the container between the button rows will include default padding
@@ -8864,6 +8869,11 @@
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.htmlAfterBody">
             <summary>
             An html block added below the Body. Typically used for filters.
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.blockFormTag">
+            <summary>
+            if true, the optional form tag will be blocked. The form tag is added automaatically if buttons, hiddens or a form-action is added
             </summary>
         </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.refreshQueryString">
@@ -9120,11 +9130,6 @@
         <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.addColumn(Contensive.BaseClasses.LayoutBuilder.ReportListColumnBaseClass)">
             
         </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.blockFormTag">
-            <summary>
-            if true, the optional form tag will be blocked. The form tag is added automaatically if buttons, hiddens or a form-action is added
-            </summary>
-        </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.warningMessage">
             <summary>
             message displayed as a warning message. Not an error, but an issue of some type
@@ -9228,6 +9233,11 @@
             <param name="link"></param>
             <param name="htmlId"></param>
             <param name="htmlClass"></param>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.blockFormTag">
+            <summary>
+            if true, the optional form tag will be blocked. The form tag is added automaatically if buttons, hiddens or a form-action is added
+            </summary>
         </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.refreshQueryString">
             <summary>
