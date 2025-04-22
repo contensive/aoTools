@@ -27,7 +27,7 @@ namespace Contensive.Addons.Tools {
                 int addUsersToOrganization = cp.Doc.GetInteger("inviteUsersAddToOrganization");
                 string button = cp.Doc.GetText("button");
                 StringBuilder formBody = new();
-
+                bool allowAccounts = cp.Content.IsField("abAccounts", "id");
                 if (button.Equals(buttonInviteUsers)) {
                     inviteUsersList = inviteUsersList.Replace("\r\n", ",").Replace("\r", ",").Replace("\n", ",").Replace(",,", ",");
                     List<string> userEmails = inviteUsersList.Split(',').Select(x => x.Trim()).ToList();
@@ -50,7 +50,7 @@ namespace Contensive.Addons.Tools {
                             userSent += $", added to group '{cp.Content.GetRecordName("groups", addUsersToGroup)}'";
                             cp.Group.AddUser(addUsersToGroup, newUser.id);
                         }
-                        if (addUsersToAccount > 0) {
+                        if (allowAccounts && addUsersToAccount > 0) {
                             userSent += $", added to account '{cp.Content.GetRecordName("accounts", addUsersToAccount)}'";
                             var ruleList = DbBaseModel.createList<MembershipPeopleRulesModel>(cp, $"(accountid={addUsersToAccount})and(memberId={newUser.id})");
                             if (ruleList.Count == 0) {
@@ -75,8 +75,8 @@ namespace Contensive.Addons.Tools {
                         //
                         //send the email
                         string emailBody = @$"
-                        <p>You have been invited to join {cp.Request.Host}. Click this link to update your profile information: <b><a href=""{url}"">click here</a></b>.";
-                        cp.Email.send(email, cp.Email.fromAddressDefault, $"{cp.Request.Host} site invitation", emailBody);
+                        <p>You have been invited to join the website <span>{cp.Request.Host.Replace(".","</span>.<span>")}</span>. Click this link to update your profile information: <b><a href=""{url}"">click here</a></b>.";
+                        cp.Email.send(email, cp.Email.fromAddressDefault, $"Invitation to join {cp.Request.Host}", emailBody);
                     }
                     formBody.Append($"<p>{DateTime.Now.ToString()} Invitation sent to:<ul>{userSendList}</ul></p>");
                 } else {
@@ -92,12 +92,14 @@ namespace Contensive.Addons.Tools {
                     }
 
                     var accounts = new List<string>();
-                    string getAccountsSQL = "Select id, name from abAccounts where active>0";
-                    using (var cs = cp.CSNew()) {
-                        if (cs.OpenSQL(getAccountsSQL)) {
-                            while (cs.OK()) {
-                                accounts.Add(cs.GetText("name"));
-                                cs.GoNext();
+                    if (allowAccounts) {
+                        string getAccountsSQL = "Select id, name from abAccounts where active>0";
+                        using (var cs = cp.CSNew()) {
+                            if (cs.OpenSQL(getAccountsSQL)) {
+                                while (cs.OK()) {
+                                    accounts.Add(cs.GetText("name"));
+                                    cs.GoNext();
+                                }
                             }
                         }
                     }
@@ -120,8 +122,10 @@ namespace Contensive.Addons.Tools {
                     formBody.Append(cp.Html5.Div(cp.AdminUI.GetBooleanEditor("inviteUsersMakeAdmin", false, "inviteUsersMakeAdmin", false), "ms-5"));
                     formBody.Append(cp.Html5.H4("Add user to group"));
                     formBody.Append(cp.Html5.Div(cp.AdminUI.GetLookupListEditor("inviteUsersAddToGroup", groups.Values.ToList(), 0, "inviteUsersAddToGroup", false, false), "ms-5"));
-                    formBody.Append(cp.Html5.H4("Add user to account"));
-                    formBody.Append(cp.Html5.Div(cp.AdminUI.GetLookupListEditor("inviteUsersAddToAccount", accounts, 0, "inviteUsersAddToAccount", false, false), "ms-5"));
+                    if (allowAccounts) {
+                        formBody.Append(cp.Html5.H4("Add user to account"));
+                        formBody.Append(cp.Html5.Div(cp.AdminUI.GetLookupListEditor("inviteUsersAddToAccount", accounts, 0, "inviteUsersAddToAccount", false, false), "ms-5"));
+                    }
                     formBody.Append(cp.Html5.H4("Add user to organization"));
                     formBody.Append(cp.Html5.Div(cp.AdminUI.GetLookupListEditor("inviteUsersAddToOrganization", organizations, 0, "inviteUsersAddToOrganization", false, false), "ms-5"));
                 }
