@@ -39,7 +39,7 @@
 		<IncludeAddon name="JQuery" guid="{9C882078-0DAC-48E3-AD4B-CF2AA230DF80}"/>
 		<IncludeAddon name="Bootstrap" guid="{EF1FD66C-D62F-4BD2-BF07-38F47996EBB3}"/>	
 	</Addon>
-	<Addon name="SubmitInviteProfile" guid="" type="Add-on">
+	<Addon name="SubmitInviteProfile" guid="{F1123132-7F43-4D51-9D08-2C81F6E529E7}" type="Add-on">
 		<DotNetClass><![CDATA[Contensive.Addons.Tools.Addons.SubmitInviteProfile]]></DotNetClass>
 		<Category></Category>
 		<Admin>No</Admin>
