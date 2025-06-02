@@ -255,7 +255,7 @@
             If returnHtmlMessage is non-blank, add it to the html
             </summary>
             <param name="cp">Reference to the system processor object.</param>
-            <param name="WidgetName">A name of the design block. This must be unqiue for each type of design block (i.e. text, tile, etc)</param>
+            <param name="widgetName">A name of the design block. This must be unqiue for each type of design block (i.e. text, tile, etc)</param>
             <param name="returnHtmlMessage"></param>
             <returns>If blank is returned, </returns>
         </member>

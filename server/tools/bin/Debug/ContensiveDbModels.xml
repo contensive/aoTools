@@ -2294,6 +2294,13 @@
             <param name="cp"></param>
             <param name="pageId"></param>
         </member>
+        <member name="M:Contensive.Models.Db.PageContentModel.getPagesToReviewCount(Contensive.BaseClasses.CPBaseClass,System.Int32)">
+            <summary>
+            get the number of pages that have not been reviewed in the last 90 days
+            </summary>
+            <param name="cp"></param>
+            <returns></returns>
+        </member>
         <member name="M:Contensive.Models.Db.PageContentModel.verifyPageUrl(Contensive.BaseClasses.CPBaseClass)">
             <summary>
             verify all page content has Page URL.
@@ -3146,6 +3153,209 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="T:Contensive.Processor.Models.DashboardWidgetBarChartModel">
+            <summary>
+            This dash widget simple returns html for the content
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBarChartModel.uniqueId">
+            <summary>
+            used to identify the chart in the javascript
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBarChartModel.subhead">
+            <summary>
+            The widget subhead that appears at the top of the widget.
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBarChartModel.description">
+            <summary>
+            The widget description that appears at the top of the widget.
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBarChartModel.dataLabels">
+            <summary>
+            labels for each section of the Pie chart
+            </summary>
+        </member>
+        <member name="M:Contensive.Processor.Models.DashboardWidgetBarChartModel.getRandomString(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="length"></param>
+        </member>
+        <member name="T:Contensive.Processor.Models.DashboardWidgetBaseModel">
+            <summary>
+            This is the data base model returned by addons used for dashboard widgets.
+            There are mulitple types an addon can return, but they all must inherit from this base class.
+            Widgets are rendered with the WidgetRenderController, which populates the htmlContent property from 
+            the return of the addon, combined with the layout determined to be associated with the addon return data.
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel.widgetType">
+            <summary>
+            see WidgetTypeEnum, 
+            1=htmlContent, 
+            2=Number, 
+            2=Pie Chart
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel.width">
+            <summary>
+            The width of the widget. 
+            1= 1 column (widgetSmall)
+            2+ 2 columns (!widgetSmall)
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel.refreshSeconds">
+            <summary>
+            The number of seconds to refresh the widget. typically 0 for no refresh
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel.widgetName">
+            <summary>
+            The widget short name that appears at the top of the widget.
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel.url">
+            <summary>
+            The url used when the user clicks the widget. Leave blank to prevent a click action.
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel.filterOptions">
+            <summary>
+            If the widget includes a filter list, this are the options that will be presented in the list.
+            The filterCaption is displayed to the user.
+            The current filterValue is passed to the addon when the addon is rendered as cp.doc.gettext("widgetFilter") when the user selects a filter
+            If filterActive is true, it will be highlighted in the list as the current selection.
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel.hasFilter">
+            <summary>
+            true if there are filter options
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel.isNewWidgetTemplate">
+            <summary>
+            if true, this widget is hidden in the UI and used as a template to make new widgets.
+            Creating it this way gives more freedom to the designer
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel.widgetHtmlId">
+            <summary>
+            unique string that identifies this instance of the widget
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel.addonGuid">
+            <summary>
+            the guid of the addon that provides the html
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel.widgetSmall">
+            <summary>
+            the minimum width of the widget.
+            if true, the widget is a square
+            if false, the widget is a rectangle 2x the width of a small.
+            future growth to 4x a small
+            </summary>
+        </member>
+        <member name="T:Contensive.Processor.Models.DashboardWidgetBaseModel_FilterOptions">
+            <summary>
+            filter options are created by the addon and passed to the dashboard widget.
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel_FilterOptions.filterCaption">
+            <summary>
+            the name of the filter
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel_FilterOptions.filterValue">
+            <summary>
+            the value sent to the UI and read in reply. This is the key and must be unique
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetBaseModel_FilterOptions.filterActive">
+            <summary>
+            the type of filter
+            </summary>
+        </member>
+        <member name="T:Contensive.Processor.Models.DashboardWidgetHtmlModel">
+            <summary>
+            This dash widget simple returns html for the content
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetHtmlModel.htmlContent">
+            <summary>
+            The html with css and javascript to render the widget
+            </summary>
+        </member>
+        <member name="T:Contensive.Processor.Models.DashboardWidgetLineChartModel">
+            <summary>  
+            This dash widget simple returns html for the content  
+            </summary>  
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetLineChartModel.uniqueId">
+            <summary>  
+            used to identify the chart in the javascript  
+            </summary>  
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetLineChartModel.subhead">
+            <summary>  
+            The widget subhead that appears at the top of the widget.  
+            </summary>  
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetLineChartModel.description">
+            <summary>  
+            The widget description that appears at the top of the widget.  
+            </summary>  
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetLineChartModel.dataLabels">
+            <summary>  
+            labels for each section of the Pie chart  
+            </summary>  
+        </member>
+        <member name="M:Contensive.Processor.Models.DashboardWidgetLineChartModel.getRandomString(System.Int32)">
+            <summary>  
+              
+            </summary>  
+            <param name="length"></param>  
+        </member>
+        <member name="T:Contensive.Processor.Models.DashboardWidgetNumberModel">
+            <summary>
+            This dash widget simple returns html for the content
+            </summary>
+        </member>
+        <member name="T:Contensive.Processor.Models.DashboardWidgetPieChartModel">
+            <summary>
+            This dash widget simple returns html for the content
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetPieChartModel.uniqueId">
+            <summary>
+            used to identify the chart in the javascript
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetPieChartModel.subhead">
+            <summary>
+            The widget subhead that appears at the top of the widget.
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetPieChartModel.description">
+            <summary>
+            The widget description that appears at the top of the widget.
+            </summary>
+        </member>
+        <member name="P:Contensive.Processor.Models.DashboardWidgetPieChartModel.dataLabels">
+            <summary>
+            labels for each section of the Pie chart
+            </summary>
+        </member>
+        <member name="M:Contensive.Processor.Models.DashboardWidgetPieChartModel.getRandomString(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="length"></param>
         </member>
     </members>
 </doc>

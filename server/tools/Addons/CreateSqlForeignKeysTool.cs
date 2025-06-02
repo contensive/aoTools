@@ -22,11 +22,13 @@ namespace Contensive.Addons.Tools {
                 form.title = "Create SQL Foreign Keys";
                 form.description = "Use this tool to build the Foreign-Key constraints with NOCHECK in Sql Server that facilitate Schema Diagrams";
                 form.addFormButton("Create Foreign Keys");
+                form.addFormButton("Cancel");
                 //
                 // -- disable until constraints are understood
                 // -- when enabled, current records are saved during updates, and those records may have constrain
-                //
-                if (cp.Request.GetText("button") == "Create Foreign Keys") {
+                string button = cp.Request.GetText("button");
+                if (button == "Cancel") {  return string.Empty; }
+                if (button == "Create Foreign Keys") {
                     //
                     form.body = "Adding Foreign Keys to all lookup fields";
                     foreach (var content in DbBaseModel.createList<ContentModel>(cp, "(active<>0)")) {
@@ -63,7 +65,7 @@ namespace Contensive.Addons.Tools {
                     }
                     form.body += "<br>Foreign Keys Created";
                 }
-                return form.getHtml(cp);
+                return form.getHtml();
             } catch (Exception ex) {
                 cp.Site.ErrorReport(ex);
                 throw;

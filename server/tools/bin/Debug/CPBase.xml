@@ -19,6 +19,14 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Contensive.BaseClasses.CPAddonBaseClass.ExecuteDependency(System.String)">
+            <summary>
+            Add this addon as a dependency. The dependency will be executed only once during the process/doc/page.
+            If this is the first time it is called, the addon will be executed, assets like js and css added, and the result returned.
+            If it has been previously called, the addon is skipped.
+            </summary>
+            <param name="addonGuid"></param>
+        </member>
         <member name="M:Contensive.BaseClasses.CPAddonBaseClass.Execute(System.String)">
             <summary>
             Execute an addon in the default addon environment (type=simple, etc) and returns its resulting object. Generally addons return strings.
@@ -1249,6 +1257,49 @@
             </summary>
             <param name="htmlName"></param>
             <param name="htmlValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPAdminUIBaseClass.GetWidgetDashboard">
+            <summary>
+            create the admin dashboard with all widget addons.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPAdminUIBaseClass.GetWidgetDashboard(System.String)">
+            <summary>
+            create a portal dashboard with widgets from addons set in a portal
+            </summary>
+            <param name="portalGuid">The guid of the portal in which the dashboard displays. All addons in the portal marked as widgets.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPAdminUIBaseClass.getPortalFeatureLink(System.String,System.String)">
+            <summary>
+            return the link to the admin site portal feature
+            </summary>
+            <param name="cp"></param>
+            <param name="portalGuid"></param>
+            <param name="portalFeatureGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPAdminUIBaseClass.redirectToPortalFeature(System.String,System.String,System.String)">
+            <summary>
+            set response to redirect to the portal feature and return blank.
+            Use this method to redirect to a portal feature if a features addon is running outside the portal.
+            For example, if the AccountList addon is running outside the Accounts portal, redirect to the Accounts portal with the AccountList feature.
+            </summary>
+            <param name="cp"></param>
+            <param name="portalGuid"></param>
+            <param name="portalFeatureGuid"></param>
+            <param name="linkAppend"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Contensive.BaseClasses.CPAdminUIBaseClass.endpointContainsPortal">
+            <summary>
+            Portal features should only be run from with the c5 adminui portal. If not, redirect to the portal with this feature set.
+            return false if endpoint does not include the portalframework guid.
+            use for 1-line validation check
+            </summary>
+            <param name="cp"></param>
             <returns></returns>
         </member>
         <member name="M:Contensive.BaseClasses.CPAdminUIBaseClass.NewToolForm">
@@ -7959,6 +8010,16 @@
             <param name="source"></param>
             <returns></returns>
         </member>
+        <member name="M:Contensive.BaseClasses.CPUtilsBaseClass.versionIsOlder(System.String,System.String)">
+            <summary>
+            return true the versionStringToTest is older than the versionStringToTestAgainst. 
+            For example, to test if the installed version stored in a site property "installedVersion" is older than version 25.1.1.1, 
+            versionIsOlder( cp.Site.GetText( "installedVersion" ), "25.1.1.1")
+            </summary>
+            <param name="versionStringToTest"></param>
+            <param name="versionStringToTestAgainst"></param>
+            <returns></returns>
+        </member>
         <member name="M:Contensive.BaseClasses.CPUtilsBaseClass.AppendLogFile(System.String)">
             <summary>
             Deprecated, use AppendLog
@@ -8613,10 +8674,6 @@
             LayoutBuilders create the html for common Admin UI cases.
             They must be implemented 2 ways, first called by the page during the initial page load, and second called by the ajax refresh methods.
             Both methods return the exact same html, but the javascript that calls the ajax methods selectively replaces the important content.
-            Set the constructor arguments baseUrl and baseAjaxUrl to manage these calls.
-            baseUrl is the url of the initial page load and is used as the base url for links included on the page.
-            It is set during the constructor, and should be read from the proproperty when used because when for example, the initial page might be /admin?srcViewId=10.
-            baseAjaxUrl is the url to an ajax method that just returns the html for this form.
             </summary>
         </member>
         <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.#ctor(Contensive.BaseClasses.CPBaseClass)">
@@ -8624,21 +8681,12 @@
             LayoutBuilders create the html for common Admin UI cases.
             They must be implemented 2 ways, first called by the page during the initial page load, and second called by the ajax refresh methods.
             Both methods return the exact same html, but the javascript that calls the ajax methods selectively replaces the important content.
-            Set the constructor arguments baseUrl and baseAjaxUrl to manage these calls.
-            baseUrl is the url of the initial page load and is used as the base url for links included on the page.
-            It is set during the constructor, and should be read from the proproperty when used because when for example, the initial page might be /admin?srcViewId=10.
-            baseAjaxUrl is the url to an ajax method that just returns the html for this form.
             </summary>
         </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.baseUrl">
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.callbackAddonGuid">
             <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.baseAjaxUrl">
-            <summary>
-            LayoutBuilder layouts require html page redraw with an ajax method. 
-            Set this to the url of the ajax method that returns the html for the form.
+            The guid of the addon to be called to update pagination or search.
+            Typically the same remote that calls the layout builder.
             </summary>
         </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.includeBodyPadding">
@@ -8903,6 +8951,17 @@
             <param name="cp"></param>
             <returns></returns>
         </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.baseUrl">
+            <summary>
+            deprecated. Instead use cp.adminUI.getPortalFeatureLink()
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderBaseClass.baseAjaxUrl">
+            <summary>
+            LayoutBuilder layouts require html page redraw with an ajax method. 
+            Set this to the url of the ajax method that returns the html for the form.
+            </summary>
+        </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderContentWithTabsBaseClass.portalSubNavTitle">
             <summary>
             Optional. If set, this value will populate the title in the subnav of the portalbuilder
@@ -8941,20 +9000,11 @@
             A tabular list of data rows with filters on the left.
             </summary>
         </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.baseUrl">
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.callbackAddonGuid">
             <summary>
-            This property is setup by the constructor to the base url
-            (Previously this was the refreshQueryString.)
-            Set the url to the url of the current view. This is used to refresh the view when a user clicks on a link, like a column header to sort the data.
-            This url is saved as a hidden in submitted forms and should be read and used to create links that refresh the view.
-            The area where the hiddens are saved is not repainted duting ajax refreshes, so this value is set one time when the page is first drawn.
-            When a user clicks on a feature on the view, like pagination, the view is redrawn with an ajax call. That call has a different baseUrlf so links created during that call need the baseUrl of the view.
-            </summary>
-        </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.baseAjaxUrl">
-            <summary>
-            A remote method that returns the current view. If present, layoutbuilder will call this remote
-            to refresh the view, passing search terms and orderby clauses.
+             The guid of the addon method that returns the current view.
+             Typically this is the method that calls the layout builder.
+            When a search or pagination is performed, the view is refreshed by calling this method.
             </summary>
         </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.sqlSearchTerm">
@@ -8971,12 +9021,6 @@
             <summary>
             reset pagination back to page 1. Use to force the view to page when when the query filter changes.
             Mus tbe called before accessing pagination fields or query elements.
-            </summary>
-        </member>
-        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.allowPagination">
-            <summary>
-            if true, the data set is paginated. If false, all records are displayed.
-            
             </summary>
         </member>
         <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.paginationPageSizeDefault">
@@ -9243,6 +9287,7 @@
             <summary>
             Include all nameValue pairs required to refresh the page if someone clicks on a header. For example, if there is a filter dateTo that is not empty, add dateTo=1/1/2000 to the RQS
             </summary>
+            
         </member>
         <member name="M:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.getHtml(Contensive.BaseClasses.CPBaseClass)">
             <summary>
@@ -9250,6 +9295,23 @@
             </summary>
             <param name="cp"></param>
             <returns></returns>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.baseAjaxUrl">
+            <summary>
+            deprecated. Instead set callbackAddonGuid to the guid of the addon method that returns the current view.
+            When a search or pagination is performed, the view is refreshed by calling this method.
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.baseUrl">
+            <summary>
+            Deprecated. Instead use cp.adminUI.getPortalFeatureLink()
+            </summary>
+        </member>
+        <member name="P:Contensive.BaseClasses.LayoutBuilder.LayoutBuilderListBaseClass.allowPagination">
+            <summary>
+            if true, the data set is paginated. If false, all records are displayed.
+            
+            </summary>
         </member>
         <member name="T:Contensive.BaseClasses.LayoutBuilder.ReportListColumnBaseClass">
             <summary>
