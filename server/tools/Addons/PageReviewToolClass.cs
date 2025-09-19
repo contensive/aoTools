@@ -105,7 +105,7 @@ namespace Contensive.Addons.Tools {
                 //
                 // -- assemble form
                 form.addFormButton(buttonRefresh);
-                return form.getHtml(cp);
+                return form.getHtml();
             } catch (Exception ex) {
                 cp.Site.ErrorReport(ex);
                 throw;
