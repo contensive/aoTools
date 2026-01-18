@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(dir /s c:GitaoTools /b 2)",
+      "Bash(nul)",
+      "Bash(findstr:*)",
+      "Bash(printf '# aoTools - Contensive Addon Toolkit Architecture Documentation\\n\\n## Project Overview\\n\\n**aoTools** is a comprehensive collection of Contensive CMS addons and utilities organized using a modular, MVC-inspired architecture.\\n\\n### Core Purpose\\n\\nThis codebase provides:\\n- **Admin Tools**: Utility addons for site administration\\n- **Design Blocks**: Reusable UI components that can be added to pages via drag-and-drop\\n- **Sample Implementations**: Examples demonstrating proper addon development patterns\\n- **Infrastructure**: Controllers, models, and utilities\\n\\n---\\n\\n## Architecture Overview\\n\\nThe codebase follows an MVC pattern layered on top of the Contensive addon framework:\\n\\nContensive Platform (CPBaseClass)\\n    |\\n    +-- Addons (AddonBaseClass) - Execute methods that return HTML\\n        |\\n        +-- Controllers (Business Logic)\\n        +-- Views (Presentation Logic)\\n        +-- Models (Data Access & Domain Logic)\\n            +-- Db Models (Database entities)\\n            +-- View Models (DTOs for presentation)\\n            +-- Domain Models (Business entities)\\n\\n### How It Works\\n\\n1. **Request Entry**: Contensive platform invokes addon via Execute(CPBaseClass cp)\\n2. **Controller Logic**: Controllers perform validation, business logic, and orchestration\\n3. **Model Interaction**: Models handle data persistence (Db models) and transformation (View models)\\n4. **View Rendering**: Views assemble HTML using Mustache templates or AdminUI builders\\n5. **Response Return**: Addons return HTML strings or objects\\n\\n')",
+      "Bash(\"c:\\Git\\aoTools\\CLAUDE.md\")",
+      "Bash(printf:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
