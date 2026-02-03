@@ -1,0 +1,1 @@
+create a new Page Widget Addon called Site Map in this tools addon collection. When this addon is rendered on a page I want it to create a dynamic javascript site map. The site map will get its data from a remote method addon called SiteMapData. When /SiteMapData is hit, it delvers an json array of objects, each object includes pageId, parentPageId, and pageName.

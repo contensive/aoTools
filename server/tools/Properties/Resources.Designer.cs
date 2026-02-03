@@ -78,13 +78,22 @@ namespace Contensive.Addons.Tools.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select top 1 m.name as personName, o.organizationName 
+        ///   Looks up a localized string similar to select top 1 m.name as personName, o.organizationName
         ///from ccmembers m left join organizations o on o.id=m.organizationId
         ///where o.id={organizationId}.
         /// </summary>
         internal static string sampleSql {
             get {
                 return ResourceManager.GetString("sampleSql", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string for the Site Map layout HTML template.
+        /// </summary>
+        internal static string SiteMapLayout {
+            get {
+                return ResourceManager.GetString("SiteMapLayout", resourceCulture);
             }
         }
     }
