@@ -124,13 +124,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Models\View\DesignBlockViewBaseModel.cs" />
-    <Compile Include="Views\DesignBlockSampleClass.cs" />
-    <Compile Include="Views\HelloWorldClass.cs" />
-    <Compile Include="Views\InviteProfilePage.cs" />
-    <Compile Include="Views\SampleRemoteClass.cs" />
-    <Compile Include="Views\SampleAddonClass.cs" />
-    <Compile Include="Views\SiteMapClass.cs" />
-    <Compile Include="Views\SiteMapDataClass.cs" />
+    <Compile Include="Addons\DesignBlockSampleClass.cs" />
+    <Compile Include="Addons\HelloWorldClass.cs" />
+    <Compile Include="Addons\InviteProfilePage.cs" />
+    <Compile Include="Addons\SampleRemoteClass.cs" />
+    <Compile Include="Addons\SampleAddonClass.cs" />
+    <Compile Include="Addons\SiteMapClass.cs" />
+    <Compile Include="Addons\SiteMapDataClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

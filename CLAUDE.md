@@ -2,14 +2,15 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Contensive Development Patterns
-
-This project follows standard Contensive patterns documented at:
-https://github.com/contensive/Contensive-Patterns/patterns
-
-Key patterns used in this project:
-- [Contensive Architecture](https://github.com/Contensive/Contensive-Patterns/patterns/contensive-architecture.md)
-- [Page Widget Pattern](https://github.com/Contensive/Contensive-Patterns/patterns/page-widget-pattern.md)
+## Architecture Patterns
+  Contensive5 follows several key patterns documented in the     
+  patterns directory:
+  - \patterns\contensive-architecture.md - Core architecture overview
+  - \patterns\dashboard-widget-pattern.md - Dashboard widget implementation
+  - \patterns\page-widget-pattern.md - Page widget pattern       
+  - \patterns\remote-method-pattern.md - Remote method pattern     
+  - \patterns\control-panel-pattern.md - Control Panel pattern
+  - \portal-pattern.md - portal pattern in the control panel
 
 ## Project Overview
 
