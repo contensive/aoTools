@@ -3,14 +3,10 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Architecture Patterns
-  Contensive5 follows several key patterns documented in the     
-  patterns directory:
-  - \patterns\contensive-architecture.md - Core architecture overview
-  - \patterns\dashboard-widget-pattern.md - Dashboard widget implementation
-  - \patterns\page-widget-pattern.md - Page widget pattern       
-  - \patterns\remote-method-pattern.md - Remote method pattern     
-  - \patterns\control-panel-pattern.md - Control Panel pattern
-  - \portal-pattern.md - portal pattern in the control panel
+
+Contensive5 follows several key patterns documented in the public repository:
+
+- [Core architecture overview](https://github.com/contensive/contensive5/blob/master/patterns/contensive-architecture.md)
 
 ## Project Overview
 

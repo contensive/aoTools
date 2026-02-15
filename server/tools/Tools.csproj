@@ -114,10 +114,8 @@
     <Compile Include="Models\Domain\BaseDomainModel.cs" />
     <Compile Include="Models\Domain\_BlankDomainModel.cs" />
     <Compile Include="Models\Db\SampleModel.cs" />
-    <Compile Include="Models\Db\SiteMapSettingsModel.cs" />
     <Compile Include="Models\View\AddonMockViewModel.cs" />
     <Compile Include="Models\View\SampleViewModel.cs" />
-    <Compile Include="Models\View\SiteMapViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

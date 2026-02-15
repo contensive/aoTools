@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contensive.Addons.Tools.Views {
+namespace Contensive.Addons.Tools {
     public class InviteProfilePage : AddonBaseClass {
         public override object Execute(CPBaseClass cp) {
             try {

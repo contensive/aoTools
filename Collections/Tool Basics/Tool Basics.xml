@@ -16,7 +16,7 @@
 		<BlockEditTools>Yes</BlockEditTools>
 	</Addon>
 	<Addon name="InviteProfilePage" guid="{2459C93D-8238-4513-9D4A-C092C1DCCC15}" type="Add-on">
-		<DotNetClass><![CDATA[Contensive.Addons.Tools.Views.InviteProfilePage]]></DotNetClass>
+		<DotNetClass><![CDATA[Contensive.Addons.Tools.InviteProfilePage]]></DotNetClass>
 		<Category></Category>
 		<Admin>No</Admin>
 		<Content>No</Content>
@@ -115,6 +115,11 @@
 		<Styles></Styles>
 		<styleslinkhref></styleslinkhref>
 		<Scripting Language="VBScript" EntryPoint="" Timeout="5000"/>
+	</Addon>
+	<Addon name="Site Map" guid="{8F2C9A45-1E67-4B9D-A8C3-2D5F7E9B4A12}" type="Tool">
+		<DotNetClass><![CDATA[Contensive.Addons.Tools.SiteMapClass]]></DotNetClass>
+		<Admin>Yes</Admin>
+		<BlockEditTools>Yes</BlockEditTools>
 	</Addon>
 	<!-- moved to design blocks
 	<Addon name="Add-on Mock" guid="{0b1eea83-8cb3-40d4-8b27-e24e5afb5041}" type="add-on">
