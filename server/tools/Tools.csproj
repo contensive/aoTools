@@ -69,13 +69,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ContensiveDbModels, Version=20.0.0.0, Culture=neutral, PublicKeyToken=c014b235a9c6bb22, processorArchitecture=MSIL">
-      <HintPath>packages\Contensive.DbModels.25.7.18.3\lib\net472\ContensiveDbModels.dll</HintPath>
+      <HintPath>packages\Contensive.DbModels.26.2.15.2\lib\netstandard2.0\ContensiveDbModels.dll</HintPath>
     </Reference>
     <Reference Include="CPBase, Version=4.1.2.0, Culture=neutral, PublicKeyToken=10b3c53389b845fb, processorArchitecture=MSIL">
-      <HintPath>packages\Contensive.CPBaseClass.25.7.18.3\lib\net472\CPBase.dll</HintPath>
+      <HintPath>packages\Contensive.CPBaseClass.26.2.15.2\lib\netstandard2.0\CPBase.dll</HintPath>
     </Reference>
-    <Reference Include="DesignBlockBase, Version=25.4.26.1, Culture=neutral, PublicKeyToken=81704b61c3d18a5b, processorArchitecture=MSIL">
-      <HintPath>packages\Contensive.DesignBlockBase.25.4.26.1\lib\net472\DesignBlockBase.dll</HintPath>
+    <Reference Include="DesignBlockBase, Version=26.1.9.2, Culture=neutral, PublicKeyToken=81704b61c3d18a5b, processorArchitecture=MSIL">
+      <HintPath>packages\Contensive.DesignBlockBase.26.1.9.2\lib\net472\DesignBlockBase.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.9.0.5\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -106,6 +106,7 @@
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\GenericController.cs" />
     <Compile Include="Controllers\DesignBlockController.cs" />
+    <Compile Include="Controllers\ForeignKeyController.cs" />
     <Compile Include="Models\Db\DesignBlockBaseModel.cs" />
     <Compile Include="Models\Db\DesignBlockThemeModel.cs" />
     <Compile Include="Models\Db\AddonMockDataModel.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Models\Db\SampleModel.cs" />
     <Compile Include="Models\View\AddonMockViewModel.cs" />
     <Compile Include="Models\View\SampleViewModel.cs" />
+    <Compile Include="Models\View\SiteMapViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,7 +130,6 @@
     <Compile Include="Addons\SampleRemoteClass.cs" />
     <Compile Include="Addons\SampleAddonClass.cs" />
     <Compile Include="Addons\SiteMapClass.cs" />
-    <Compile Include="Addons\SiteMapDataClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

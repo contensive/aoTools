@@ -10,6 +10,10 @@ namespace Contensive.Addons.Tools {
         public const string layoutInviteProfileName = "Invite Users Form Layout";
         public const string layoutInviteProfileCdnPathFilename = @"tools\InviteUsersForm.html";
 
+        public const string layoutSiteMapGuid = "{9A2F4B7D-3E1C-4A5B-8D6E-F2C7A9B4E1D3}";
+        public const string layoutSiteMapName = "Site Map Layout";
+        public const string layoutSiteMapCdnPathFilename = @"tools\SiteMapLayout.html";
+
         public const string inviteToolProfilePageEndpoint = "InviteProfilePage";
         // -- sample
         public const int version = 1;

@@ -1,18 +1,17 @@
 ﻿
 using Contensive.BaseClasses;
-using Contensive.Models.Db;
+using Contensive.Addons.Tools.Controllers;
 using System;
-using System.Text;
-//
+
 namespace Contensive.Addons.Tools {
     /// <summary>
-    /// Basic Cache Tool
+    /// Administrative tool to create SQL Server foreign key constraints for lookup fields
     /// </summary>
     public class CreateSqlForeignKeysTool : Contensive.BaseClasses.AddonBaseClass {
         //
         //====================================================================================================
         /// <summary>
-        /// verify the foreign-key relationships in the sql database
+        /// Verify and create foreign-key relationships in the SQL database
         /// </summary>
         /// <param name="cp"></param>
         /// <returns></returns>
@@ -20,51 +19,25 @@ namespace Contensive.Addons.Tools {
             try {
                 var form = cp.AdminUI.CreateLayoutBuilder();
                 form.title = "Create SQL Foreign Keys";
-                form.description = "Use this tool to build the Foreign-Key constraints with NOCHECK in Sql Server that facilitate Schema Diagrams";
+                form.description = "Use this tool to build the Foreign-Key constraints with NOCHECK in SQL Server that facilitate Schema Diagrams";
                 form.addFormButton("Create Foreign Keys");
                 form.addFormButton("Cancel");
-                //
-                // -- disable until constraints are understood
-                // -- when enabled, current records are saved during updates, and those records may have constrain
-                string button = cp.Request.GetText("button");
-                if (button == "Cancel") {  return string.Empty; }
-                if (button == "Create Foreign Keys") {
-                    //
-                    form.body = "Adding Foreign Keys to all lookup fields";
-                    foreach (var content in DbBaseModel.createList<ContentModel>(cp, "(active<>0)")) {
-                        var table = DbBaseModel.create<TableModel>(cp, content.contentTableId);
-                        if (table is null) { continue; }
-                        foreach (ContentFieldModel field in DbBaseModel.createList<ContentFieldModel>(cp, "(active<>0)and(contentid=" + content.id + ")")) {
-                            if (field.type == 7) {
-                                //
-                                // -- lookup field
-                                var foreignContent = DbBaseModel.create<ContentModel>(cp, field.lookupContentId);
-                                if (foreignContent is null) { continue; }
-                                //
-                                var foreignTable = DbBaseModel.create<TableModel>(cp, foreignContent.contentTableId);
-                                if (foreignTable is null) { continue; }
-                                if (string.IsNullOrEmpty(foreignTable.name)) { continue; }
-                                //
-                                form.body += $"<br>Add foreignkey constraint between foreignKey {content.name}.{field.name} and {foreignTable}.id";
-                                //
-                                try {
-                                    cp.Db.ExecuteNonQuery($"ALTER TABLE {table.name} WITH NOCHECK ADD CONSTRAINT FK_{table.name}_{field.name}_{foreignTable.name} FOREIGN KEY ({field.name}) REFERENCES {foreignTable.name}(ID)");
-                                    break;
-                                } catch (Exception ex) {
-                                    form.body += $", exception {ex.Message}";
-                                }
-                                //
-                                try {
-                                    cp.Db.ExecuteNonQuery($"ALTER TABLE {table.name} NOCHECK CONSTRAINT FK_{table.name}_{field.name}_{foreignTable.name};");
-                                    break;
-                                } catch (Exception ex) {
-                                    form.body += $", exception {ex.Message}";
-                                }
-                            }
-                        }
-                    }
-                    form.body += "<br>Foreign Keys Created";
+
+                string button = cp.Doc.GetText("button");
+
+                if (button == "Cancel") {
+                    return string.Empty;
                 }
+
+                if (button == "Create Foreign Keys") {
+                    var result = ForeignKeyController.CreateAllForeignKeys(cp);
+                    form.body = result.message;
+
+                    if (!result.success) {
+                        form.body = $"<div class='alert alert-warning'>{result.message}</div>";
+                    }
+                }
+
                 return form.getHtml();
             } catch (Exception ex) {
                 cp.Site.ErrorReport(ex);

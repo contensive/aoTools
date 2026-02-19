@@ -121,6 +121,11 @@
 		<Admin>Yes</Admin>
 		<BlockEditTools>Yes</BlockEditTools>
 	</Addon>
+	<Addon name="Create SQL Foreign Keys" guid="{3D8F5C2E-9A7B-4F1D-B3E2-6C4A8D5E1F9B}" type="Tool">
+		<DotNetClass><![CDATA[Contensive.Addons.Tools.CreateSqlForeignKeysTool]]></DotNetClass>
+		<Admin>Yes</Admin>
+		<BlockEditTools>Yes</BlockEditTools>
+	</Addon>
 	<!-- moved to design blocks
 	<Addon name="Add-on Mock" guid="{0b1eea83-8cb3-40d4-8b27-e24e5afb5041}" type="add-on">
 		<Copy></Copy>

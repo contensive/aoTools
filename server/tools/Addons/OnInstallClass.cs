@@ -18,7 +18,8 @@ namespace Contensive.Addons.Tools {
         public override object Execute(CPBaseClass cp) {
             try {
                 //
-                cp.Layout.updateLayout(Constants.layoutInviteProfileGuid, Constants.layoutInviteProfileName, Constants.layoutInviteProfileCdnPathFilename); 
+                cp.Layout.updateLayout(Constants.layoutInviteProfileGuid, Constants.layoutInviteProfileName, Constants.layoutInviteProfileCdnPathFilename);
+                cp.Layout.updateLayout(Constants.layoutSiteMapGuid, Constants.layoutSiteMapName, Constants.layoutSiteMapCdnPathFilename);
                 //
                 return "";
             } catch (Exception ex) {

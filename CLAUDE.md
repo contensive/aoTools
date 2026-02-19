@@ -8,6 +8,7 @@ Contensive5 follows several key patterns documented in the public repository:
 
 - [Core architecture overview](https://github.com/contensive/contensive5/blob/master/patterns/contensive-architecture.md)
 
+
 ## Project Overview
 
 **aoTools** is a Contensive CMS addon collection providing administrative tools and reusable design block components. The codebase demonstrates professional addon development patterns using an MVC-inspired architecture layered on top of the Contensive platform.
