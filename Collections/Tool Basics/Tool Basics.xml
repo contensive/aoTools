@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<Collection name="Tool Basics" guid="{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}" system="No" updatable="Yes" blockNavigatorNode="No" onInstallAddonGuid="{E6D0895D-D738-42B6-ACC3-A189C18EDF68}">
+<Collection name="Tool Basics" guid="{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}" system="No" updatable="Yes" blockNavigatorNode="No" onInstallAddonGuid="{E6D0895D-D738-42B6-ACC3-A189C18EDF68}"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://contensive.s3.amazonaws.com/xsd/Collection.xsd"
+>
 	<HelpLink></HelpLink>
 	<Help></Help>
 	<Addon name="Tools OnInstall" guid="{E6D0895D-D738-42B6-ACC3-A189C18EDF68}" type="Tool">
