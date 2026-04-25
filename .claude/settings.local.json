@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(powershell -Command:*)"
+      "Bash(powershell -Command:*)",
+      "Bash(cmd //c:*)",
+      "Bash(cmd.exe //c \"c:\\\\Git\\\\aoTools\\\\scripts\\\\build.cmd\")"
     ],
     "deny": [],
     "ask": []

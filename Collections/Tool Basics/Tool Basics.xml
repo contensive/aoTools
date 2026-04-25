@@ -185,7 +185,49 @@
 			<field name="contentid">{5ed28143-2c5c-42cd-8c21-f3caa14a37f7}</field>
 			<field name="collectionid">{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}</field>
 		</record>
-	</data>	
+		<Record Content="Portal Features" Guid="{B3A1D4E7-5F2C-4A89-9E6D-1C8B7F3A2D5E}" Name="Tools - Tools">
+			<Field Name="name"><![CDATA[Tools - Tools]]></Field>
+			<Field Name="active">True</Field>
+			<Field Name="sortorder"><![CDATA[10 Tools]]></Field>
+			<Field Name="createkey">0</Field>
+			<Field Name="ccguid"><![CDATA[{B3A1D4E7-5F2C-4A89-9E6D-1C8B7F3A2D5E}]]></Field>
+			<Field Name="portalid">{3fdd7c5c-68a5-435f-ba62-a3e4cb0ee61e}</Field>
+			<Field Name="addonid"></Field>
+			<Field Name="heading"><![CDATA[Tools]]></Field>
+			<Field Name="parentfeatureid"></Field>
+			<Field Name="datacontentid"></Field>
+			<Field Name="addpadding">False</Field>
+			<Field Name="collectionid">{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}</Field>
+		</Record>
+		<Record Content="Portal Features" Guid="{E7C2F8A1-3D4B-4E9F-A5B6-8D1C7E2F9A3B}" Name="Tools - Tools - Page Review">
+			<Field Name="name"><![CDATA[Tools - Tools - Page Review]]></Field>
+			<Field Name="active">True</Field>
+			<Field Name="sortorder"><![CDATA[Page Review]]></Field>
+			<Field Name="createkey">0</Field>
+			<Field Name="ccguid"><![CDATA[{E7C2F8A1-3D4B-4E9F-A5B6-8D1C7E2F9A3B}]]></Field>
+			<Field Name="portalid">{3fdd7c5c-68a5-435f-ba62-a3e4cb0ee61e}</Field>
+			<Field Name="addonid">{6A54A051-6CF6-4D8C-823D-C37741DD072A}</Field>
+			<Field Name="heading"><![CDATA[Page Review]]></Field>
+			<Field Name="parentfeatureid">{B3A1D4E7-5F2C-4A89-9E6D-1C8B7F3A2D5E}</Field>
+			<Field Name="datacontentid"></Field>
+			<Field Name="addpadding">False</Field>
+			<Field Name="collectionid">{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}</Field>
+		</Record>
+		<Record Content="Portal Features" Guid="{A4D6E1B9-7C3F-4A82-B5D8-2E9F1A6C4B7D}" Name="Tools - Tools - Site Map">
+			<Field Name="name"><![CDATA[Tools - Tools - Site Map]]></Field>
+			<Field Name="active">True</Field>
+			<Field Name="sortorder"><![CDATA[Site Map]]></Field>
+			<Field Name="createkey">0</Field>
+			<Field Name="ccguid"><![CDATA[{A4D6E1B9-7C3F-4A82-B5D8-2E9F1A6C4B7D}]]></Field>
+			<Field Name="portalid">{3fdd7c5c-68a5-435f-ba62-a3e4cb0ee61e}</Field>
+			<Field Name="addonid">{8F2C9A45-1E67-4B9D-A8C3-2D5F7E9B4A12}</Field>
+			<Field Name="heading"><![CDATA[Site Map]]></Field>
+			<Field Name="parentfeatureid">{B3A1D4E7-5F2C-4A89-9E6D-1C8B7F3A2D5E}</Field>
+			<Field Name="datacontentid"></Field>
+			<Field Name="addpadding">False</Field>
+			<Field Name="collectionid">{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}</Field>
+		</Record>
+	</data>
 	<Resource name="uiTools.zip" type="content" path="tools" />
 	<Resource name="uiTools.zip" type="www" path="tools" />-->
 </Collection>
