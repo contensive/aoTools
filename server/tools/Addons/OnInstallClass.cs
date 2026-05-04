@@ -19,7 +19,6 @@ namespace Contensive.Addons.Tools {
             try {
                 //
                 cp.Layout.updateLayout(Constants.layoutInviteProfileGuid, Constants.layoutInviteProfileName, Constants.layoutInviteProfileCdnPathFilename);
-                cp.Layout.updateLayout(Constants.layoutSiteMapGuid, Constants.layoutSiteMapName, Constants.layoutSiteMapCdnPathFilename);
                 //
                 return "";
             } catch (Exception ex) {

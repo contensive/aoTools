@@ -60,6 +60,14 @@ namespace Models.View {
             }
 
             foreach (var page in pagesByParent[parentId]) {
+                // Get thumbnail from Spider Docs (first matching record by pageId)
+                string thumbnail = "";
+                using (var cs = cp.CSNew()) {
+                    if (cs.Open("Spider Docs", $"pageId={page.id}", "id", false, "", 1)) {
+                        thumbnail = cs.GetText("thumbnail");
+                    }
+                }
+
                 flatList.Add(new SiteMapPageViewModel {
                     id = page.id,
                     name = cp.Utils.EncodeText(page.name),
@@ -68,7 +76,8 @@ namespace Models.View {
                     siteUrl = cp.Content.GetPageLink(page.id),
                     editUrl = cp.Content.GetEditUrl("page content", page.id),
                     pageHits = page.viewings.ToString(),
-                    pageLastModifiedDate = page.modifiedDate is null ? "" : ((DateTime)page.modifiedDate).ToString("yyyy-MM-dd")
+                    pageLastModifiedDate = page.modifiedDate is null ? "" : ((DateTime)page.modifiedDate).ToString("yyyy-MM-dd"),
+                    thumbnail = thumbnail
                 });
 
                 // Recurse into children
@@ -91,5 +100,7 @@ namespace Models.View {
         public string editUrl { get; set; }
         public string pageHits { get; set; }
         public string pageLastModifiedDate { get; set; }
+        public string thumbnail { get; set; }
+        public bool hasThumbnail => !string.IsNullOrEmpty(thumbnail);
     }
 }
