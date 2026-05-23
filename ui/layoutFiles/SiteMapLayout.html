@@ -1,0 +1,186 @@
+<style>
+    .{{uniqueId}}-container {
+        padding: 1rem;
+    }
+
+    .{{uniqueId}}-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .{{uniqueId}}-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .{{uniqueId}}-list ul {
+        list-style: none;
+        padding-left: 1.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .{{uniqueId}}-list li {
+        margin: 0.5rem 0;
+    }
+
+    .{{uniqueId}}-list a {
+        text-decoration: none;
+        color: #0066cc;
+        display: inline-block;
+        padding: 0.25rem 0;
+    }
+
+    .{{uniqueId}}-list a:hover {
+        text-decoration: underline;
+    }
+
+    .{{uniqueId}}-loading {
+        padding: 1rem;
+        color: #666;
+        font-style: italic;
+    }
+
+    .{{uniqueId}}-error {
+        padding: 1rem;
+        color: #cc0000;
+        background-color: #fff0f0;
+        border: 1px solid #cc0000;
+        border-radius: 4px;
+    }
+</style>
+
+<div class="{{containerStyleClass}} {{uniqueId}}-container {{outerContainerClass}}">
+    {{#showTitle}}
+    <h2 class="{{uniqueId}}-title">{{title}}</h2>
+    {{/showTitle}}
+    <div id="{{uniqueId}}-content" class="{{uniqueId}}-loading">Loading site map...</div>
+</div>
+
+<script>
+(function() {
+    // Unique namespace for this instance
+    var siteMapId = '{{uniqueId}}';
+    var contentEl = document.getElementById(siteMapId + '-content');
+    var apiEndpoint = '{{apiEndpoint}}';
+    var maxDepth = {{maxDepth}};
+    var listStyleClass = '{{listStyleClass}}';
+
+    /**
+     * Build hierarchical structure from flat page array
+     */
+    function buildHierarchy(pages, parentId, currentDepth) {
+        if (maxDepth > 0 && currentDepth >= maxDepth) {
+            return [];
+        }
+
+        var children = pages.filter(function(page) {
+            return page.parentPageId === parentId;
+        });
+
+        return children.map(function(page) {
+            return {
+                pageId: page.pageId,
+                pageName: page.pageName,
+                children: buildHierarchy(pages, page.pageId, currentDepth + 1)
+            };
+        });
+    }
+
+    /**
+     * Render hierarchical page list as HTML
+     */
+    function renderPageList(pages, depth) {
+        if (!pages || pages.length === 0) {
+            return '';
+        }
+
+        var html = '<ul class="' + siteMapId + '-list' + (depth === 0 ? ' ' + listStyleClass : '') + '">';
+
+        pages.forEach(function(page) {
+            html += '<li>';
+            html += '<a href="?pageid=' + page.pageId + '">' + escapeHtml(page.pageName) + '</a>';
+
+            if (page.children && page.children.length > 0) {
+                html += renderPageList(page.children, depth + 1);
+            }
+
+            html += '</li>';
+        });
+
+        html += '</ul>';
+        return html;
+    }
+
+    /**
+     * Escape HTML to prevent XSS
+     */
+    function escapeHtml(text) {
+        var div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    /**
+     * Display error message
+     */
+    function showError(message) {
+        contentEl.className = siteMapId + '-error';
+        contentEl.textContent = 'Error loading site map: ' + message;
+    }
+
+    /**
+     * Fetch and render site map
+     */
+    function loadSiteMap() {
+        fetch(apiEndpoint)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('HTTP ' + response.status);
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                if (!data.success) {
+                    throw new Error('API returned error');
+                }
+
+                // Find the siteMapPages node
+                var pagesNode = data.nodeList.find(function(node) {
+                    return node.dataFor === 'siteMapPages';
+                });
+
+                if (!pagesNode || !pagesNode.data) {
+                    throw new Error('No page data returned');
+                }
+
+                var pages = pagesNode.data;
+
+                // Build hierarchy starting from root pages (parentPageId = 0)
+                var hierarchy = buildHierarchy(pages, 0, 0);
+
+                // Render the hierarchy
+                var html = renderPageList(hierarchy, 0);
+
+                if (html) {
+                    contentEl.className = '';
+                    contentEl.innerHTML = html;
+                } else {
+                    contentEl.className = siteMapId + '-loading';
+                    contentEl.textContent = 'No pages found.';
+                }
+            })
+            .catch(function(error) {
+                showError(error.message);
+            });
+    }
+
+    // Load site map on page load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadSiteMap);
+    } else {
+        loadSiteMap();
+    }
+})();
+</script>

@@ -209,6 +209,8 @@
 			<Field Name="collectionid">{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}</Field>
 		</Record>
 	</data>
-	<Resource name="uiTools.zip" type="content" path="tools" />
-	<Resource name="uiTools.zip" type="www" path="tools" />-->
+	<Resource name="cdnFiles.zip" type="cdnFiles" path="" />
+	<Resource name="layoutFiles.zip" type="layoutFiles" path="" />
+	<Resource name="privateFiles.zip" type="privateFiles" path="" />
+	<Resource name="wwwFiles.zip" type="wwwFiles" path="" />
 </Collection>
