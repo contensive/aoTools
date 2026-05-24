@@ -10,6 +10,9 @@ namespace Contensive.Addons.Tools {
         public const string layoutInviteProfileName = "Invite Users Form Layout";
         public const string layoutInviteProfileCdnPathFilename = @"tools\InviteUsersForm.html";
 
+        public const string guidPortalContentTools = "{3fdd7c5c-68a5-435f-ba62-a3e4cb0ee61e}";
+        public const string guidPortalFeaturePageReview = "{E7C2F8A1-3D4B-4E9F-A5B6-8D1C7E2F9A3B}";
+        //
         public const string layoutPageReviewGuid = "{B3D7A1E4-5F2C-4E8A-9C1D-A6E4F8B2D7C3}";
         public const string layoutPageReviewName = "Page Review Layout";
         public const string layoutPageReviewCdnPathFilename = @"PageReviewLayout.html";

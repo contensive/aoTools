@@ -2,6 +2,7 @@
 using Contensive.Addons.Tools.Models.View;
 using Contensive.BaseClasses;
 using System;
+using System.Reflection;
 //
 namespace Contensive.Addons.Tools {
     /// <summary>
@@ -13,6 +14,12 @@ namespace Contensive.Addons.Tools {
         //
         public override object Execute(CPBaseClass cp) {
             try {
+                //
+                // -- validate portal environment
+                if (!cp.AdminUI.EndpointContainsPortal() && !cp.Request.PathPage.Equals($"/{MethodBase.GetCurrentMethod().DeclaringType.Name}")) {
+                    return cp.AdminUI.RedirectToPortalFeature(Constants.guidPortalContentTools, Constants.guidPortalFeaturePageReview, "");
+                }
+                //
                 var form = cp.AdminUI.CreateLayoutBuilder();
                 form.title = "Page Review Tool";
                 form.description = "Review pages not reviewed in 90 days.";
