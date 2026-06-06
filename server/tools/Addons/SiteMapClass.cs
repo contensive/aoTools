@@ -49,7 +49,7 @@ namespace Contensive.Addons.Tools {
                 return result;
             } catch (Exception ex) {
                 cp.Site.ErrorReport(ex);
-                return $"<div class=\"alert alert-danger\">Error building site map: {ex.Message}</div>";
+                return $"<div class=\"alert alert-danger\">Error building site map: {cp.Utils.EncodeTextSafe(ex.Message)}</div>";
             }
         }
     }

@@ -64,7 +64,7 @@ namespace Contensive.Addons.Tools {
                             userSent += $", added to organization '{cp.Content.GetRecordName("organizations", addUsersToOrganization)}'";
                             newUser.organizationId = addUsersToOrganization;
                         }
-                        userSendList.Append($"<li>{userSent}</li>");
+                        userSendList.Append($"<li>{cp.Utils.EncodeTextSafe(userSent)}</li>");
                         newUser.save(cp);
                         //
                         userInvitationClass userInvitation = new() { userId = newUser.id, dateExpires = DateTime.Now.AddDays(3) };

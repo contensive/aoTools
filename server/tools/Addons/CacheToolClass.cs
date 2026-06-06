@@ -41,7 +41,7 @@ namespace Contensive.Addons.Tools {
                         formBody.Append(cp.Html5.Div("Error: Cache key is required", "alert alert-danger"));
                     } else {
                         string timestamp = DateTime.Now.ToString();
-                        string encodedKey = cp.Utils.EncodeText(cacheKey);
+                        string encodedKey = cp.Utils.EncodeTextSafe(cacheKey);
                         formBody.Append(cp.Html5.Div($"{timestamp} cache.getObject({encodedKey})"));
 
                         object resultObj = cp.Cache.GetObject(cacheKey);
@@ -52,7 +52,7 @@ namespace Contensive.Addons.Tools {
                                 cacheValue = cp.JSON.Serialize(resultObj);
                                 formBody.Append(cp.Html5.Div($"{timestamp} CacheValue object returned, json serialized, length [{cacheValue.Length}]"));
                             } catch (Exception ex) {
-                                string encodedError = cp.Utils.EncodeText(ex.Message);
+                                string encodedError = cp.Utils.EncodeTextSafe(ex.Message);
                                 formBody.Append(cp.Html5.Div($"{timestamp} exception during serialization, ex [{encodedError}]", "alert alert-warning"));
                             }
                         }
@@ -64,8 +64,8 @@ namespace Contensive.Addons.Tools {
                         formBody.Append(cp.Html5.Div("Error: Cache key is required", "alert alert-danger"));
                     } else {
                         string timestamp = DateTime.Now.ToString();
-                        string encodedKey = cp.Utils.EncodeText(cacheKey);
-                        string encodedValue = cp.Utils.EncodeText(cacheValue);
+                        string encodedKey = cp.Utils.EncodeTextSafe(cacheKey);
+                        string encodedValue = cp.Utils.EncodeTextSafe(cacheValue);
                         formBody.Append(cp.Html5.Div($"{timestamp} cache.store({encodedKey}, {encodedValue})"));
 
                         cp.Cache.Store(cacheKey, cacheValue);
@@ -78,7 +78,7 @@ namespace Contensive.Addons.Tools {
                     } else {
                         cacheValue = "";
                         string timestamp = DateTime.Now.ToString();
-                        string encodedKey = cp.Utils.EncodeText(cacheKey);
+                        string encodedKey = cp.Utils.EncodeTextSafe(cacheKey);
                         formBody.Append(cp.Html5.Div($"{timestamp} cache.Invalidate({encodedKey})"));
 
                         cp.Cache.Invalidate(cacheKey);

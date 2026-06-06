@@ -37,6 +37,7 @@
                       </div>
                       <div class="mt-3">
                         <input type="hidden" id="userId" value="{{userId}}" name="userId">
+                        <input type="hidden" id="token" value="{{token}}" name="token">
                         <button class="btn btn-primary">Submit</button>
                       </div>
                 </div>
@@ -53,7 +54,7 @@
           var password = document.getElementById('formPassword').value;
           var userName = document.getElementById('formUsername').value;
           var userId = document.getElementById('userId').value;
-          var Link = window.location.href;
+          var token = document.getElementById('token').value;
           var formData = new FormData();
           formData.append('email', email);
           formData.append('firstname', firstName);
@@ -61,6 +62,7 @@
           formData.append('password', password);
           formData.append('userName', userName);
           formData.append('userId', userId);
+          formData.append('token', token);
           $.ajax({
             url: "/SubmitInviteProfile",
             type: "POST",

@@ -42,7 +42,8 @@ namespace Contensive.Addons.Tools {
                     firstName = user.firstName == "Guest" ? "" : user.firstName,
                     lastName = user.lastName,
                     username = user.username,
-                    userId = user.ccguid
+                    userId = user.ccguid,
+                    token = encryptedToken
                 };
                 return getMergedLayout(cp, replaceObj);
             } catch (Exception ex) {
@@ -66,6 +67,7 @@ namespace Contensive.Addons.Tools {
             public string lastName { get; set; }
             public string username { get; set; }
             public string userId { get; set; }
+            public string token { get; set; }
             public string errorMessage { get; set; }
         }
     }

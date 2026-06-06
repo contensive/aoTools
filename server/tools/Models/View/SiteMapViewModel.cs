@@ -70,7 +70,7 @@ namespace Models.View {
 
                 flatList.Add(new SiteMapPageViewModel {
                     id = page.id,
-                    name = cp.Utils.EncodeText(page.name),
+                    name = cp.Utils.EncodeTextSafe(page.name),
                     paddingLeft = depth * 20,
                     isRoot = depth == 0,
                     siteUrl = cp.Content.GetPageLink(page.id),

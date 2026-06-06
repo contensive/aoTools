@@ -48,7 +48,7 @@ namespace Contensive.Addons.Tools {
                 return result;
             } catch (Exception ex) {
                 cp.Site.ErrorReport(ex);
-                return $"<div class=\"alert alert-danger\">Error building page review: {ex.Message}</div>";
+                return $"<div class=\"alert alert-danger\">Error building page review: {cp.Utils.EncodeTextSafe(ex.Message)}</div>";
             }
         }
     }

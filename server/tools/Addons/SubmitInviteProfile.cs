@@ -18,6 +18,27 @@ namespace Contensive.Addons.Tools.Addons
                 string userGuid = cp.Doc.GetText("userId");
                 if (string.IsNullOrEmpty(userGuid)) { return getErrorResponse("The invited user could not be found. This invitation is no longer valid."); }
                 //
+                // -- validate the invitation token
+                string encryptedToken = cp.Doc.GetText("token");
+                if (string.IsNullOrEmpty(encryptedToken)) { return getErrorResponse("This invitation is not valid. The invitation token is missing."); }
+                userInvitationClass userInvitation;
+                try {
+                    var base64EncodedBytes = System.Convert.FromBase64String(encryptedToken);
+                    string decodedToken = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+                    string decryptedToken = cp.Security.DecryptTwoWay(decodedToken);
+                    userInvitation = cp.JSON.Deserialize<userInvitationClass>(decryptedToken);
+                } catch (Exception) {
+                    return getErrorResponse("This invitation is not valid. The invitation token could not be verified.");
+                }
+                if (userInvitation == null) { return getErrorResponse("This invitation is not valid. The invitation token could not be validated."); }
+                if (userInvitation.dateExpires.CompareTo(DateTime.Now) <= 0) { return getErrorResponse("This invitation is no longer valid."); }
+                //
+                // -- verify the token's userId matches the submitted userGuid
+                var tokenUser = PersonModel.create<PersonModel>(cp, userInvitation.userId);
+                if (tokenUser == null || !string.Equals(tokenUser.ccguid, userGuid, StringComparison.OrdinalIgnoreCase)) {
+                    return getErrorResponse("This invitation is not valid. The user does not match the invitation.");
+                }
+                //
                 string email = cp.Doc.GetText("email");
                 if (string.IsNullOrEmpty(email)) { return getErrorResponse("Email address is required."); }
                 //

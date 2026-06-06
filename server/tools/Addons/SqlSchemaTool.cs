@@ -50,24 +50,24 @@ namespace Contensive.Addons.Tools {
                     foreach (var content in DbBaseModel.createList<ContentModel>(cp, "(active<>0)", "name,id")) {
                         string tableName = getTableName(cp, content.id);
                         if (string.IsNullOrEmpty(tableName)) { continue; }
-                        body.Append($"<li><b>{tableName}</b> ({content.name})");
+                        body.Append($"<li><b>{cp.Utils.EncodeTextSafe(tableName)}</b> ({cp.Utils.EncodeTextSafe(content.name)})");
                         body.Append("<ul>");
-                        foreach (ContentFieldModel field in DbBaseModel.createList<ContentFieldModel>(cp, "(active>0)and(contentid=" + content.id + ")", "name,id")) {
-                            body.Append($"<li>{field.name} ({field.caption})");
+                        foreach (ContentFieldModel field in DbBaseModel.createList<ContentFieldModel>(cp, $"(active>0)and(contentid={cp.Db.EncodeSQLNumber(content.id)})", "name,id")) {
+                            body.Append($"<li>{cp.Utils.EncodeTextSafe(field.name)} ({cp.Utils.EncodeTextSafe(field.caption)})");
                             if (field.name.ToLower() == "id") { body.Append(" (Primary Key)"); }
                             StringBuilder fieldDetails = new();
                             int fieldIndex = field.type - 1;
                             fieldDetails.Append(fieldIndex > -1 && fieldIndex < 25 ? $"<li>{dbFieldTypes[field.type - 1]} (used as {fieldTypes[field.type - 1]})</li>" : "<li>(unknown type)</li>");
                             if (field.type == 7) {
                                 string tableNameLookup = getTableName(cp, field.lookupContentId);
-                                if (!string.IsNullOrEmpty(tableNameLookup)) { fieldDetails.Append($"<li>Foreign Key referencing {tableNameLookup}.id</li>"); }
+                                if (!string.IsNullOrEmpty(tableNameLookup)) { fieldDetails.Append($"<li>Foreign Key referencing {cp.Utils.EncodeTextSafe(tableNameLookup)}.id</li>"); }
                             }
                             if (field.authorable) {
                                 fieldDetails.Append($"<li>editable" +
                                     $"{(field.readOnly ? " read-only" : "")}" +
                                     $"{(field.adminOnly ? " admin-only" : "")}" +
                                     $"{(field.developerOnly ? " developer-only" : "")}" +
-                                    $"{(string.IsNullOrEmpty(field.defaultValue) ? "" : $" default ({field.defaultValue})")}" +
+                                    $"{(string.IsNullOrEmpty(field.defaultValue) ? "" : $" default ({cp.Utils.EncodeTextSafe(field.defaultValue)})")}" +
                                     $"{(field.notEditable ? " write-once" : "")}" +
                                     $"{(field.password ? " password" : "")}" +
                                     $"{(field.required ? " required" : "")}" +
@@ -77,7 +77,7 @@ namespace Contensive.Addons.Tools {
                             List<ContentFieldHelpModel> fieldHelpList = DbBaseModel.createList<ContentFieldHelpModel>(cp, $"(fieldId={field.id})");
                             if (fieldHelpList.Count > 0) {
                                 string fieldHelp = fieldHelpList.First().helpDefault;
-                                fieldDetails.Append(string.IsNullOrWhiteSpace(fieldHelp) ? "" : $"<li>{fieldHelp}</li>");
+                                fieldDetails.Append(string.IsNullOrWhiteSpace(fieldHelp) ? "" : $"<li>{cp.Utils.EncodeTextSafe(fieldHelp)}</li>");
                             }
                             if (fieldDetails.Length > 0) { body.Append("<ul>" + fieldDetails.ToString() + "</ul>"); }
                             body.Append("</li>");
@@ -106,9 +106,9 @@ namespace Contensive.Addons.Tools {
         /// <returns></returns>
         private static string getTableName(CPBaseClass cp, int contentId) {
             if (tableNameDict.ContainsKey(contentId)) { return tableNameDict[contentId]; }
-            using (DataTable dt = cp.Db.ExecuteQuery($"select t.name from cccontent c left join cctables t on t.id=c.contentTableId where c.id={contentId}")) {
+            using (DataTable dt = cp.Db.ExecuteQuery($"select t.name from cccontent c left join cctables t on t.id=c.contentTableId where c.id={cp.Db.EncodeSQLNumber(contentId)}")) {
                 if (dt.Rows.Count <= 0) { return ""; }
-                string tableName = cp.Utils.EncodeText(dt.Rows[0][0]);
+                string tableName = cp.Utils.EncodeTextSafe(dt.Rows[0][0]);
                 tableNameDict.Add(contentId, tableName);
                 return tableName;
             }

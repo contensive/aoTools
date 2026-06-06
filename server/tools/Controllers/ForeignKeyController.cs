@@ -37,7 +37,7 @@ namespace Contensive.Addons.Tools.Controllers {
                 var table = DbBaseModel.create<TableModel>(cp, content.contentTableId);
                 if (table == null || string.IsNullOrWhiteSpace(table.name)) continue;
 
-                foreach (var field in DbBaseModel.createList<ContentFieldModel>(cp, $"(active<>0)and(contentid={content.id})")) {
+                foreach (var field in DbBaseModel.createList<ContentFieldModel>(cp, $"(active<>0)and(contentid={cp.Db.EncodeSQLNumber(content.id)})")) {
                     if (field.type != FIELD_TYPE_LOOKUP) continue;
 
                     var foreignContent = DbBaseModel.create<ContentModel>(cp, field.lookupContentId);
@@ -47,28 +47,28 @@ namespace Contensive.Addons.Tools.Controllers {
                     if (foreignTable == null || string.IsNullOrWhiteSpace(foreignTable.name)) continue;
 
                     string constraintName = $"FK_{table.name}_{field.name}_{foreignTable.name}";
-                    output.Append($"<br>Adding constraint {constraintName} ({content.name}.{field.name} → {foreignTable.name}.id)");
+                    output.Append($"<br>Adding constraint {cp.Utils.EncodeTextSafe(constraintName)} ({cp.Utils.EncodeTextSafe(content.name)}.{cp.Utils.EncodeTextSafe(field.name)} → {cp.Utils.EncodeTextSafe(foreignTable.name)}.id)");
 
                     try {
                         // Create foreign key with NOCHECK
                         cp.Db.ExecuteNonQuery(@$"
                             IF NOT EXISTS (
-                                SELECT 1 FROM sys.foreign_keys 
+                                SELECT 1 FROM sys.foreign_keys
                                 WHERE name = '{constraintName}'
                             )
                             BEGIN
-                                ALTER TABLE {table.name}
-                                ADD CONSTRAINT {constraintName}
-                                FOREIGN KEY ({field.name}) REFERENCES {foreignTable.name}(ID)
+                                ALTER TABLE [{table.name}]
+                                ADD CONSTRAINT [{constraintName}]
+                                FOREIGN KEY ([{field.name}]) REFERENCES [{foreignTable.name}](ID)
                             END
                         ");
                         // Disable constraint checking
-                        cp.Db.ExecuteNonQuery($"ALTER TABLE {table.name} NOCHECK CONSTRAINT {constraintName}");
+                        cp.Db.ExecuteNonQuery($"ALTER TABLE [{table.name}] NOCHECK CONSTRAINT [{constraintName}]");
 
                         output.Append(" ✓");
                         created++;
                     } catch (Exception ex) {
-                        output.Append($" ✗ ({ex.Message})");
+                        output.Append($" ✗ ({cp.Utils.EncodeTextSafe(ex.Message)})");
                         cp.Site.ErrorReport(ex, $"Failed to create foreign key: {constraintName}");
                         failed++;
                     }

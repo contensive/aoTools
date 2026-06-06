@@ -52,7 +52,7 @@ namespace Contensive.Addons.Tools.Models.View {
                     //
                     unsortedPages.Add(new PageReviewPageViewModel {
                         id = page.id,
-                        name = cp.Utils.EncodeText(string.IsNullOrEmpty(page.name) ? $"unnamed {page.id}" : page.name),
+                        name = cp.Utils.EncodeTextSafe(string.IsNullOrEmpty(page.name) ? $"unnamed {page.id}" : page.name),
                         age = age,
                         ageClass = age > 180 ? "age-critical" : age > 90 ? "age-warning" : "age-ok",
                         dateReviewed = dateReviewed.ToString("yyyy-MM-dd"),
