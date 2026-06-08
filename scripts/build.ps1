@@ -7,7 +7,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-Import-Module (Join-Path $PSScriptRoot '..\..\Contensive5\scripts\contensive-build.psm1') -Force
+Import-Module (Join-Path $PSScriptRoot '..\..\Contensive5\scripts\build-addon-collection.psm1') -Force
 
 $projectRoot = (Resolve-Path "$PSScriptRoot\..").Path
 
