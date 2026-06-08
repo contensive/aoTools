@@ -79,11 +79,17 @@ namespace Contensive.Addons.Tools {
             /// <param name="url"></param>
             /// <returns></returns>
             public static string verifyProtocol(string url) {
-                // 
+                //
                 // -- allow empty
                 if ((string.IsNullOrWhiteSpace(url)))
                     return string.Empty;
-                // 
+                //
+                // -- block dangerous URL protocols
+                string lower = url.Trim().ToLower();
+                if (lower.StartsWith("javascript:") || lower.StartsWith("data:") || lower.StartsWith("vbscript:")) {
+                    return string.Empty;
+                }
+                //
                 // -- allow /myPage
                 if ((url.Substring(0, 1) == "/"))
                     return url;

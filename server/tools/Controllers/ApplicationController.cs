@@ -42,7 +42,7 @@ namespace Contensive.Addons.Tools {
             /// <param name="requiresAuthentication"></param>
             public ApplicationController(CPBaseClass cp, bool requiresAuthentication) {
                 this.cp = cp;
-                if ((requiresAuthentication & !cp.User.IsAuthenticated)) {
+                if ((requiresAuthentication && !cp.User.IsAuthenticated)) {
                     throw new UnauthorizedAccessException();
                 }
             }

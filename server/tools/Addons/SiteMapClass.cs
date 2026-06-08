@@ -15,6 +15,10 @@ namespace Contensive.Addons.Tools {
         //
         public override object Execute(CPBaseClass cp) {
             try {
+                //
+                // -- validate authentication
+                if (!cp.User.IsAdmin) { return ""; }
+                //
                 var form = cp.AdminUI.CreateLayoutBuilder();
                 form.title = "Site Map";
                 form.description = "Hierarchical view of all active pages in the site.";

@@ -54,7 +54,7 @@ namespace Contensive.Addons.Tools.Controllers {
                         cp.Db.ExecuteNonQuery(@$"
                             IF NOT EXISTS (
                                 SELECT 1 FROM sys.foreign_keys
-                                WHERE name = '{constraintName}'
+                                WHERE name = {cp.Db.EncodeSQLText(constraintName)}
                             )
                             BEGIN
                                 ALTER TABLE [{table.name}]

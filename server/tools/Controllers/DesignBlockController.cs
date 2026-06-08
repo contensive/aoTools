@@ -69,7 +69,22 @@ namespace Contensive.Addons.Tools {
                         }
                 }
             }
-            // 
+            //
+            // ====================================================================================================
+            /// <summary>
+            /// Sanitize HTML to remove dangerous elements (script, event handlers, etc.) while preserving safe markup.
+            /// Use this after EncodeContentForWeb to strip XSS vectors from CMS rich text content.
+            /// </summary>
+            /// <param name="html"></param>
+            /// <returns></returns>
+            public static string sanitizeHtml(string html) {
+                if (string.IsNullOrEmpty(html)) {
+                    return html;
+                }
+                var sanitizer = new Ganss.Xss.HtmlSanitizer();
+                return sanitizer.Sanitize(html);
+            }
+            //
             // ====================================================================================================
             /// <summary>
             ///         ''' return the instanceId for a design block. It should be an document argument set when the addon is dropped on the page.

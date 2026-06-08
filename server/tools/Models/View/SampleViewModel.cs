@@ -45,11 +45,11 @@ namespace Models.View {
                 result.headlineTopPadClass = isTopElement & (!string.IsNullOrEmpty(result.headline)) ? "" : "pt-3";
                 // 
                 isTopElement = isTopElement & string.IsNullOrWhiteSpace(result.headline);
-                result.embed = settings.embed;
+                result.embed = DesignBlockController.sanitizeHtml(cp.Utils.EncodeContentForWeb(settings.embed));
                 result.headlineTopPadClass = isTopElement ? "" : "pt-3";
                 // 
                 isTopElement = isTopElement & string.IsNullOrWhiteSpace(result.embed);
-                result.description = settings.description;
+                result.description = DesignBlockController.sanitizeHtml(cp.Utils.EncodeContentForWeb(settings.description));
                 result.descriptionTopPadClass = isTopElement ? "" : "pt-3";
                 // 
                 isTopElement = isTopElement & string.IsNullOrWhiteSpace(result.description);

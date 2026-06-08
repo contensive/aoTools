@@ -4,6 +4,7 @@ using Contensive.Models.Db;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +15,13 @@ namespace Contensive.Addons.Tools {
 
         public override object Execute(CPBaseClass cp) {
             try {
+                //
+                // -- validate authentication and portal environment
+                if (!cp.User.IsAdmin) { return ""; }
+                if (!cp.AdminUI.EndpointContainsPortal() && !cp.Request.PathPage.Equals($"/{MethodBase.GetCurrentMethod().DeclaringType.Name}")) {
+                    return cp.AdminUI.RedirectToPortalFeature(Constants.guidPortalContentTools, Constants.guidPortalFeatureInviteUsers, "");
+                }
+                //
                 var form = cp.AdminUI.CreateLayoutBuilder();
 
                 form.title = "Invite Users Tool";
@@ -74,9 +82,10 @@ namespace Contensive.Addons.Tools {
                         string url = cp.Http.WebAddressProtocolDomain + "/InviteProfilePage?token=" + encodedLinkString;
                         //
                         //send the email
+                        string safeHost = cp.Utils.EncodeTextSafe(cp.Request.Host);
                         string emailBody = @$"
-                        <p>You have been invited to join the website <span>{cp.Request.Host.Replace(".","</span>.<span>")}</span>. Click this link to update your profile information: <b><a href=""{url}"">click here</a></b>.";
-                        cp.Email.send(email, cp.Email.fromAddressDefault, $"Invitation to join {cp.Request.Host}", emailBody);
+                        <p>You have been invited to join the website <span>{safeHost.Replace(".","</span>.<span>")}</span>. Click this link to update your profile information: <b><a href=""{url}"">click here</a></b>.";
+                        cp.Email.send(email, cp.Email.fromAddressDefault, $"Invitation to join {safeHost}", emailBody);
                     }
                     formBody.Append($"<p>{DateTime.Now.ToString()} Invitation sent to:<ul>{userSendList}</ul></p>");
                 } else {

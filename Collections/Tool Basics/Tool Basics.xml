@@ -209,6 +209,62 @@
 			<Field Name="addpadding">False</Field>
 			<Field Name="collectionid">{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}</Field>
 		</Record>
+		<Record Content="Portal Features" Guid="{3274402E-A44C-4B32-BB1F-E42047EC2AD3}" Name="Tools - Tools - Sql Server Schema">
+			<Field Name="name"><![CDATA[Tools - Tools - Sql Server Schema]]></Field>
+			<Field Name="active">True</Field>
+			<Field Name="sortorder"><![CDATA[Sql Server Schema]]></Field>
+			<Field Name="createkey">0</Field>
+			<Field Name="ccguid"><![CDATA[{3274402E-A44C-4B32-BB1F-E42047EC2AD3}]]></Field>
+			<Field Name="portalid">{3fdd7c5c-68a5-435f-ba62-a3e4cb0ee61e}</Field>
+			<Field Name="addonid">{AA53F528-D79C-41B6-96D0-6DDFCB7DA9D1}</Field>
+			<Field Name="heading"><![CDATA[Sql Server Schema]]></Field>
+			<Field Name="parentfeatureid">{B3A1D4E7-5F2C-4A89-9E6D-1C8B7F3A2D5E}</Field>
+			<Field Name="datacontentid"></Field>
+			<Field Name="addpadding">False</Field>
+			<Field Name="collectionid">{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}</Field>
+		</Record>
+		<Record Content="Portal Features" Guid="{0212F265-EF7C-49B4-8A8E-BBDB6B6EC540}" Name="Tools - Tools - Invite Users">
+			<Field Name="name"><![CDATA[Tools - Tools - Invite Users]]></Field>
+			<Field Name="active">True</Field>
+			<Field Name="sortorder"><![CDATA[Invite Users]]></Field>
+			<Field Name="createkey">0</Field>
+			<Field Name="ccguid"><![CDATA[{0212F265-EF7C-49B4-8A8E-BBDB6B6EC540}]]></Field>
+			<Field Name="portalid">{3fdd7c5c-68a5-435f-ba62-a3e4cb0ee61e}</Field>
+			<Field Name="addonid">{AAF9CA71-B9F4-4064-A032-0F8D12701149}</Field>
+			<Field Name="heading"><![CDATA[Invite Users]]></Field>
+			<Field Name="parentfeatureid">{B3A1D4E7-5F2C-4A89-9E6D-1C8B7F3A2D5E}</Field>
+			<Field Name="datacontentid"></Field>
+			<Field Name="addpadding">False</Field>
+			<Field Name="collectionid">{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}</Field>
+		</Record>
+		<Record Content="Portal Features" Guid="{6CD6DE96-8198-49D2-88CD-2AE975880FD3}" Name="Tools - Tools - Cache Tool">
+			<Field Name="name"><![CDATA[Tools - Tools - Cache Tool]]></Field>
+			<Field Name="active">True</Field>
+			<Field Name="sortorder"><![CDATA[Cache Tool]]></Field>
+			<Field Name="createkey">0</Field>
+			<Field Name="ccguid"><![CDATA[{6CD6DE96-8198-49D2-88CD-2AE975880FD3}]]></Field>
+			<Field Name="portalid">{3fdd7c5c-68a5-435f-ba62-a3e4cb0ee61e}</Field>
+			<Field Name="addonid">{7B5B8150-62BE-40F4-A66A-7CC74D99BA76}</Field>
+			<Field Name="heading"><![CDATA[Cache Tool]]></Field>
+			<Field Name="parentfeatureid">{B3A1D4E7-5F2C-4A89-9E6D-1C8B7F3A2D5E}</Field>
+			<Field Name="datacontentid"></Field>
+			<Field Name="addpadding">False</Field>
+			<Field Name="collectionid">{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}</Field>
+		</Record>
+		<Record Content="Portal Features" Guid="{60A6860A-DAB0-43A4-B76A-251EA758FF5C}" Name="Tools - Tools - Create SQL Foreign Keys">
+			<Field Name="name"><![CDATA[Tools - Tools - Create SQL Foreign Keys]]></Field>
+			<Field Name="active">True</Field>
+			<Field Name="sortorder"><![CDATA[Create SQL Foreign Keys]]></Field>
+			<Field Name="createkey">0</Field>
+			<Field Name="ccguid"><![CDATA[{60A6860A-DAB0-43A4-B76A-251EA758FF5C}]]></Field>
+			<Field Name="portalid">{3fdd7c5c-68a5-435f-ba62-a3e4cb0ee61e}</Field>
+			<Field Name="addonid">{3D8F5C2E-9A7B-4F1D-B3E2-6C4A8D5E1F9B}</Field>
+			<Field Name="heading"><![CDATA[Create SQL Foreign Keys]]></Field>
+			<Field Name="parentfeatureid">{B3A1D4E7-5F2C-4A89-9E6D-1C8B7F3A2D5E}</Field>
+			<Field Name="datacontentid"></Field>
+			<Field Name="addpadding">False</Field>
+			<Field Name="collectionid">{0abd30d8-1ac0-4f6a-b572-106b9ef6af18}</Field>
+		</Record>
 	</data>
 	<Resource name="cdnFiles.zip" type="cdnFiles" path="" />
 	<Resource name="layoutFiles.zip" type="layoutFiles" path="" />

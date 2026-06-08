@@ -3,7 +3,8 @@
     "allow": [
       "Bash(powershell -Command:*)",
       "Bash(cmd //c:*)",
-      "Bash(cmd.exe //c \"c:\\\\Git\\\\aoTools\\\\scripts\\\\build.cmd\")"
+      "Bash(cmd.exe //c \"c:\\\\Git\\\\aoTools\\\\scripts\\\\build.cmd\")",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ],
     "deny": [],
     "ask": []

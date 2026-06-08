@@ -12,6 +12,10 @@ namespace Contensive.Addons.Tools {
 
         public const string guidPortalContentTools = "{3fdd7c5c-68a5-435f-ba62-a3e4cb0ee61e}";
         public const string guidPortalFeaturePageReview = "{E7C2F8A1-3D4B-4E9F-A5B6-8D1C7E2F9A3B}";
+        public const string guidPortalFeatureSqlSchema = "{3274402E-A44C-4B32-BB1F-E42047EC2AD3}";
+        public const string guidPortalFeatureInviteUsers = "{0212F265-EF7C-49B4-8A8E-BBDB6B6EC540}";
+        public const string guidPortalFeatureCacheTool = "{6CD6DE96-8198-49D2-88CD-2AE975880FD3}";
+        public const string guidPortalFeatureCreateForeignKeys = "{60A6860A-DAB0-43A4-B76A-251EA758FF5C}";
         //
         public const string layoutPageReviewGuid = "{B3D7A1E4-5F2C-4E8A-9C1D-A6E4F8B2D7C3}";
         public const string layoutPageReviewName = "Page Review Layout";

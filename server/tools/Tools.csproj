@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HtmlSanitizer" Version="9.0.892" />
     <PackageReference Include="Contensive.CPBaseClass" Version="26.5.31.23029" />
     <PackageReference Include="Contensive.DbModels" Version="26.5.31.23029" />
     <PackageReference Include="Contensive.DesignBlockBase" Version="26.5.29.24911" />

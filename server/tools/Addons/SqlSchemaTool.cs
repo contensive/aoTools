@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Reflection;
 using System.Text;
 //
 namespace Contensive.Addons.Tools {
@@ -24,6 +25,13 @@ namespace Contensive.Addons.Tools {
         /// <returns></returns>
         public override object Execute(CPBaseClass cp) {
             try {
+                //
+                // -- validate authentication and portal environment
+                if (!cp.User.IsAdmin) { return ""; }
+                if (!cp.AdminUI.EndpointContainsPortal() && !cp.Request.PathPage.Equals($"/{MethodBase.GetCurrentMethod().DeclaringType.Name}")) {
+                    return cp.AdminUI.RedirectToPortalFeature(Constants.guidPortalContentTools, Constants.guidPortalFeatureSqlSchema, "");
+                }
+                //
                 var form = cp.AdminUI.CreateLayoutBuilder();
                 form.title = "Sql Schema Tool";
                 form.description = "This tool documents the Sql Schema tables, fields, keys and descriptions.";
@@ -108,7 +116,7 @@ namespace Contensive.Addons.Tools {
             if (tableNameDict.ContainsKey(contentId)) { return tableNameDict[contentId]; }
             using (DataTable dt = cp.Db.ExecuteQuery($"select t.name from cccontent c left join cctables t on t.id=c.contentTableId where c.id={cp.Db.EncodeSQLNumber(contentId)}")) {
                 if (dt.Rows.Count <= 0) { return ""; }
-                string tableName = cp.Utils.EncodeTextSafe(dt.Rows[0][0]);
+                string tableName = dt.Rows[0][0].ToString();
                 tableNameDict.Add(contentId, tableName);
                 return tableName;
             }
