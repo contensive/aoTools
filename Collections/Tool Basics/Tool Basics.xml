@@ -58,7 +58,6 @@
 		<JSHeadScriptSrc><![CDATA[https://code.jquery.com/jquery-3.2.1.slim.min.js]]></JSHeadScriptSrc>
 		<IncludeAddon name="JQuery" guid="{9C882078-0DAC-48E3-AD4B-CF2AA230DF80}"/>
 		<IncludeAddon name="Bootstrap" guid="{EF1FD66C-D62F-4BD2-BF07-38F47996EBB3}"/>
-		<IncludeAddon name="SubmitInviteProfile" guid="{F1123132-7F43-4D51-9D08-2C81F6E529E7}"/>
 	</Addon>
 	<Addon name="Page Review" guid="{6A54A051-6CF6-4D8C-823D-C37741DD072A}" type="Tool">
 		<DotNetClass><![CDATA[Contensive.Addons.Tools.PageReviewToolClass]]></DotNetClass>
