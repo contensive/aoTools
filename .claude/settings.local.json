@@ -4,7 +4,8 @@
       "Bash(powershell -Command:*)",
       "Bash(cmd //c:*)",
       "Bash(cmd.exe //c \"c:\\\\Git\\\\aoTools\\\\scripts\\\\build.cmd\")",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(git -C \"c:/Git/aoTools\" status --short)"
     ],
     "deny": [],
     "ask": []

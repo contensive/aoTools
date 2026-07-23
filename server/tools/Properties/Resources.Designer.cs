@@ -87,14 +87,5 @@ namespace Contensive.Addons.Tools.Properties {
                 return ResourceManager.GetString("sampleSql", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string for the Site Map layout HTML template.
-        /// </summary>
-        internal static string SiteMapLayout {
-            get {
-                return ResourceManager.GetString("SiteMapLayout", resourceCulture);
-            }
-        }
     }
 }

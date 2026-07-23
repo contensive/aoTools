@@ -2,9 +2,6 @@
 namespace Contensive.Addons.Tools {
     public static class Constants {
         //
-        // -- guid of sample record
-        public const string guidAddonMockLayout = "{826BE30A-72A4-49DA-86F1-B744DC896A15}";
-        //       
 
         public const string layoutInviteProfileGuid = "{76731E3C-8FD8-45D5-8F9C-F1265E807777}";
         public const string layoutInviteProfileName = "Invite Users Form Layout";
@@ -20,10 +17,6 @@ namespace Contensive.Addons.Tools {
         public const string layoutPageReviewGuid = "{B3D7A1E4-5F2C-4E8A-9C1D-A6E4F8B2D7C3}";
         public const string layoutPageReviewName = "Page Review Layout";
         public const string layoutPageReviewCdnPathFilename = @"PageReviewLayout.html";
-
-        public const string layoutSiteMapGuid = "{9A2F4B7D-3E1C-4A5B-8D6E-F2C7A9B4E1D3}";
-        public const string layoutSiteMapName = "Site Map Layout";
-        public const string layoutSiteMapCdnPathFilename = @"SiteMapLayout.html";
 
         public const string inviteToolProfilePageEndpoint = "InviteProfilePage";
         // -- sample
