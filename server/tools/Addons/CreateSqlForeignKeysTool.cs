@@ -21,9 +21,6 @@ namespace Contensive.Addons.Tools {
                 //
                 // -- validate authentication and portal environment
                 if (!cp.User.IsAdmin) { return ""; }
-                if (!cp.AdminUI.EndpointContainsPortal() && !cp.Request.PathPage.Equals($"/{MethodBase.GetCurrentMethod().DeclaringType.Name}")) {
-                    return cp.AdminUI.RedirectToPortalFeature(Constants.guidPortalContentTools, Constants.guidPortalFeatureCreateForeignKeys, "");
-                }
                 //
                 var form = cp.AdminUI.CreateLayoutBuilder();
                 form.title = "Create SQL Foreign Keys";

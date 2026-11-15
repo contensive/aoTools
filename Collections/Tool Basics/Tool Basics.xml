@@ -5,6 +5,7 @@
 >
 	<HelpLink></HelpLink>
 	<Help></Help>
+	<ImportCollection name="Share">{3E7F5452-0E48-439F-9C14-D195019EBA78}</ImportCollection>
 	<Addon name="Tools OnInstall" guid="{E6D0895D-D738-42B6-ACC3-A189C18EDF68}" type="Tool">
 		<DotNetClass><![CDATA[Contensive.Addons.Tools.OnInstallClass]]></DotNetClass>
 	</Addon>
@@ -60,47 +61,9 @@
 		<IncludeAddon name="Bootstrap" guid="{EF1FD66C-D62F-4BD2-BF07-38F47996EBB3}"/>
 	</Addon>
 	<Addon name="Cache Tool" guid="{7B5B8150-62BE-40F4-A66A-7CC74D99BA76}" type="Tool">
-		<Copy></Copy>
-		<CopyText></CopyText>
 		<DotNetClass><![CDATA[Contensive.Addons.Tools.CacheToolClass]]></DotNetClass>
-		<ArgumentList></ArgumentList>
-		<instanceSettingPrimaryContentId></instanceSettingPrimaryContentId>
-		<AsAjax>No</AsAjax>
-		<Filter>No</Filter>
-		<Help></Help>
-		<HelpLink></HelpLink>
-		<Icon Link="" width="50" height="50" sprites="0" />
-		<InIframe>No</InIframe>
-		<BlockEditTools>Yes</BlockEditTools>
-		<AliasList></AliasList>
-		<FormXML></FormXML>
-		<IsInline>No</IsInline>
-		<JavascriptInHead></JavascriptInHead>
-		<javascriptForceHead>No</javascriptForceHead>
-		<JSHeadScriptSrc></JSHeadScriptSrc>
-		<!-- deprecated --><JSBodyScriptSrc></JSBodyScriptSrc>
-		<!-- deprecated --><JavascriptBodyEnd></JavascriptBodyEnd>
-		<!-- deprecated --><JavascriptOnLoad></JavascriptOnLoad>
-		<Content>No</Content>
-		<Template>No</Template>
-		<Email>No</Email>
 		<Admin>Yes</Admin>
-		<OnPageEndEvent>No</OnPageEndEvent>
-		<OnPageStartEvent>No</OnPageStartEvent>
-		<OnBodyStart>No</OnBodyStart>
-		<OnBodyEnd>No</OnBodyEnd>
-		<RemoteMethod>No</RemoteMethod>
-		<Diagnostic>No</Diagnostic>
-		<category></category>
-		<ProcessRunOnce>No</ProcessRunOnce>
-		<ProcessInterval>0</ProcessInterval>
-		<MetaDescription></MetaDescription>
-		<OtherHeadTags></OtherHeadTags>
-		<PageTitle></PageTitle>
-		<RemoteAssetLink></RemoteAssetLink>
-		<Styles></Styles>
-		<styleslinkhref></styleslinkhref>
-		<Scripting Language="VBScript" EntryPoint="" Timeout="5000"/>
+		<BlockEditTools>Yes</BlockEditTools>
 	</Addon>
 	<Addon name="Create SQL Foreign Keys" guid="{3D8F5C2E-9A7B-4F1D-B3E2-6C4A8D5E1F9B}" type="Tool">
 		<DotNetClass><![CDATA[Contensive.Addons.Tools.CreateSqlForeignKeysTool]]></DotNetClass>
@@ -108,6 +71,13 @@
 		<BlockEditTools>Yes</BlockEditTools>
 	</Addon>
 	<data>
+		<record content="Portal Features" guid="{0212F265-EF7C-49B4-8A8E-BBDB6B6EC540}" name="Share - Tools - Invite Users">
+			<field name="portalid">{e4d011e9-9f3b-4f7e-8ec3-f4fcc2a20455}</field>
+			<field name="heading"><![CDATA[Invite Users]]></field>
+			<field name="parentfeatureid">{220a5906-802e-4931-b384-155ae82463ed}</field>
+			<field name="addonid">{AAF9CA71-B9F4-4064-A032-0F8D12701149}</field>
+			<field name="datacontentid"></field>
+		</record>
 	</data>
 	<Resource name="cdnFiles.zip" type="cdnFiles" path="" />
 	<Resource name="layoutFiles.zip" type="layoutFiles" path="" />
